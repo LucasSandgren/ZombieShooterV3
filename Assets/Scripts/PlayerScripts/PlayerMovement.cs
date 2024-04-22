@@ -132,6 +132,8 @@ public class CollisionMovement : MonoBehaviour
 
         //Sets crosshairs position to that of the mouse
         playerCrosshair.position = new Vector3(mousePosition.x, mousePosition.y, 0);
+        
+        /* SET OPENING OF FOG AT PLAYER */
         vfxRenderer.SetVector3("ColliderPos", rigidBody.position);
     }
 
