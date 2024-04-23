@@ -95,8 +95,6 @@ public class ZombieMovement : MonoBehaviour
         {
             sr.flipX = false;
         }
-        // Makes the zombie face the player
-        transform.up = vectorToPlayer;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
