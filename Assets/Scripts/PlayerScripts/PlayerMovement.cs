@@ -18,10 +18,8 @@ public class CollisionMovement : MonoBehaviour
 
     private float currentSpeed = 0.0f;
 
-    private Vector2 faceDirection;
     private Vector2 moveDirection;
     private Vector2 mousePosition;
-    [SerializeField] private Health healthScript;
 
     /* USED FOR PLAYER MODEL ANIMATION */
     public Animator playerAnimator;
@@ -33,10 +31,6 @@ public class CollisionMovement : MonoBehaviour
     private bool down = true;
     private bool left;
     private bool right;
-
-    [SerializeField]private float  takeDamageCoolDown;
-    private float takeDamageTimer;
-
 
     void Start()
     {
@@ -98,9 +92,6 @@ public class CollisionMovement : MonoBehaviour
         {
             sr.flipX = false;
         }
-
-        takeDamageTimer -= Time.deltaTime;
-        
     }
 
     private void FixedUpdate()
@@ -112,33 +103,6 @@ public class CollisionMovement : MonoBehaviour
         
         /* SET OPENING OF FOG AT PLAYER */
         vfxRenderer.SetVector3("ColliderPos", rigidBody.position);
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        GameObject collisionObject = collision.gameObject;
-
-        if (takeDamageTimer <= 0)
-        {
-            if (collisionObject.CompareTag("Zombie"))
-            {
-                healthScript.TakeDamage(collisionObject.GetComponent<ZombieAttack>().attackDamage);
-                takeDamageTimer = takeDamageCoolDown;
-            }
-        }
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        GameObject collisionObject = collision.gameObject;
-
-        if (takeDamageTimer <= 0)
-        {
-            if (collisionObject.CompareTag("Enviromental Hazard"))
-            {
-                healthScript.TakeDamage(collisionObject.GetComponent<DamagingSpikes>().damage);
-                takeDamageTimer = takeDamageCoolDown;
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
