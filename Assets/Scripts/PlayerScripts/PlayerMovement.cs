@@ -8,9 +8,6 @@ using UnityEngine.VFX;
 
 public class CollisionMovement : MonoBehaviour
 {
-    public Transform playerCrosshair;
-    public Transform thePlayerPosition;
-
     public VisualEffect vfxRenderer;
 
     public Camera camera;
@@ -21,45 +18,24 @@ public class CollisionMovement : MonoBehaviour
 
     private float currentSpeed = 0.0f;
 
-    private Vector2 faceDirection;
     private Vector2 moveDirection;
     private Vector2 mousePosition;
-    [SerializeField] private Health healthScript;
 
     /* USED FOR PLAYER MODEL ANIMATION */
     public Animator playerAnimator;
     public RectTransform crosshairRectTransform;
 
     private SpriteRenderer sr;
-    [SerializeField] private bool slowed;
-    [SerializeField] private bool up;
-    [SerializeField] private bool down = true;
-    [SerializeField] private bool left;
-    [SerializeField] private bool right;
-
-    [SerializeField]private float  takeDamageCoolDown;
-    private float takeDamageTimer;
-
+    private bool slowed;
+    private bool up;
+    private bool down = true;
+    private bool left;
+    private bool right;
 
     void Start()
     {
-
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-
-        if (SceneValues.earlierScene == "BuyShopScene")
-        {
-            oldPos = SceneValues.positionBeforeBuyShop;
-            //problemet handlar kanske om att det är olika data? Detta är iallafall problemet. 
-
-            transform.position = new Vector3(oldPos.x, oldPos.y, oldPos.z);
-
-
-            //rigidBody.position = SceneValues.positionBeforeBuyShop.position;
-
-        }
-
-        //currentSpeed = 3.0f;
 
         // Confine and hide cursor
         Cursor.lockState = CursorLockMode.Confined;
@@ -76,8 +52,6 @@ public class CollisionMovement : MonoBehaviour
         // transform and mouse position and then sets a crosshair to the positon of the mouse
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        faceDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        transform.up = faceDirection;
 
         if (Input.GetKeyDown(KeyCode.H))
         {
@@ -118,9 +92,6 @@ public class CollisionMovement : MonoBehaviour
         {
             sr.flipX = false;
         }
-
-        takeDamageTimer -= Time.deltaTime;
-        
     }
 
     private void FixedUpdate()
@@ -129,39 +100,9 @@ public class CollisionMovement : MonoBehaviour
 
         /* SETS CROSSHAIR AT MOUSE POS */
         crosshairRectTransform.position = Input.mousePosition;
-
-        //Sets crosshairs position to that of the mouse
-        playerCrosshair.position = new Vector3(mousePosition.x, mousePosition.y, 0);
         
         /* SET OPENING OF FOG AT PLAYER */
         vfxRenderer.SetVector3("ColliderPos", rigidBody.position);
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        GameObject collisionObject = collision.gameObject;
-
-        if (takeDamageTimer <= 0)
-        {
-            if (collisionObject.CompareTag("Zombie"))
-            {
-                healthScript.TakeDamage(collisionObject.GetComponent<ZombieAttack>().attackDamage);
-                takeDamageTimer = takeDamageCoolDown;
-            }
-        }
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        GameObject collisionObject = collision.gameObject;
-
-        if (takeDamageTimer <= 0)
-        {
-            if (collisionObject.CompareTag("Enviromental Hazard"))
-            {
-                healthScript.TakeDamage(collisionObject.GetComponent<DamagingSpikes>().damage);
-                takeDamageTimer = takeDamageCoolDown;
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

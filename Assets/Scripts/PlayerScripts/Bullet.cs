@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class Bullet : MonoBehaviour
 {
-    public Transform crosshairTransform;
     private new Rigidbody2D rigidbody;
 
     private Vector2 direction;
@@ -18,8 +17,12 @@ public class Bullet : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
 
-        //Normalizes the vector from the bullets position to the crosshairs position, to create a vector representing the direction the bullet should move
-        direction = new Vector2(crosshairTransform.position.x - transform.position.x, crosshairTransform.position.y - transform.position.y).normalized;
+        //Gets the mouse position
+        Vector2 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        //Normalizes the vector from the bullets position to the mouse position, to create a vector representing the direction the bullet should move
+        direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y).normalized;
     }
 
     void Update()

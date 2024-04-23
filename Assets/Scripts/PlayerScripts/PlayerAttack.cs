@@ -22,6 +22,9 @@ public class Shooting : MonoBehaviour
     /* USED FOR PLAYER MODEL ANIMATION */
     public Animator playerAnimator;
 
+    private Vector2 faceDirection;
+    private Vector2 mousePosition;
+
     IEnumerator ResetAnimationState()
     {
         yield return new WaitForSeconds(0.5f);
@@ -37,6 +40,12 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
+        //Rotates weapon to face the mouse
+        mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        faceDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+        transform.right = faceDirection;
+
         reloadTimer += Time.deltaTime;
         if (Input.GetMouseButton(0) && reloadTimer >= reloadTime)
         {
@@ -44,7 +53,7 @@ public class Shooting : MonoBehaviour
             StartCoroutine(ResetAnimationState());
 
             //Clones a bullet at position of the gun + offset * transform.up to the offset independent of rotation, and then sets it active
-            GameObject bulletInstance = Instantiate(bullet, gameObject.transform.position + spawnOffset * transform.up, gameObject.transform.rotation);
+            GameObject bulletInstance = Instantiate(bullet, gameObject.transform.position + spawnOffset * transform.right, gameObject.transform.rotation);
             bulletInstance.SetActive(true);
             Bullet bulletScript = bulletInstance.GetComponent<Bullet>();
             bulletScript.damage = damage;
