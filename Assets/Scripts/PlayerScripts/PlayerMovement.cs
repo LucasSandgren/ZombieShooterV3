@@ -40,23 +40,8 @@ public class CollisionMovement : MonoBehaviour
 
     void Start()
     {
-
         rigidBody = gameObject.GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-
-        if (SceneValues.earlierScene == "BuyShopScene")
-        {
-            oldPos = SceneValues.positionBeforeBuyShop;
-            //problemet handlar kanske om att det är olika data? Detta är iallafall problemet. 
-
-            transform.position = new Vector3(oldPos.x, oldPos.y, oldPos.z);
-
-
-            //rigidBody.position = SceneValues.positionBeforeBuyShop.position;
-
-        }
-
-        //currentSpeed = 3.0f;
 
         // Confine and hide cursor
         Cursor.lockState = CursorLockMode.Confined;
