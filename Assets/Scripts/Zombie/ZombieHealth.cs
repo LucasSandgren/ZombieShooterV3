@@ -58,5 +58,15 @@ public class ZombieHealth : MonoBehaviour
             Vector2 vectorFromBullet = gameObject.transform.position- collisionGameObject.transform.position ;
             zombieMovementScript.TakeKnockBack(vectorFromBullet.normalized);
         }
+        if (collisionGameObject.CompareTag("Knife"))
+        {
+            int damage = collisionGameObject.GetComponent<DamagingSpikes>().damage;
+
+            TakeDamage(damage);
+
+            //Makes the zombie get knockback
+            Vector2 vectorFromBullet = gameObject.transform.position - collisionGameObject.transform.position;
+            zombieMovementScript.TakeKnockBack(vectorFromBullet.normalized);
+        }
     }
 }
