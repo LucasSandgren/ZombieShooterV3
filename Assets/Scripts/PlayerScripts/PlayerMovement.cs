@@ -28,11 +28,11 @@ public class CollisionMovement : MonoBehaviour
     public RectTransform crosshairRectTransform;
 
     private SpriteRenderer sr;
-    [SerializeField] private bool slowed;
-    [SerializeField] private bool up;
-    [SerializeField] private bool down = true;
-    [SerializeField] private bool left;
-    [SerializeField] private bool right;
+    private bool slowed;
+    private bool up;
+    private bool down = true;
+    private bool left;
+    private bool right;
 
     [SerializeField]private float  takeDamageCoolDown;
     private float takeDamageTimer;
