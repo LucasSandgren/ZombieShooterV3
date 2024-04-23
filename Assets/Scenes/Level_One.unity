@@ -103702,6 +103702,7 @@ GameObject:
   - component: {fileID: 831134653}
   - component: {fileID: 831134652}
   - component: {fileID: 831134654}
+  - component: {fileID: 831134659}
   - component: {fileID: 831134655}
   - component: {fileID: 831134657}
   - component: {fileID: 831134658}
@@ -103753,7 +103754,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f9683020450053d4897d0d51be03c142, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9f4c5b263f3a7b642b6e0f32077ca221, type: 3}
   m_Color: {r: 0.24528301, g: 0.23679836, b: 0.23679836, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103846,6 +103847,7 @@ MonoBehaviour:
   itemName: Fuel Tank
   itemCount: 3
   InventorySlots: {fileID: 1236780163}
+  car: {fileID: 831134650}
 --- !u!114 &831134657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103858,6 +103860,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fea4b06ea019db49b16eae24fd29e57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  turnSpeed: 200
+  isActive: 0
+  carAnimator: {fileID: 831134658}
 --- !u!95 &831134658
 Animator:
   serializedVersion: 5
@@ -103879,6 +103885,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &831134659
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831134650}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 100
+  m_AngularDrag: 1
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &854622570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116143,6 +116176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MilitaryZombie
       objectReference: {fileID: 0}
+    - target: {fileID: 2066707242215843344, guid: 33e78d955482be540aab2eadc1a19845, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2489948730855866761, guid: 33e78d955482be540aab2eadc1a19845, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.24
@@ -116221,6 +116258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoliceZombie
       objectReference: {fileID: 0}
+    - target: {fileID: 6135767975756967377, guid: c176322fa0ac58d4c8b3f25de84d8c3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8532894786515906487, guid: c176322fa0ac58d4c8b3f25de84d8c3d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.0254865
@@ -116281,6 +116322,10 @@ PrefabInstance:
     - target: {fileID: 2677751833690977007, guid: 0bb6b0ca18c29ac45bef199efbe54435, type: 3}
       propertyPath: m_Name
       value: NormalZombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 2677751833690977007, guid: 0bb6b0ca18c29ac45bef199efbe54435, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4167152847573112594, guid: 0bb6b0ca18c29ac45bef199efbe54435, type: 3}
       propertyPath: playerTransfrom
@@ -116768,6 +116813,10 @@ PrefabInstance:
       propertyPath: InventorySlots
       value: 
       objectReference: {fileID: 1236780163}
+    - target: {fileID: 7934848242992679898, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

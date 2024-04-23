@@ -40,4 +40,8 @@ public class CameraMovement : MonoBehaviour
 
         transform.position = newPosition;
     }
+    public void ChangeTarget(Transform newTarget)
+    {
+        playerTransform = newTarget;
+    }
 }

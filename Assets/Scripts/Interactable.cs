@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     private bool inRange = false;
 
     [SerializeField] private bool payToOpen;
-    [SerializeField] private int cost;
+    [SerializeField] private int cost = 0;
 
     [SerializeField] private bool toNextLevel;
     [SerializeField] private string nextLevelName;
@@ -19,23 +19,42 @@ public class Interactable : MonoBehaviour
     [SerializeField] private int itemCount;
     [SerializeField] private GameObject InventorySlots;//Should get the parent of all the ItemSlots in the inventoryCanvas
 
+    [SerializeField] private GameObject car;
+    private bool drivingCar = false;
+
 
     private void Update()
     {
         if (inRange && Input.GetKeyDown(KeyCode.E))
         {
-            if (payToOpen)
+            HandleInterraction();
+        }
+        if (inRange && Input.GetKeyDown(KeyCode.H))
+        {
+            if (!drivingCar)
             {
-                PayToOpen();
+                DriveCar();
             }
-            else if (toNextLevel)
+            else
             {
-                GoToNextLevel();
+                LeaveCar();
             }
-            else if (useItemForNextLevel)
-            {
-                UseItemToNextLevel();
-            }
+        }
+    }
+
+    private void HandleInterraction()
+    {
+        if (payToOpen)
+        {
+            PayToOpen();
+        }
+        else if (toNextLevel)
+        {
+            GoToNextLevel();
+        }
+        else if (useItemForNextLevel)
+        {
+            UseItemToNextLevel();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -110,5 +129,42 @@ public class Interactable : MonoBehaviour
         }
 
         return currentItemCount;
+    }
+    private void DriveCar()
+    {
+        if (OnStart.coins >= cost)
+        {
+            OnStart.coins -= cost;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Driving driving = car.GetComponent<Driving>();
+            if (player != null)
+            {
+                Debug.Log("Player found, disabling");
+                player.SetActive(false);
+                car.SetActive(true);
+                car.GetComponent<Driving>().enabled = true;
+                driving.isActive = true;
+                drivingCar = true;
+
+                Camera.main.GetComponent<CameraMovement>().ChangeTarget(car.transform); // SET CAMERA FOLLOW TO CAR
+
+            }
+            
+            
+        }
+    }
+    private void LeaveCar()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            Debug.Log("Player found, reactivating...");
+            player.SetActive(true);
+        }
+        car.SetActive(false);
+        car.GetComponent<Driving>().enabled = false;
+        drivingCar = false;
+        Camera.main.GetComponent<CameraMovement>().ChangeTarget(car.transform); // CHANGE BACK TO CAMERA FOLLOWING PLAYER
     }
 }
