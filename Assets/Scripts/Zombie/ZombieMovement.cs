@@ -14,10 +14,10 @@ public class ZombieMovement : MonoBehaviour
     private bool isWalking = false;
     private bool isAttacking = false;
     private SpriteRenderer sr;
-    [SerializeField] private bool up;
-    [SerializeField] private bool down = true;
-    [SerializeField] private bool left;
-    [SerializeField] private bool right;
+    private bool up;
+    private bool down = true;
+    private bool left;
+    private bool right;
 
     private Rigidbody2D rigidBody;
 
