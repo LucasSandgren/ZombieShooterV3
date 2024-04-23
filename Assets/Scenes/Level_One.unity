@@ -116768,14 +116768,6 @@ PrefabInstance:
       propertyPath: InventorySlots
       value: 
       objectReference: {fileID: 1236780163}
-    - target: {fileID: 9009307130999849528, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9009307130999849528, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
-      propertyPath: m_TagString
-      value: Knife
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -22,9 +22,6 @@ public class Shooting : MonoBehaviour
     /* USED FOR PLAYER MODEL ANIMATION */
     public Animator playerAnimator;
 
-    private Vector2 faceDirection;
-    private Vector2 mousePosition;
-
     IEnumerator ResetAnimationState()
     {
         yield return new WaitForSeconds(0.5f);
@@ -40,12 +37,6 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        //Rotates weapon to face the mouse
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        faceDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        transform.right = faceDirection;
-
         reloadTimer += Time.deltaTime;
         if (Input.GetMouseButton(0) && reloadTimer >= reloadTime)
         {
