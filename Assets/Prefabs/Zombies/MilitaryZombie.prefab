@@ -169,6 +169,10 @@ MonoBehaviour:
   detectionRange: 8
   playerTransfrom: {fileID: 0}
   animator: {fileID: 3114239172344973406}
+  up: 0
+  down: 1
+  left: 0
+  right: 0
 --- !u!114 &636190908795164889
 MonoBehaviour:
   m_ObjectHideFlags: 0
