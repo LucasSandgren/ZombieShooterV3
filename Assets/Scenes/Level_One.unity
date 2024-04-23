@@ -103704,7 +103704,6 @@ GameObject:
   - component: {fileID: 831134654}
   - component: {fileID: 831134655}
   - component: {fileID: 831134657}
-  - component: {fileID: 831134656}
   - component: {fileID: 831134658}
   m_Layer: 0
   m_Name: Car
@@ -103847,33 +103846,6 @@ MonoBehaviour:
   itemName: Fuel Tank
   itemCount: 3
   InventorySlots: {fileID: 1236780163}
---- !u!50 &831134656
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831134650}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.1
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &831134657
 MonoBehaviour:
   m_ObjectHideFlags: 0
