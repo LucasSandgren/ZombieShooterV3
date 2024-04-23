@@ -3374,11 +3374,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672544513}
   m_CullTransparentMesh: 1
---- !u!1 &704230790 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1335404764175062147, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
-  m_PrefabInstance: {fileID: 8950715818390250546}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &733870802
 GameObject:
   m_ObjectHideFlags: 0
@@ -116586,27 +116581,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478028089864884188, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
   m_PrefabInstance: {fileID: 8950715818390250546}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704230790}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c265f2abf2912cf40a9d6c45acbc5d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8605626515291316751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704230790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deab470b4d463984c9109c93e3d06dab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthBar: {fileID: 1560319038}
-  immunityDuration: 1
 --- !u!1001 &8756530717492370939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116780,30 +116760,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4702323287756987466, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
+    - target: {fileID: 2203779172397984636, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1560319038}
-    - target: {fileID: 4702323287756987466, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
-      propertyPath: immunityDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4702323287756987466, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
-      propertyPath: takeDamageCoolDown
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6204527093802462945, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
       propertyPath: InventorySlots
       value: 
       objectReference: {fileID: 1236780163}
-    m_RemovedComponents:
-    - {fileID: 4702323287756987466, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1335404764175062147, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
-      insertIndex: 7
-      addedObject: {fileID: 8605626515291316751}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
 --- !u!1001 &9081477936081486844
 PrefabInstance:
