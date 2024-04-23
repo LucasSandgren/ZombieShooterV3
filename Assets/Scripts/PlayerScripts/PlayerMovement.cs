@@ -8,8 +8,6 @@ using UnityEngine.VFX;
 
 public class CollisionMovement : MonoBehaviour
 {
-    public Transform thePlayerPosition;
-
     public VisualEffect vfxRenderer;
 
     public Camera camera;
