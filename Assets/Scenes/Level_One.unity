@@ -103861,7 +103861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  turnSpeed: 200
+  turnSpeed: 100
   isActive: 0
   carAnimator: {fileID: 831134658}
 --- !u!95 &831134658
