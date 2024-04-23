@@ -76,8 +76,8 @@ public class CollisionMovement : MonoBehaviour
         // transform and mouse position and then sets a crosshair to the positon of the mouse
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        faceDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        transform.up = faceDirection;
+        //faceDirection = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+        //transform.up = faceDirection;
 
         if (Input.GetKeyDown(KeyCode.H))
         {
