@@ -12,6 +12,8 @@ TagManager:
   - Slowing Area
   - Zombie
   - Knife
+  - Crosshair
+  - Vendor
   layers:
   - Default
   - TransparentFX

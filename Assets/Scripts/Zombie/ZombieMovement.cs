@@ -54,18 +54,8 @@ public class ZombieMovement : MonoBehaviour
             {
                 // Makes the zombie walk towards the player
                 rigidBody.MovePosition(rigidBody.position + vectorToPlayer.normalized * movementSpeed * Time.fixedDeltaTime);
-
-                animator.SetBool("isWalking", true);
-                animator.SetBool("isIdle", false);
             }
-            else if (vectorToPlayer.magnitude > 0.1f)
-            {
-                animator.SetBool("isWalking", false);
-            }
-            else if (vectorToPlayer.magnitude <= detectionRange)
-            {
-                animator.SetBool("isIdle", true);
-            }
+            
         }
         if (isWalking)
         {
@@ -96,25 +86,25 @@ public class ZombieMovement : MonoBehaviour
             sr.flipX = false;
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        IsAttacking(collision);
-    }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    IsAttacking(collision);
+    //}
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Optionally handle the collision impact here if needed
     }
 
-    private void IsAttacking(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            animator.SetBool("isAttacking", true);
-        }
-        else
-        {
-            animator.SetBool("isAttacking", false);
-        }
-    }
+    //private void IsAttacking(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        animator.SetBool("isAttacking", true);
+    //    }
+    //    else
+    //    {
+    //        animator.SetBool("isAttacking", false);
+    //    }
+    //}
 }

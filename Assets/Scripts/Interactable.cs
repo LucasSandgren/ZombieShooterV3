@@ -35,10 +35,10 @@ public class Interactable : MonoBehaviour
             {
                 DriveCar();
             }
-            else
-            {
-                LeaveCar();
-            }
+            //if (drivingCar)
+            //{
+            //    LeaveCar();
+            //}
         }
     }
 
@@ -139,13 +139,12 @@ public class Interactable : MonoBehaviour
             Driving driving = car.GetComponent<Driving>();
             if (player != null)
             {
-                Debug.Log("Player found, disabling");
                 player.SetActive(false);
                 car.SetActive(true);
                 car.GetComponent<Driving>().enabled = true;
                 driving.isActive = true;
                 drivingCar = true;
-
+                HideCrosshair();
                 Camera.main.GetComponent<CameraMovement>().ChangeTarget(car.transform); // SET CAMERA FOLLOW TO CAR
 
             }
@@ -153,18 +152,30 @@ public class Interactable : MonoBehaviour
             
         }
     }
+    private void HideCrosshair()
+    {
+        GameObject crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+        crosshair.SetActive(false);
+        
+    }
+    private void ShowCrosshair()
+    {
+        GameObject crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+        crosshair.SetActive(true);
+    }
     private void LeaveCar()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        Driving driving = car.GetComponent<Driving>();
 
         if (player != null)
         {
-            Debug.Log("Player found, reactivating...");
             player.SetActive(true);
         }
         car.SetActive(false);
         car.GetComponent<Driving>().enabled = false;
         drivingCar = false;
-        Camera.main.GetComponent<CameraMovement>().ChangeTarget(car.transform); // CHANGE BACK TO CAMERA FOLLOWING PLAYER
+        Camera.main.GetComponent<CameraMovement>().ChangeTarget(player.transform); // CHANGE BACK TO CAMERA FOLLOWING PLAYER
+        ShowCrosshair();
     }
 }

@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 15
-  coinPrefab: {fileID: 4312179865423899498, guid: 551d480a6256d42448e683109c4e57dd, type: 3}
+  coinPrefab: {fileID: 8071607397076857700, guid: c8e32f8925507134c9144b174b91e8e5, type: 3}
 --- !u!95 &49013161291795636
 Animator:
   serializedVersion: 5
