@@ -116487,6 +116487,14 @@ PrefabInstance:
       propertyPath: coinPrefab
       value: 
       objectReference: {fileID: 8071607397076857700, guid: c8e32f8925507134c9144b174b91e8e5, type: 3}
+    - target: {fileID: 8622714032661872114, guid: f889ae879fffec44b8899dc7b409fe29, type: 3}
+      propertyPath: m_Radius
+      value: 0.084848106
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622714032661872114, guid: f889ae879fffec44b8899dc7b409fe29, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
