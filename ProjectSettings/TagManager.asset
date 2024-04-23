@@ -4,15 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - zombie
   - Blocking
   - bullet
-  - Enemy
   - Gun
   - Grenade
   - Enviromental Hazard
   - Slowing Area
   - Zombie
+  - Knife
   layers:
   - Default
   - TransparentFX
