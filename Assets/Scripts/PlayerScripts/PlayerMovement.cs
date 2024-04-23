@@ -8,7 +8,6 @@ using UnityEngine.VFX;
 
 public class CollisionMovement : MonoBehaviour
 {
-    public Transform playerCrosshair;
     public Transform thePlayerPosition;
 
     public VisualEffect vfxRenderer;
@@ -127,9 +126,6 @@ public class CollisionMovement : MonoBehaviour
 
         /* SETS CROSSHAIR AT MOUSE POS */
         crosshairRectTransform.position = Input.mousePosition;
-
-        //Sets crosshairs position to that of the mouse
-        playerCrosshair.position = new Vector3(mousePosition.x, mousePosition.y, 0);
         
         /* SET OPENING OF FOG AT PLAYER */
         vfxRenderer.SetVector3("ColliderPos", rigidBody.position);
