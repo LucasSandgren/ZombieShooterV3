@@ -13,6 +13,11 @@ public class ZombieMovement : MonoBehaviour
     [SerializeField] private Animator animator;
     private bool isWalking = false;
     private bool isAttacking = false;
+    private SpriteRenderer sr;
+    [SerializeField] private bool up;
+    [SerializeField] private bool down = true;
+    [SerializeField] private bool left;
+    [SerializeField] private bool right;
 
     private Rigidbody2D rigidBody;
 
@@ -21,7 +26,8 @@ public class ZombieMovement : MonoBehaviour
 
     void Start()
     {
-        rigidBody = gameObject.GetComponent<Rigidbody2D>();
+        rigidBody = gameObject.GetComponent<Rigidbody2D>(); 
+        sr = GetComponent<SpriteRenderer>();
     }
 
     public void TakeKnockBack(Vector2 direction)
@@ -40,7 +46,7 @@ public class ZombieMovement : MonoBehaviour
             rigidBody.MovePosition(rigidBody.position + knockbackDirection * Time.fixedDeltaTime);
             knockbackTimer -= Time.fixedDeltaTime;
 
-            animator.SetBool("isWalking", false); // Ensure walking is disabled during knockback
+            
         }
         else
         {
@@ -61,7 +67,34 @@ public class ZombieMovement : MonoBehaviour
                 animator.SetBool("isIdle", true);
             }
         }
+        if (isWalking)
+        {
+            left = rigidBody.position.x < 0;
+            right = rigidBody.position.x > 0;
+            up = rigidBody.position.y > 0;
+            down = rigidBody.position.y < 0;
+        }
+        else
+        {
+            // NO MOVEMENT, SET ANIMATIONS TO FALSE
+            left = right = up = down = false;
+        }
 
+        // SET DIRECTION FOR ANIMATOR
+        animator.SetBool("Left", left);
+        animator.SetBool("Right", right);
+        animator.SetBool("Up", up);
+        animator.SetBool("Down", down);
+
+        // FLIP LEFT/RIGHT SPRITE
+        if (left)
+        {
+            sr.flipX = true;
+        }
+        else if (right)
+        {
+            sr.flipX = false;
+        }
         // Makes the zombie face the player
         transform.up = vectorToPlayer;
     }
