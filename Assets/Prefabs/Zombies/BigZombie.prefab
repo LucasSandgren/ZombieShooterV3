@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 15
-  coinPrefab: {fileID: 8071607397076857700, guid: c8e32f8925507134c9144b174b91e8e5, type: 3}
+  coinPrefab: {fileID: 3249492785715537317, guid: 9c5b777707cba8240a06d575179ff704, type: 3}
 --- !u!95 &49013161291795636
 Animator:
   serializedVersion: 5
@@ -290,7 +290,7 @@ Animator:
   m_GameObject: {fileID: 3033926776953813489}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9459ce6222e34ce44a1c642086f5a504, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2c5678a8ffc71794a83c54b875a721a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

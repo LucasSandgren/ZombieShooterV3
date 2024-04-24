@@ -6,12 +6,15 @@ using UnityEngine.EventSystems;
 public class Bullet : MonoBehaviour
 {
     private new Rigidbody2D rigidbody;
-
     private Vector2 direction;
+    
     [System.NonSerialized] public float timerUntilDestoyed;
-
     [System.NonSerialized] public int damage;
     [System.NonSerialized] public float speed;
+
+    public GameObject bloodSplatter;
+
+
 
     void Start()
     {
@@ -40,7 +43,19 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Collision (Wall)" || other.gameObject.tag == "Zombie")
+        if (other.gameObject.tag == "Zombie")
+        {
+            if (bloodSplatter)
+            {
+                Vector2 hitDirection = -direction; // OPPOSITE OF BULLET DIRECTION
+                float angle = Mathf.Atan2(hitDirection.y, hitDirection.x) * Mathf.Rad2Deg;  // Convert direction to angle
+                Quaternion rotation = Quaternion.Euler(0f, 0f, angle + 100 );  // Adjust for sprite orientation if necessary
+
+                Instantiate(bloodSplatter, other.transform.position, rotation);
+            }
+        }
+
+        if (other.gameObject.tag == "Collision (Wall)")
         {
             Destroy(gameObject);
         }

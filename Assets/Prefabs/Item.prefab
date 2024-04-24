@@ -48,8 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  itemCount: 0
+  quantity: 0
   itemSprite: {fileID: 0}
+  itemDropRate: 0
   itemDescription: 
 --- !u!50 &3552511773535585459
 Rigidbody2D:
