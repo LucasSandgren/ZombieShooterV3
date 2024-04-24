@@ -40,4 +40,9 @@ public class CameraMovement : MonoBehaviour
 
         transform.position = newPosition;
     }
+    /* USED TO SWAP BETWEEN CAR AND PLAYER CAMERA */
+    public void ChangeTarget(Transform newTarget)
+    {
+        playerTransform = newTarget;
+    }
 }

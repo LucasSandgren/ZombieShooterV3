@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.664, y: -0.735, z: 5}
-  m_LocalScale: {x: 0.13206302, y: 0.13206302, z: 0.13206302}
+  m_LocalScale: {x: 4, y: 4, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1937079035293794117}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 927983027f5a52c42b87a52f4ea4c8c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -169,10 +169,6 @@ MonoBehaviour:
   detectionRange: 8
   playerTransfrom: {fileID: 0}
   animator: {fileID: 3114239172344973406}
-  up: 0
-  down: 1
-  left: 0
-  right: 0
 --- !u!114 &636190908795164889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 50
-  coinPrefab: {fileID: 4312179865423899498, guid: 551d480a6256d42448e683109c4e57dd, type: 3}
+  coinPrefab: {fileID: 8071607397076857700, guid: c8e32f8925507134c9144b174b91e8e5, type: 3}
 --- !u!95 &3114239172344973406
 Animator:
   serializedVersion: 5
@@ -210,7 +206,7 @@ Animator:
   m_GameObject: {fileID: 2066707242215843344}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 25d8c0722156b6143b5a744e5f276602, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

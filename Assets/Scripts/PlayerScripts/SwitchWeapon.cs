@@ -15,7 +15,7 @@ public class SwitchWeapon : MonoBehaviour
 
     void Start()
     {
-        playerAnimator.SetInteger("WeaponType", 1);
+        //playerAnimator.SetInteger("WeaponType", 1);
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class SwitchWeapon : MonoBehaviour
             FlameThrower.SetActive(false);
             Knife.SetActive(false);
             Bat.SetActive(false);
-            playerAnimator.SetInteger("WeaponType", 1);
+            //playerAnimator.SetInteger("WeaponType", 1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -36,7 +36,7 @@ public class SwitchWeapon : MonoBehaviour
             FlameThrower.SetActive(false);
             Knife.SetActive(false);
             Bat.SetActive(false);
-            playerAnimator.SetInteger("WeaponType", 2);
+            //playerAnimator.SetInteger("WeaponType", 2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -45,7 +45,7 @@ public class SwitchWeapon : MonoBehaviour
             FlameThrower.SetActive(true);
             Knife.SetActive(false);
             Bat.SetActive(false);
-            playerAnimator.SetInteger("WeaponType", 3);
+            //playerAnimator.SetInteger("WeaponType", 3);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
@@ -54,7 +54,7 @@ public class SwitchWeapon : MonoBehaviour
             FlameThrower.SetActive(false);
             Knife.SetActive(true);
             Bat.SetActive(false);
-            playerAnimator.SetInteger("WeaponType", 4);
+            //playerAnimator.SetInteger("WeaponType", 4);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
@@ -63,7 +63,7 @@ public class SwitchWeapon : MonoBehaviour
             FlameThrower.SetActive(false);
             Knife.SetActive(false);
             Bat.SetActive(true);
-            playerAnimator.SetInteger("WeaponType", 5);
+            //playerAnimator.SetInteger("WeaponType", 5);
         }
     }
 }
