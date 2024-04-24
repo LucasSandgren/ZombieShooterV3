@@ -23,7 +23,7 @@ public class Driving : MonoBehaviour
             float moveAmount = Input.GetAxis("Vertical") * speed;
             float turnAmount = Input.GetAxis("Horizontal") * turnSpeed;
 
-            rb.MovePosition(rb.position - (Vector2)(transform.up * moveAmount * Time.fixedDeltaTime));
+            rb.MovePosition(rb.position + (Vector2)(transform.up * moveAmount * Time.fixedDeltaTime));
             rb.MoveRotation(rb.rotation - turnAmount * Time.fixedDeltaTime);
             //UpdateModel(moveAmount, turnAmount);
         }
