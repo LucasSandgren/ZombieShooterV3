@@ -54,6 +54,9 @@ public class ZombieMovement : MonoBehaviour
             {
                 // Makes the zombie walk towards the player
                 rigidBody.MovePosition(rigidBody.position + vectorToPlayer.normalized * movementSpeed * Time.fixedDeltaTime);
+                isWalking = true;
+                animator.SetBool("isWalking", isWalking);
+                
             }
             
         }
