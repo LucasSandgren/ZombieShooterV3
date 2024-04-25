@@ -54,37 +54,40 @@ public class ZombieMovement : MonoBehaviour
             {
                 // Makes the zombie walk towards the player
                 rigidBody.MovePosition(rigidBody.position + vectorToPlayer.normalized * movementSpeed * Time.fixedDeltaTime);
+                isWalking = true;
+                animator.SetBool("isWalking", isWalking);
+                
             }
             
         }
-        if (isWalking)
-        {
-            left = rigidBody.position.x < 0;
-            right = rigidBody.position.x > 0;
-            up = rigidBody.position.y > 0;
-            down = rigidBody.position.y < 0;
-        }
-        else
-        {
-            // NO MOVEMENT, SET ANIMATIONS TO FALSE
-            left = right = up = down = false;
-        }
+        //if (isWalking)
+        //{
+        //    left = rigidBody.position.x < 0;
+        //    right = rigidBody.position.x > 0;
+        //    up = rigidBody.position.y > 0;
+        //    down = rigidBody.position.y < 0;
+        //}
+        //else
+        //{
+        //    // NO MOVEMENT, SET ANIMATIONS TO FALSE
+        //    left = right = up = down = false;
+        //}
 
-        // SET DIRECTION FOR ANIMATOR
-        animator.SetBool("Left", left);
-        animator.SetBool("Right", right);
-        animator.SetBool("Up", up);
-        animator.SetBool("Down", down);
+        //// SET DIRECTION FOR ANIMATOR
+        //animator.SetBool("Left", left);
+        //animator.SetBool("Right", right);
+        //animator.SetBool("Up", up);
+        //animator.SetBool("Down", down);
 
-        // FLIP LEFT/RIGHT SPRITE
-        if (left)
-        {
-            sr.flipX = true;
-        }
-        else if (right)
-        {
-            sr.flipX = false;
-        }
+        //// FLIP LEFT/RIGHT SPRITE
+        //if (left)
+        //{
+        //    sr.flipX = true;
+        //}
+        //else if (right)
+        //{
+        //    sr.flipX = false;
+        //}
     }
     //private void OnCollisionStay2D(Collision2D collision)
     //{

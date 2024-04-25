@@ -53,6 +53,17 @@ public class CollisionMovement : MonoBehaviour
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+        Vector2 playerPosition = new Vector2(transform.position.x, transform.position.y);
+        Vector2 directionToMouse = (mousePosition - playerPosition).normalized;
+        float distanceToMouse = Vector2.Distance(playerPosition,mousePosition);
+
+        float maxDistance = 3.5f;
+        if (distanceToMouse > maxDistance)
+        {
+            mousePosition = playerPosition + directionToMouse * maxDistance;
+        }
+        crosshairRectTransform.position = Camera.main.WorldToScreenPoint(mousePosition);
+
         if (Input.GetKeyDown(KeyCode.H))
         {
             OnStart.coins += 1;
