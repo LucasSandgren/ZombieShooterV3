@@ -6,7 +6,7 @@ public class InventoryManagerScript : MonoBehaviour
 {
     public GameObject InventoryMenu;
     public ItemSlot[] itemSlot;
-    private bool menuActivated;
+    public bool menuActivated;
 
     public ItemSO[] itemSOs;
     // Start is called before the first frame update
@@ -23,12 +23,16 @@ public class InventoryManagerScript : MonoBehaviour
             Time.timeScale = 1.0f;
             InventoryMenu.SetActive(false);
             menuActivated = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.None;
         }
         else if(Input.GetKeyDown(KeyCode.Tab) && !menuActivated)
         {
             Time.timeScale = 0;
             InventoryMenu.SetActive(true);
             menuActivated = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
 
     }

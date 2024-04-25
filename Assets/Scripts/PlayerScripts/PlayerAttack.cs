@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour
     public GameObject bullet;
 
     private CameraMovement cameraMovement;
+    private InventoryManagerScript inventoryScript;
 
     private float spawnOffset;
 
@@ -30,6 +31,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         cameraMovement = Camera.main.GetComponent<CameraMovement>();
+        inventoryScript = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagerScript>();
 
         //Calculates the offset needed so that the bullet can get cloned at its edge not center (to avoid the bullet overlapping with the player when its being fired)
         spawnOffset = (bullet.transform.lossyScale.y / 2);
@@ -37,25 +39,28 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        reloadTimer += Time.deltaTime;
-        if (Input.GetMouseButton(0) && reloadTimer >= reloadTime)
+        if (inventoryScript.menuActivated == false)
         {
-            playerAnimator.SetTrigger("Shoot");
-            StartCoroutine(ResetAnimationState());
-
-            //Clones a bullet at position of the gun + offset * transform.up to the offset independent of rotation, and then sets it active
-            GameObject bulletInstance = Instantiate(bullet, gameObject.transform.position + spawnOffset * transform.right, gameObject.transform.rotation);
-            bulletInstance.SetActive(true);
-            Bullet bulletScript = bulletInstance.GetComponent<Bullet>();
-            bulletScript.damage = damage;
-            bulletScript.speed = bulletSpeed;
-            bulletScript.timerUntilDestoyed = range/bulletScript.speed;
-
-            reloadTimer = 0;
-
-            if (cameraShake == true)
+            reloadTimer += Time.deltaTime;
+            if (Input.GetMouseButton(0) && reloadTimer >= reloadTime)
             {
-                cameraMovement.shakeTimer = 0;
+                playerAnimator.SetTrigger("Shoot");
+                StartCoroutine(ResetAnimationState());
+
+                //Clones a bullet at position of the gun + offset * transform.up to the offset independent of rotation, and then sets it active
+                GameObject bulletInstance = Instantiate(bullet, gameObject.transform.position + spawnOffset * transform.right, gameObject.transform.rotation);
+                bulletInstance.SetActive(true);
+                Bullet bulletScript = bulletInstance.GetComponent<Bullet>();
+                bulletScript.damage = damage;
+                bulletScript.speed = bulletSpeed;
+                bulletScript.timerUntilDestoyed = range / bulletScript.speed;
+
+                reloadTimer = 0;
+
+                if (cameraShake == true)
+                {
+                    cameraMovement.shakeTimer = 0;
+                }
             }
         }
     }

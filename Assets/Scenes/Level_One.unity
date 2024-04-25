@@ -125404,6 +125404,7 @@ MonoBehaviour:
   - {fileID: 1532013200}
   - {fileID: 1994270040}
   - {fileID: 1035900001}
+  menuActivated: 0
   itemSOs:
   - {fileID: 11400000, guid: cfcf5370084d4f94abc2c3b9b010cd81, type: 2}
 --- !u!1 &1972216818
