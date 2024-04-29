@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
     public GameObject bullet;
 
     private CameraMovement cameraMovement;
-    private InventoryManagerScript inventoryScript;
+    //private InventoryManagerScript inventoryScript;
 
     private float spawnOffset;
 
@@ -31,7 +31,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         cameraMovement = Camera.main.GetComponent<CameraMovement>();
-        inventoryScript = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagerScript>();
+        //inventoryScript = GameObject.Find("InventoryCanvas").GetComponent<InventoryManagerScript>();
 
         //Calculates the offset needed so that the bullet can get cloned at its edge not center (to avoid the bullet overlapping with the player when its being fired)
         spawnOffset = (bullet.transform.lossyScale.y / 2);
@@ -39,8 +39,8 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        if (inventoryScript.menuActivated == false)
-        {
+        //if (inventoryScript.menuActivated == false)
+        //{
             reloadTimer += Time.deltaTime;
             if (Input.GetMouseButton(0) && reloadTimer >= reloadTime)
             {
@@ -62,6 +62,6 @@ public class Shooting : MonoBehaviour
                     cameraMovement.shakeTimer = 0;
                 }
             }
-        }
+        //}
     }
 }
