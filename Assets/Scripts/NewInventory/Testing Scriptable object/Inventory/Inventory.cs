@@ -7,22 +7,20 @@ public class Inventory : MonoBehaviour
     public List<InventoryItem> inventory = new();
     private Dictionary<ItemData, InventoryItem> itemDictionary = new();
 
-    public void Add(ItemData itemData)
+    public void Add(ItemData itemData) //Takes itemdata from the itemdata script and adds it into the list of inventory items
     {
         if(itemDictionary.TryGetValue(itemData, out InventoryItem item))
         {
             item.AddToStack();
-            Debug.Log($"{item.ItemData.displayName} total stack is now {item.stackSize}");
         }
         else
         {
             InventoryItem newItem = new InventoryItem(itemData);
             inventory.Add(newItem);
             itemDictionary.Add(itemData, newItem);
-            Debug.Log($"Added {itemData.displayName} to the inventory for the first time");
         }
     }
-    public void Remove(ItemData itemData)
+    public void Remove(ItemData itemData) //Same as add but removes it
     {
         if(itemDictionary.TryGetValue(itemData, out InventoryItem item))
         {
