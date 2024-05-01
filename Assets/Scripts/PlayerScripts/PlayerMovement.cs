@@ -24,7 +24,6 @@ public class CollisionMovement : MonoBehaviour
     /* USED FOR PLAYER MODEL ANIMATION */
     public Animator playerAnimator;
     public RectTransform crosshairRectTransform;
-    //public Transform fogFollow;
 
     private SpriteRenderer sr;
     private bool slowed;
@@ -112,10 +111,6 @@ public class CollisionMovement : MonoBehaviour
 
         /* SETS CROSSHAIR AT MOUSE POS */
         crosshairRectTransform.position = Input.mousePosition;
-        
-        /* SET OPENING OF FOG AT PLAYER */
-        vfxRenderer.SetVector3("ColliderPos", rigidBody.position);
-        //fogFollow.position = rigidBody.position;
     }
    
 
