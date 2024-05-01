@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public Transform playerTransform;
-    public Transform fogFollow;
+    //public Transform fogFollow;
 
     private Vector3 newPosition;
 
@@ -40,7 +40,7 @@ public class CameraMovement : MonoBehaviour
         newPosition.y = playerTransform.position.y + temporaryYOffset;
 
         transform.position = newPosition;
-        fogFollow.position = transform.position;
+        //fogFollow.position = transform.position;
     }
     /* USED TO SWAP BETWEEN CAR AND PLAYER CAMERA */
     public void ChangeTarget(Transform newTarget)
