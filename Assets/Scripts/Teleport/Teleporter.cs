@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    
     public string targetScene;
     public SceneFader sceneFader;
 
