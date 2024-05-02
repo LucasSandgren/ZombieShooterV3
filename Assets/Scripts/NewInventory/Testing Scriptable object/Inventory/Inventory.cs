@@ -18,12 +18,14 @@ public class Inventory : MonoBehaviour
         if(itemDictionary.TryGetValue(itemData, out InventoryItem item))
         {
             item.AddToStack();
+            OnInventoryChange?.Invoke(inventory);
         }
         else
         {
             InventoryItem newItem = new InventoryItem(itemData);
             inventory.Add(newItem);
             itemDictionary.Add(itemData, newItem);
+            OnInventoryChange?.Invoke(inventory);
         }
     }
     public void Remove(ItemData itemData) //Same as add but removes it
@@ -36,6 +38,7 @@ public class Inventory : MonoBehaviour
                 inventory.Remove(item);
                 itemDictionary.Remove(itemData);
             }
+            OnInventoryChange?.Invoke(inventory);
         }
     }
 }

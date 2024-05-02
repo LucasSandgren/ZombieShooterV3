@@ -5,9 +5,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject SlotPrefab;
-    public GameObject InventoryMenu;
-    public List<InventorySlot> inventorySlots = new List<InventorySlot>(18);
-    public bool menuActivated;
+    public List<InventorySlot> inventorySlots = new List<InventorySlot>(12);
 
     private void OnEnable()
     {
@@ -17,26 +15,7 @@ public class InventoryManager : MonoBehaviour
     {
         Inventory.OnInventoryChange -= DrawInventory;
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab) && menuActivated)
-        {
-            Time.timeScale = 1.0f;
-            InventoryMenu.SetActive(false);
-            menuActivated = false;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab) && !menuActivated)
-        {
-            Time.timeScale = 0;
-            InventoryMenu.SetActive(true);
-            menuActivated = true;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
 
-    }
     void ResetInventory()
     {
         foreach(Transform childTransform in transform)

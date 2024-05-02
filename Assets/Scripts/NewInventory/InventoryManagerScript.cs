@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventoryManagerScript : MonoBehaviour
 {
-    public GameObject InventoryMenu;
+    public GameObject InventoryPanel;
     public ItemSlot[] itemSlot;
     public bool menuActivated;
 
@@ -21,7 +21,7 @@ public class InventoryManagerScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab) && menuActivated)
         {
             Time.timeScale = 1.0f;
-            InventoryMenu.SetActive(false);
+            InventoryPanel.SetActive(false);
             menuActivated = false;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.None;
@@ -29,7 +29,7 @@ public class InventoryManagerScript : MonoBehaviour
         else if(Input.GetKeyDown(KeyCode.Tab) && !menuActivated)
         {
             Time.timeScale = 0;
-            InventoryMenu.SetActive(true);
+            InventoryPanel.SetActive(true);
             menuActivated = true;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
