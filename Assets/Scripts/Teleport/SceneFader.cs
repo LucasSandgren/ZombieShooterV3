@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class SceneFader : MonoBehaviour
 {
     public Image fadePanel;
-    public float fadeOutSpeed = 100f;
-    public float fadeInSpeed = 100f;
+    public float fadeOutSpeed = 1f;
+    public float fadeInSpeed = 1f;
 
     void Start()
     {

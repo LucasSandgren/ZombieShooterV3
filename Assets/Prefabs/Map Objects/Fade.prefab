@@ -116,7 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadePanel: {fileID: 8368934578055675895}
-  fadeSpeed: 1.5
+  fadeOutSpeed: 1.5
+  fadeInSpeed: 0.5
 --- !u!1 &9036808898195390685
 GameObject:
   m_ObjectHideFlags: 0
