@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf1385b072fdc94c8509c2a70afba90, type: 3}
+  m_Name: MedKit
+  m_EditorClassIdentifier: 
+  displayName: MedKit
+  icon: {fileID: 21300000, guid: cbbbc6115945a024291ea69851537370, type: 3}
+  dropChance: 0
+  description: The Medkit is a lifesaver in the midst of chaos, a beacon of hope
+    amidst the darkness of the apocalypse. Crafted by the remnants of humanity's
+    finest medical minds, this compact yet potent medical kit is your key to survival
+    in the face of relentless undead hordes.

@@ -1,12 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public static Action<List<InventoryItem>> OnInventoryChange;
     public List<InventoryItem> inventory = new();
     private Dictionary<ItemData, InventoryItem> itemDictionary = new();
 
+    private void OnEnable(ItemData item)
+    {
+       
+    }
     public void Add(ItemData itemData) //Takes itemdata from the itemdata script and adds it into the list of inventory items
     {
         if(itemDictionary.TryGetValue(itemData, out InventoryItem item))
