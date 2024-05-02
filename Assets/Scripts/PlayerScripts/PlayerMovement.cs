@@ -111,10 +111,8 @@ public class CollisionMovement : MonoBehaviour
 
         /* SETS CROSSHAIR AT MOUSE POS */
         crosshairRectTransform.position = Input.mousePosition;
-        
-        /* SET OPENING OF FOG AT PLAYER */
-        vfxRenderer.SetVector3("ColliderPos", rigidBody.position);
     }
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
