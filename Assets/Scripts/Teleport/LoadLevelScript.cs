@@ -6,22 +6,17 @@ using UnityEngine.SceneManagement;
 public class LoadLevelScript : MonoBehaviour
 {
     public string LevelOne;
-    public string StartScreen;
-    public string SettingsScreen;
+    //public string SettingsScreen;
+
+    public SceneFader sceneFader;
 
     void Start()
     {
-
+        sceneFader = FindObjectOfType<SceneFader>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeScene(string sceneName)
     {
-
-    }
-
-    public void ChangeScene(string sceneToLoad)
-    {
-        SceneManager.LoadScene(sceneToLoad);
+        sceneFader.FadeToScene(sceneName);
     }
 }

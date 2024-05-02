@@ -123,53 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &71834709
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 71834712}
-  - component: {fileID: 71834710}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &71834710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71834709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9b7aa41326ab14e9ae1fc816291f66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelOne: Level_One
-  StartScreen: StartScreen
-  SettingsScreen: SettingsScreen
---- !u!4 &71834712
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 71834709}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.34884423, y: -0.18228757, z: 0.23308341}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &406738443
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,6 +499,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fade
       objectReference: {fileID: 0}
+    - target: {fileID: 8996997599562004603, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -737,6 +694,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2004191693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4603650000537735206, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
+  m_PrefabInstance: {fileID: 988974450}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4731483a45698634484e7b915c36b104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2005481274
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +717,7 @@ GameObject:
   - component: {fileID: 2005481278}
   - component: {fileID: 2005481277}
   - component: {fileID: 2005481276}
+  - component: {fileID: 2005481279}
   m_Layer: 5
   m_Name: StartGameButton
   m_TagString: Untagged
@@ -764,7 +733,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005481274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -820,7 +789,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 71834710}
+      - m_Target: {fileID: 2005481279}
         m_TargetAssemblyTypeName: LoadLevelScript, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
@@ -870,6 +839,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005481274}
   m_CullTransparentMesh: 1
+--- !u!114 &2005481279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005481274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb9b7aa41326ab14e9ae1fc816291f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelOne: Level_One
+  sceneFader: {fileID: 2004191693}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -878,5 +861,4 @@ SceneRoots:
   - {fileID: 968645357}
   - {fileID: 1743294332}
   - {fileID: 407804958}
-  - {fileID: 71834712}
   - {fileID: 1512784665}
