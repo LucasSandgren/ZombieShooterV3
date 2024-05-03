@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3617092100349795003}
   - component: {fileID: 9010776648218533880}
   - component: {fileID: 8255152241465917586}
+  - component: {fileID: 6969374791502389799}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Enviromental Hazard
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6299370741267944271}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.01, y: 1.67, z: 0}
+  m_LocalPosition: {x: -0.13, y: 1.63, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 870683872, guid: 22f25fdbbd7b9154890183fa99ea075a, type: 3}
   m_Color: {r: 0.4339623, g: 0.33980063, b: 0.33980063, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.72, y: 0.54}
   m_EdgeRadius: 0
 --- !u!114 &8255152241465917586
 MonoBehaviour:
@@ -143,4 +144,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e89505156313ef4c95a2de117e63325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trapAnimator: {fileID: 0}
   damage: 10
+--- !u!95 &6969374791502389799
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6299370741267944271}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b0181599eea4c6f4690e44dd6b5eafe9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

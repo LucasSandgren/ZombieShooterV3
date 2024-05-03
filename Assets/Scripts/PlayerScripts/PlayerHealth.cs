@@ -82,6 +82,7 @@ public class PlayerHealth : MonoBehaviour
             if (collisionObject.CompareTag("Enviromental Hazard"))
             {
                 TakeDamage(collisionObject.GetComponent<DamagingSpikes>().damage);
+                collisionObject.GetComponent<DamagingSpikes>().AnimateTrap();
                 immunityTimer = immunityDuration;
             }
         }
