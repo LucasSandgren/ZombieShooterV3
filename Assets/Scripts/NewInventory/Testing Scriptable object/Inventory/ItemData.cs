@@ -11,5 +11,10 @@ public class ItemData : ScriptableObject
     public string displayName;
     public Sprite icon;
     public int dropChance;
-    public TextMeshPro description;
+
+    public ItemData(string lootName, int dropChance)
+    {
+        this.displayName = lootName;
+        this.dropChance = dropChance;
+    }
 }

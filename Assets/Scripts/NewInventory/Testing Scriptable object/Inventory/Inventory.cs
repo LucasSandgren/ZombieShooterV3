@@ -9,9 +9,14 @@ public class Inventory : MonoBehaviour
     public List<InventoryItem> inventory = new();
     private Dictionary<ItemData, InventoryItem> itemDictionary = new();
 
-    private void OnEnable(ItemData item)
+    private void OnEnable()
     {
-       
+        Coin.OnCoinCollected += Add;
+        MedKit.OnMedKitCollected += Add;
+    }
+    private void OnDisable()
+    {
+
     }
     public void Add(ItemData itemData) //Takes itemdata from the itemdata script and adds it into the list of inventory items
     {
