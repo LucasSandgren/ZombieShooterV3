@@ -33518,10 +33518,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4973519283502916147, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6204527093802462945, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
       propertyPath: InventorySlots
       value: 
       objectReference: {fileID: 955828381}
+    - target: {fileID: 7559299029366706264, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
