@@ -9,21 +9,19 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     private int currentHealth;
 
-    private float timerForHeal = 2.5f;
-
     public Healthbar healthBar;
 
     [SerializeField] private float immunityDuration;
     private float immunityTimer;
+
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
+
     void Update()
     {
-        HealingIntervall();
-
         immunityTimer -= Time.deltaTime;
     }
 
@@ -47,16 +45,6 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth = maxHealth;
             //heal animation
-        }
-    }
-
-    void HealingIntervall()
-    {
-        timerForHeal -= Time.deltaTime;
-        if (timerForHeal <= 0)
-        {
-            timerForHeal = 2.5f;
-            Heal(2);
         }
     }
 
