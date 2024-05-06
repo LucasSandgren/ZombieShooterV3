@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SwitchWeapon : MonoBehaviour
 {
+    [Header("Weapons: ")]
     [SerializeField] private GameObject Gun;
     [SerializeField] private GameObject Rifle;
     [SerializeField] private GameObject FlameThrower;
     [SerializeField] private GameObject Knife;
     [SerializeField] private GameObject Bat;
-
+    [Space]
+    [Header("References: ")]
     /* USED FOR PLAYER MODEL ANIMATION */
     public Animator playerAnimator;
 

@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Character Stats: ")]
     [SerializeField] private int maxHealth = 100;
+    [SerializeField] private float immunityDuration;
     private int currentHealth;
-
+    [Header("References: ")]
     public Healthbar healthBar;
 
-    [SerializeField] private float immunityDuration;
     private float immunityTimer;
 
     void Start()
