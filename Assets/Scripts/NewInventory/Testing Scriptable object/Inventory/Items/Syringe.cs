@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Syringe : MonoBehaviour
+public class Syringe : MonoBehaviour, ICollectible, IUsable
 {
-    // Start is called before the first frame update
-    void Start()
+    public delegate void HandleSyringeCollected(ItemData itemData);
+    public static event HandleSyringeCollected OnSyringeCollected;
+    public ItemData syringeData;
+    public int speedAmount;
+    public bool canTakeDamage;
+    PlayerHealth playerHealth = new();
+    public void Collect()
     {
-        
+        Destroy(gameObject);
+        OnSyringeCollected?.Invoke(syringeData);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Use()
     {
-        
+
     }
 }

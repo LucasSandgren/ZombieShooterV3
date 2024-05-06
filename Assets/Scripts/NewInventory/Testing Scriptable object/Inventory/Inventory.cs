@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     {
         Coin.OnCoinCollected += Add;
         MedKit.OnMedKitCollected += Add;
+        Syringe.OnSyringeCollected += Add;
     }
     private void OnDisable()
     {

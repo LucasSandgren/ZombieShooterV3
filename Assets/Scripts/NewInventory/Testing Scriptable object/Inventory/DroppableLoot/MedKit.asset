@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: MedKit
   icon: {fileID: 21300000, guid: 7aeea4bea63db3f4da3b9db1324daada, type: 3}
-  dropChance: 100
+  dropChance: 33
