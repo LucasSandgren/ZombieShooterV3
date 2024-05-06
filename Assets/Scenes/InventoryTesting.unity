@@ -967,6 +967,7 @@ MonoBehaviour:
   droppedItemPrefab: {fileID: 1033648045555704869, guid: 8a7f84d6484f994408d96667c791f549, type: 3}
   lootList:
   - {fileID: 11400000, guid: 5fc18dfcfe10ccd4382949368f1cda6f, type: 2}
+  - {fileID: 11400000, guid: e356b535ce322f347a9f42cb08d0af9a, type: 2}
 --- !u!224 &664893258 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3354194062142106941, guid: cedb09fc60ca3cd43b05e7bf008d6061, type: 3}
@@ -2161,8 +2162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthBar: {fileID: 0}
   immunityDuration: 0
+  healthBar: {fileID: 0}
 --- !u!1 &1636840944
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,14 +6,10 @@ using static UnityEditor.Progress;
 public class LootPrefabScript : MonoBehaviour, ICollectible
 {
     private ItemData itemData;
-    private InventoryManager inventory;
+    private Inventory inventory;
     void Start()
     {
-        inventory = FindObjectOfType<InventoryManager>();
-        if( inventory == null)
-        {
-            Debug.Log("Inventory not found in the scene");
-        }
+        inventory = FindObjectOfType<Inventory>();
     }
     public void SetItemData(ItemData itemData)
     {
@@ -21,19 +17,7 @@ public class LootPrefabScript : MonoBehaviour, ICollectible
     }
     public void Collect()
     {
-        //if(itemData == null)
-        //{
-        //    Debug.Log("Warning item not found)");
-        //    return;
-        //}
-        //if(itemData == )
-        //{
-        //    inventory.
-        //}
-        //else if(itemData is CoinData)
-        //{
-        //    inventory.Add(itemData);
-        //}
+        inventory.Add(itemData);
         Destroy(gameObject);
     }
 }
