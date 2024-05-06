@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     }
     void Update()
     {
-        HealingIntervall();
+        //HealingIntervall();
 
         immunityTimer -= Time.deltaTime;
     }
@@ -52,12 +52,12 @@ public class PlayerHealth : MonoBehaviour
 
     void HealingIntervall()
     {
-        timerForHeal -= Time.deltaTime;
-        if (timerForHeal <= 0)
-        {
-            timerForHeal = 2.5f;
-            Heal(2);
-        }
+        //timerForHeal -= Time.deltaTime;
+        //if (timerForHeal <= 0)
+        //{
+        //    timerForHeal = 2.5f;
+        //    Heal(2);
+        //}
     }
 
     private void OnCollisionStay2D(Collision2D collision)

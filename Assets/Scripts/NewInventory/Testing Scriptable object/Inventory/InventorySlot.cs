@@ -10,7 +10,6 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     public TextMeshProUGUI stackSizeText;
     public TextMeshProUGUI labelText;
-
     public void ClearSlot()
     {
         icon.enabled = false;
@@ -28,8 +27,8 @@ public class InventorySlot : MonoBehaviour
         stackSizeText.enabled = true;
         labelText.enabled = true;
 
-        icon.sprite = item.ItemData.icon;
+        icon.sprite = item.itemData.icon;
         stackSizeText.text = item.stackSize.ToString();
-        labelText.text = item.ItemData.displayName;
+        labelText.text = item.itemData.displayName;
     }
 }

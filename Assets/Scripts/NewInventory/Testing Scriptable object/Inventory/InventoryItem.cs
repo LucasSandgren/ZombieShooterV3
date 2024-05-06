@@ -7,12 +7,12 @@ using System;
 
 public class InventoryItem
 {
-    public ItemData ItemData;
+    public ItemData itemData;
     public int stackSize;
 
     public InventoryItem(ItemData item)
     {
-        ItemData = item;
+        itemData = item;
         AddToStack();
     }
     public void AddToStack()

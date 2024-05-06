@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     public GameObject slotPrefab;
     public List<InventorySlot> inventorySlots = new List<InventorySlot>(13);
+    public InventorySlot inventorySlot;
 
     private void OnEnable()
     {

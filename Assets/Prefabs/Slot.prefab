@@ -534,3 +534,4 @@ MonoBehaviour:
   icon: {fileID: 5740010103570818742}
   stackSizeText: {fileID: 726147817559317425}
   labelText: {fileID: 3007717346520120750}
+  button: {fileID: 0}

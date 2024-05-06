@@ -34,10 +34,20 @@ public class LootBag : MonoBehaviour
             itemDataObject.GetComponent<SpriteRenderer>().sprite = droppedItem.icon;
 
 
+            //Trying to pickup
+            LootPrefabScript lootPrefabInstance = itemDataObject.GetComponent<LootPrefabScript>();
+            if (lootPrefabInstance != null)
+            {
+                lootPrefabInstance.SetItemData(droppedItem);
+            }
+            else
+            {
+                Debug.LogWarning("LootPrefabScript not found on the instantiated loot object!");
+            }
             ////Extra
             //float dropForce = 300f;
-            //Vector2 dropDirection = new Vector2(Random.Range(-1f,1f), Random.Range(-1f,1f));
-            //itemDataObject.GetComponent<Rigidbody2D>().AddForce(dropDirection*dropForce, ForceMode2D.Impulse);
+            //Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            //itemDataObject.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce, ForceMode2D.Impulse);
 
         }
     }
