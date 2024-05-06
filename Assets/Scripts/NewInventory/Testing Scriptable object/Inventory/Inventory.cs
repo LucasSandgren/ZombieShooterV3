@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
         Coin.OnCoinCollected += Add;
         MedKit.OnMedKitCollected += Add;
         Syringe.OnSyringeCollected += Add;
+        Bandage.OnBandageCollect += Add;
     }
     private void OnDisable()
     {
