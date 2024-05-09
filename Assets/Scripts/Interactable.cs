@@ -7,18 +7,22 @@ public class Interactable : MonoBehaviour
 {
     private bool inRange = false;
 
+    [Header("Remove object with money: ")]
     [SerializeField] private bool payToOpen;
     [SerializeField] private int cost = 0;
 
+    [Header("Go to another level: ")]
     [SerializeField] private bool toNextLevel;
     [SerializeField] private string nextLevelName;
 
+    [Header("Check for items and then go to next level: ")]
     [SerializeField] private bool useItemForNextLevel;
     [SerializeField] private InventoryManagerScript inventoryScript;
     [SerializeField] private string itemName;
     [SerializeField] private int itemCount;
     [SerializeField] private GameObject InventorySlots;//Should get the parent of all the ItemSlots in the inventoryCanvas
 
+    [Header("Driving: ")]
     [SerializeField] private GameObject car;
     private bool drivingCar = false;
 
