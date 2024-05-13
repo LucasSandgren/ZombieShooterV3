@@ -790,9 +790,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2005481279}
-        m_TargetAssemblyTypeName: LoadLevelScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
         m_MethodName: ChangeScene
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -851,7 +851,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb9b7aa41326ab14e9ae1fc816291f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelOne: Level_One
   sceneFader: {fileID: 2004191693}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

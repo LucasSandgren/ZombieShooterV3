@@ -107,6 +107,7 @@ public class Interactable : MonoBehaviour
         {
 
             /*PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
             for (int i = 0; i < InventorySlots.transform.childCount; i++)
             {
