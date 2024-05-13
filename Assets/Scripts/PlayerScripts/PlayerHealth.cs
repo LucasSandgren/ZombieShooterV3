@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private float immunityDuration;
     private int currentHealth;
+
     [Header("References: ")]
     public Healthbar healthBar;
 

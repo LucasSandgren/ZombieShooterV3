@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class OnStart : MonoBehaviour
 {
@@ -20,5 +21,15 @@ public class OnStart : MonoBehaviour
             itemSlot.quantity = PlayerPrefs.GetInt("ItemQuantity" + i);
             itemSlot.itemDescription = PlayerPrefs.GetString("ItemDescription" + i);
         }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("StartScreen");
     }
 }
