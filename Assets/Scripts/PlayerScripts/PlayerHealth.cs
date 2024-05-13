@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("References: ")]
     public Healthbar healthBar;
+    public GameObject gameoverScreen;
+
 
     private float immunityTimer;
 
@@ -34,8 +36,10 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            //death animation
-            //game over screen
+
+            gameObject.SetActive(false);
+            gameoverScreen.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 

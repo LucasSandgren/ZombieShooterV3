@@ -11,6 +11,8 @@ public class OnStart : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
+
         coins = PlayerPrefs.GetInt("Coins");
 
         for (int i = 0; i < InventorySlots.transform.childCount; i++)
@@ -25,11 +27,13 @@ public class OnStart : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("StartScreen");
     }
 }
