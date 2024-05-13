@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneFader : MonoBehaviour
 {
+    [Header("Fade times: ")]
     public Image fadePanel;
     public float fadeOutSpeed = 1f;
     public float fadeInSpeed = 1f;
+    [Space]
 
+    [Header("Singleton")]
     public static SceneFader instance;
+    
 
     void Awake()
     {
@@ -31,14 +35,14 @@ public class SceneFader : MonoBehaviour
             StartCoroutine(FadeIn());
     }
 
-    public void FadeToScene(string sceneName)
+    public void FadeToScene(string sceneName, Vector3? pos = null)
     {
         if (instance == null)
         {
             Debug.LogError("[SceneFader] Instance is null when trying to fade to " + sceneName);
             return;
         }
-        StartCoroutine(FadeOut(sceneName));
+        StartCoroutine(FadeOut(sceneName, pos));
     }
 
     IEnumerator FadeIn()
@@ -52,7 +56,7 @@ public class SceneFader : MonoBehaviour
         }
     }
 
-    IEnumerator FadeOut(string sceneName)
+    IEnumerator FadeOut(string sceneName, Vector3? pos = null)
     {
         float alpha = fadePanel.color.a;
         while (alpha < 1)
@@ -62,6 +66,16 @@ public class SceneFader : MonoBehaviour
             yield return null;
         }
         SceneManager.LoadScene(sceneName);
+        yield return new WaitForEndOfFrame();
+
+        if (pos.HasValue)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player)
+            {
+                player.transform.position = pos.Value;
+            }
+        }
         StartCoroutine(FadeIn());
 
     }

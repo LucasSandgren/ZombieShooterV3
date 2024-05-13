@@ -7,21 +7,40 @@ public class LevelManager : MonoBehaviour
 {
     [Header("References: ")]
     public SceneFader sceneFader;
-    [Header("Scene Management: ")]
-    public string targetScene;
+    [Header("Scene Management")]
+    public string targetScene; 
+    [Header("House teleportation")]
+    public Vector3 lastPos;
+    public string lastScene;
+    [Header("Singleton")]
+    public static LevelManager instance;
 
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     void Start()
     {
         if (SceneFader.instance == null)
         {
-            sceneFader = Instantiate(sceneFader);  // Only instantiate if no instance exists.
-            SceneFader.instance = sceneFader;  // Ensure the instance is set correctly.
+            SceneFader.instance = Instantiate(sceneFader);  // Only instantiate if no instance exists.
+            DontDestroyOnLoad(SceneFader.instance.gameObject);
         }
-        else
-        {
-            sceneFader = SceneFader.instance;  // Use the existing instance.
-        }
+    }
+
+    public void SaveLastPosition(Vector3 pos, string scene)
+    {
+        lastPos = pos;
+        lastScene = scene;
     }
     public void ChangeScene()
     {

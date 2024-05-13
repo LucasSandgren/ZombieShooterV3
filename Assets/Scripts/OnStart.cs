@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class OnStart : MonoBehaviour
 {
     [SerializeField] private GameObject InventorySlots;//Should get the parent of all the ItemSlots in the inventoryCanvas
-
+    [Header("Character Stats: ")]
     public static int coins;
 
     void Start()
