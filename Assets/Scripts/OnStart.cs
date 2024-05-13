@@ -28,12 +28,13 @@ public class OnStart : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Level_One");
     }
 
     public void ToMainMenu()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("StartScreen");
+
     }
 }

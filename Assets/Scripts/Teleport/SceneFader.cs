@@ -10,6 +10,21 @@ public class SceneFader : MonoBehaviour
     public float fadeOutSpeed = 1f;
     public float fadeInSpeed = 1f;
 
+    public static SceneFader instance;
+
+    void Awake()
+    {
+        // Singleton pattern: Ensure only one instance exists
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(transform.root.gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject); // Destroy any new instances if one already exists
+        }
+    }
     void Start()
     {
             StartCoroutine(FadeIn());
@@ -44,8 +59,5 @@ public class SceneFader : MonoBehaviour
         StartCoroutine(FadeIn());
 
     }
-    void Awake()
-    {
-        DontDestroyOnLoad(transform.root.gameObject); // Keep this object alive across scenes
-    }
+    
 }
