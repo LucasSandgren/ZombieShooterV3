@@ -17,10 +17,11 @@ public class Interactable : MonoBehaviour
 
     [Header("Check for items and then go to next level: ")]
     [SerializeField] private bool useItemForNextLevel;
-    [SerializeField] private InventoryManagerScript inventoryScript;
     [SerializeField] private string itemName;
     [SerializeField] private int itemCount;
+    [SerializeField] private InventoryManagerScript inventoryScript;
     [SerializeField] private GameObject InventorySlots;//Should get the parent of all the ItemSlots in the inventoryCanvas
+    [SerializeField] private PlayerHealth playerHealthScript;
 
     [Header("Driving: ")]
     [SerializeField] private GameObject car;
@@ -87,16 +88,19 @@ public class Interactable : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        /*PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
+        /*
+        PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
+            PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
-                for (int i = 0; i < InventorySlots.transform.childCount; i++)
-                {
-                    ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
+            for (int i = 0; i < InventorySlots.transform.childCount; i++)
+            {
+                ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
 
-                    PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
-                    PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
-                    PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
-                }*/
+                PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
+                PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
+                PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
+            }*/
 
         SceneManager.LoadScene(nextLevelName);
     }
@@ -105,8 +109,9 @@ public class Interactable : MonoBehaviour
     {
         if (CountNumberOfItem() >= itemCount)
         {
-
-            /*PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
+            /*
+            PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
+            PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
             PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
             for (int i = 0; i < InventorySlots.transform.childCount; i++)
@@ -153,15 +158,15 @@ public class Interactable : MonoBehaviour
                 Camera.main.GetComponent<CameraMovement>().ChangeTarget(car.transform); // SET CAMERA FOLLOW TO CAR
 
             }
-            
-            
+
+
         }
     }
     private void HideCrosshair()
     {
         GameObject crosshair = GameObject.FindGameObjectWithTag("Crosshair");
         crosshair.SetActive(false);
-        
+
     }
     private void ShowCrosshair()
     {

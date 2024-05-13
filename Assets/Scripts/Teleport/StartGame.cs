@@ -18,6 +18,7 @@ public class StartGame : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Level") == 0)
         {
+            PlayerPrefs.SetInt("Health", 100);
             sceneFader.FadeToScene("Level_One");
         }
 

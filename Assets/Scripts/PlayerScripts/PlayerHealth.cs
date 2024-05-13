@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = PlayerPrefs.GetInt("Health");
         healthBar.SetMaxHealth(maxHealth);
     }
 
@@ -52,6 +52,10 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = maxHealth;
             //heal animation
         }
+    }
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
