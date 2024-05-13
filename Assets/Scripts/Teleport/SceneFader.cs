@@ -14,7 +14,6 @@ public class SceneFader : MonoBehaviour
 
     void Awake()
     {
-        // Singleton pattern: Ensure only one instance exists
         if (instance == null)
         {
             instance = this;
@@ -22,7 +21,7 @@ public class SceneFader : MonoBehaviour
         }
         else if (instance != this)
         {
-            Destroy(gameObject); // Destroy any new instances if one already exists
+            Destroy(gameObject); // DESTROY IF EXIST
         }
     }
     void Start()
