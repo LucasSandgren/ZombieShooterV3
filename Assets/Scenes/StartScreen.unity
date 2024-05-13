@@ -415,6 +415,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 668656579468084420, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3827234764118482343, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -445,6 +449,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3827234764118482343, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827234764118482343, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827234764118482343, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3827234764118482343, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
+      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3827234764118482343, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
@@ -498,6 +514,14 @@ PrefabInstance:
     - target: {fileID: 4024377849357229161, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
       propertyPath: m_Name
       value: Fade
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257407384181559157, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8600029535036734426, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8996997599562004603, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
       propertyPath: m_LocalPosition.z
@@ -694,6 +718,74 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1999509976
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3570785338609245692, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8077160880001075223, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+      propertyPath: m_Name
+      value: LevelManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+--- !u!114 &1999509977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1407788016713843519, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+  m_PrefabInstance: {fileID: 1999509976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9920ab92ded9df4ca8a114cea3ec95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2004191693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4603650000537735206, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
@@ -789,8 +881,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2005481279}
-        m_TargetAssemblyTypeName: StartGame, Assembly-CSharp
+      - m_Target: {fileID: 1999509977}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
@@ -798,7 +890,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level_One
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2005481277
@@ -848,10 +940,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2005481274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9b7aa41326ab14e9ae1fc816291f66, type: 3}
+  m_Script: {fileID: 11500000, guid: e9920ab92ded9df4ca8a114cea3ec95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneFader: {fileID: 2004191693}
+  targetScene: Level_One
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -861,3 +954,4 @@ SceneRoots:
   - {fileID: 1743294332}
   - {fileID: 407804958}
   - {fileID: 1512784665}
+  - {fileID: 1999509976}

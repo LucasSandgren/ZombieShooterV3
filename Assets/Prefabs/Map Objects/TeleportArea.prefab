@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScene: 
+  sceneFader: {fileID: 4603650000537735206, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
 --- !u!61 &4506332279918929315
 BoxCollider2D:
   m_ObjectHideFlags: 0

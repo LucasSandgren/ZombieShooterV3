@@ -14,15 +14,17 @@ public class SceneFader : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
-        {
+        //if (instance != null && instance != this) 
+        //{
+        //    Destroy(gameObject);
+        //}
+        //else
+        //{
             instance = this;
-            DontDestroyOnLoad(transform.root.gameObject);
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject); // DESTROY IF EXIST
-        }
+            DontDestroyOnLoad(gameObject);
+        //}
+
+        /* THE SCENE FADER IS REMOVED FROM TELEPORTS BETWEEN SCENES PREVENTING TELEPORT IF I DESTROY OBJECT BETWEEN SCENE, BUT THE FADE IS NOT SUPPOSED TO BE REMOVED */
     }
     void Start()
     {
@@ -31,6 +33,11 @@ public class SceneFader : MonoBehaviour
 
     public void FadeToScene(string sceneName)
     {
+        if (instance == null)
+        {
+            Debug.LogError("[SceneFader] Instance is null when trying to fade to " + sceneName);
+            return;
+        }
         StartCoroutine(FadeOut(sceneName));
     }
 

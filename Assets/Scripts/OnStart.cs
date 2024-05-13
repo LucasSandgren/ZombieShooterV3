@@ -11,6 +11,7 @@ public class OnStart : MonoBehaviour
 
     void Start()
     {
+        
         Time.timeScale = 1;
 
         coins = PlayerPrefs.GetInt("Coins");
@@ -25,16 +26,4 @@ public class OnStart : MonoBehaviour
         }
     }
 
-    public void Restart()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("Level_One");
-    }
-
-    public void ToMainMenu()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("StartScreen");
-
-    }
 }
