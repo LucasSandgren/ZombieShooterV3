@@ -15,7 +15,7 @@ TagManager:
   - Crosshair
   - Vendor
   - Collision (Wall)
-  - Wall
+  - Teleporter
   layers:
   - Default
   - TransparentFX

@@ -104,7 +104,6 @@ public class CollisionMovement : MonoBehaviour
             sr.flipX = false;
         }
     }
-
     private void FixedUpdate()
     {
         rigidBody.MovePosition(rigidBody.position + moveDirection * currentSpeed * Time.fixedDeltaTime);
@@ -112,8 +111,6 @@ public class CollisionMovement : MonoBehaviour
         /* SETS CROSSHAIR AT MOUSE POS */
         crosshairRectTransform.position = Input.mousePosition;
     }
-   
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Slowing Area")
