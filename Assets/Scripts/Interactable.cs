@@ -88,19 +88,18 @@ public class Interactable : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        /*
         PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
-            PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
-            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+        PlayerPrefs.SetInt("Coins", OnStart.coins);
+        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
-            for (int i = 0; i < InventorySlots.transform.childCount; i++)
-            {
-                ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
+        for (int i = 0; i < InventorySlots.transform.childCount; i++)
+        {
+            ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
 
-                PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
-                PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
-                PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
-            }*/
+            PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
+            PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
+            PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
+        }
 
         SceneManager.LoadScene(nextLevelName);
     }
@@ -109,9 +108,8 @@ public class Interactable : MonoBehaviour
     {
         if (CountNumberOfItem() >= itemCount)
         {
-            /*
             PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
-            PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
+            PlayerPrefs.SetInt("Coins", OnStart.coins);
             PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
             for (int i = 0; i < InventorySlots.transform.childCount; i++)
@@ -121,7 +119,7 @@ public class Interactable : MonoBehaviour
                 PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
                 PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
                 PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
-            }*/
+            }
 
             SceneManager.LoadScene(nextLevelName);
         }
