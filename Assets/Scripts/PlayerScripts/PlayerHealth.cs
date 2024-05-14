@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("References: ")]
     public Healthbar healthBar;
     public GameObject gameoverScreen;
+    public Syringe syringe;
 
 
     private float immunityTimer;
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = PlayerPrefs.GetInt("Health");
         healthBar.SetMaxHealth(maxHealth);
+        syringe = GetComponent<Syringe>();
     }
 
     void Update()
@@ -31,18 +33,21 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-        if (currentHealth <= 0)
-        {
-            currentHealth = 0;
+        //if(syringe.canTakeDamage == true)
+        //{
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
+            if (currentHealth <= 0)
+            {
+                currentHealth = 0;
 
-            gameObject.SetActive(false);
-            gameoverScreen.SetActive(true);
-            Time.timeScale = 0;
-            currentHealth = 100;
-            Cursor.visible = true;
-        }
+                gameObject.SetActive(false);
+                gameoverScreen.SetActive(true);
+                Time.timeScale = 0;
+                currentHealth = 100;
+                Cursor.visible = true;
+            }
+        //}
     }
 
     public void Heal(int health)

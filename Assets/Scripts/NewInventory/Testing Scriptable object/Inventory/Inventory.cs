@@ -9,12 +9,13 @@ public class Inventory : MonoBehaviour
     public List<InventoryItem> inventory = new();
     private Dictionary<ItemData, InventoryItem> itemDictionary = new();
 
-    private void OnEnable()
+    private void OnEnable() //Adds the different items to the inventory
     {
         Coin.OnCoinCollected += Add;
         MedKit.OnMedKitCollected += Add;
         Syringe.OnSyringeCollected += Add;
         Bandage.OnBandageCollect += Add;
+        FuelTank.OnFuelTankCollected += Add;
     }
     private void OnDisable()
     {
@@ -22,12 +23,12 @@ public class Inventory : MonoBehaviour
     }
     public void Add(ItemData itemData) //Takes itemdata from the itemdata script and adds it into the list of inventory items
     {
-        if(itemDictionary.TryGetValue(itemData, out InventoryItem item))
+        if(itemDictionary.TryGetValue(itemData, out InventoryItem item)) //If an item already exists
         {
             item.AddToStack();
             OnInventoryChange?.Invoke(inventory);
         }
-        else
+        else //Add the itemdata and invoke the inventory change (Redraw)
         {
             InventoryItem newItem = new InventoryItem(itemData);
             inventory.Add(newItem);
@@ -39,13 +40,13 @@ public class Inventory : MonoBehaviour
     {
         if(itemDictionary.TryGetValue(itemData, out InventoryItem item))
         {
-            item.RemoveFromStack();
-            if(item.stackSize == 0)
+            item.RemoveFromStack(); //Remove one instance of the item
+            if(item.stackSize == 0) //If the item stack reaches 0
             {
-                inventory.Remove(item);
-                itemDictionary.Remove(itemData);
+                inventory.Remove(item); //Delete the item from the inventory visually
+                itemDictionary.Remove(itemData); //Delete the itemData
             }
-            OnInventoryChange?.Invoke(inventory);
+            OnInventoryChange?.Invoke(inventory); //Redraw inventory
         }
     }
 }
