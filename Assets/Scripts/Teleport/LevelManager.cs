@@ -12,29 +12,13 @@ public class LevelManager : MonoBehaviour
     [Header("House teleportation")]
     public Vector3 lastPos;
     public string lastScene;
+    private GameObject currentTeleporter;
     [Header("Singleton")]
     public static LevelManager instance;
 
-
-    private void Awake()
-    {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
     void Start()
     {
-        if (SceneFader.instance == null)
-        {
-            SceneFader.instance = Instantiate(sceneFader);  // Only instantiate if no instance exists.
-            DontDestroyOnLoad(SceneFader.instance.gameObject);
-        }
+        sceneFader = SceneFader.instance;
     }
 
     public void SaveLastPosition(Vector3 pos, string scene)
@@ -42,28 +26,11 @@ public class LevelManager : MonoBehaviour
         lastPos = pos;
         lastScene = scene;
     }
-    public void ChangeScene()
+    public void StartGame()
     {
-        switch (PlayerPrefs.GetInt("Level"))
-        {
-            case 0:
-                PlayerPrefs.SetInt("Health", 100);
-                sceneFader?.FadeToScene("Level_One");
-                if (SceneFader.instance == null)
-                {
-                    Instantiate(sceneFader);
-                }
-                break;
-            case 1:
-                sceneFader?.FadeToScene("Level_Two");
-                break;
-            case 2:
-                sceneFader?.FadeToScene("Level_Three");
-                break;
-            default:
-                Debug.LogError("Invalid level");
-                break;
-        }
+        PlayerPrefs.SetInt("Health", 100);
+        SceneManager.LoadScene("Level_One"); // TEMP FIX LOAD DIRECTLY INTO LEVEL ONE
+        //sceneFader.FadeToScene("Level_One"); // "Coroutine couldn't be started because the the game object 'Fade' is inactive!" ERROR FADE SCREEN DON'T WORK FROM START SCREEN -> LEVEL_ONE FOR SOME REASON <.<
     }
 
     public void Restart()
@@ -78,5 +45,5 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("StartScreen");
 
     }
-
 }
+ 

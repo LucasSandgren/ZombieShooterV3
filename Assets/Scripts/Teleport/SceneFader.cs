@@ -14,6 +14,8 @@ public class SceneFader : MonoBehaviour
 
     [Header("Singleton")]
     public static SceneFader instance;
+
+    private GameObject player;
     
 
     void Awake()
@@ -29,55 +31,57 @@ public class SceneFader : MonoBehaviour
         //}
 
         /* THE SCENE FADER IS REMOVED FROM TELEPORTS BETWEEN SCENES PREVENTING TELEPORT IF I DESTROY OBJECT BETWEEN SCENE, BUT THE FADE IS NOT SUPPOSED TO BE REMOVED */
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        
     }
     void Start()
     {
-            StartCoroutine(FadeIn());
+        fadePanel.gameObject.SetActive(true);
+        StartCoroutine(FadeIn());
     }
 
-    public void FadeToScene(string sceneName, Vector3? pos = null)
+    public void FadeToScene(string sceneName)
     {
-        if (instance == null)
+        if (!fadePanel.gameObject.activeSelf)
         {
-            Debug.LogError("[SceneFader] Instance is null when trying to fade to " + sceneName);
-            return;
+            fadePanel.gameObject.SetActive(true); // Ensure fadePanel is active before starting coroutine
         }
-        StartCoroutine(FadeOut(sceneName, pos));
+        StartCoroutine(FadeOut(sceneName));
     }
 
-    IEnumerator FadeIn()
+    IEnumerator FadeIn() // BETWEEN SCENES
+    {
+        yield return FadeInLevel();
+    }
+
+    IEnumerator FadeOut(string sceneName) // BETWEEN SCENES
+    {
+        yield return FadeOutLevel();
+        SceneManager.LoadScene(sceneName);
+        yield return new WaitForEndOfFrame();
+        StartCoroutine(FadeIn());
+
+    }
+    public IEnumerator FadeInLevel()
     {
         float alpha = fadePanel.color.a;
         while (alpha > 0)
         {
             alpha -= Time.deltaTime * fadeInSpeed;
-            fadePanel.color = new Color (0,0,0,alpha);
+            fadePanel.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
     }
-
-    IEnumerator FadeOut(string sceneName, Vector3? pos = null)
+    public IEnumerator FadeOutLevel()
     {
         float alpha = fadePanel.color.a;
         while (alpha < 1)
         {
             alpha += Time.deltaTime * fadeOutSpeed;
-            fadePanel.color = new Color(0,0,0,alpha);
+            fadePanel.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-        SceneManager.LoadScene(sceneName);
-        yield return new WaitForEndOfFrame();
-
-        if (pos.HasValue)
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player)
-            {
-                player.transform.position = pos.Value;
-            }
-        }
-        StartCoroutine(FadeIn());
-
     }
     
 }

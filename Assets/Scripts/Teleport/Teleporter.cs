@@ -1,54 +1,69 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class Teleporter : MonoBehaviour
 {
     [Header("House teleportation")]
     [Space]
-    public string targetScene;
-    [Header("References: ")]
-    public SceneFader sceneFader;
+    [SerializeField] private Transform targetDestination;
 
-    private void Awake()
+    private GameObject currentTeleporter;
+    [SerializeField] private SceneFader sceneFader;
+
+    void Awake()
     {
-        if (sceneFader == null)
-        {
-            sceneFader = SceneFader.instance;
-            if (sceneFader == null)
-            {
-                Debug.LogError("[Teleporter] SceneFader instance is not set.");
-                return;
-            }
-        }
+        sceneFader = SceneFader.instance;
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (SceneManager.GetActiveScene().name == "Level_One") // CHECK IF MAIN LEVEL
-            { 
-                Vector3 lastPos = other.transform.position;
-                string lastScene = SceneManager.GetActiveScene().name;
 
-                LevelManager.instance.SaveLastPosition(lastPos, lastScene);
-                sceneFader.FadeToScene(targetScene);
+    public Transform GetDestination()
+    {
+        return targetDestination;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (currentTeleporter != null)
+            {
+                Debug.Log("Teleporting to: " + currentTeleporter.GetComponent<Teleporter>().GetDestination().position);
+                StartCoroutine(TeleportFade(currentTeleporter.GetComponent<Teleporter>().GetDestination().position));
             }
             else
             {
-                if (!string.IsNullOrEmpty(LevelManager.instance.lastScene))
-                {
-                    sceneFader.FadeToScene(LevelManager.instance.lastScene, LevelManager.instance.lastPos);
-                }
-                else
-                {
-                    Debug.LogError("[Teleporter] lastScene is not set.");
-                }
+                Debug.Log("No current teleporter set.");
             }
-
-            //sceneFader.FadeToScene(targetScene);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Entered trigger with: " + collision.gameObject.name);
+        if (collision.CompareTag("Teleporter"))
+        {
+            currentTeleporter = collision.gameObject;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Teleporter"))
+        {
+            if (collision.gameObject == currentTeleporter)
+            {
+                currentTeleporter = null;
+                Debug.Log("Current teleporter cleared.");
+            }
+        }
+    }
+    IEnumerator TeleportFade(Vector3 destination)
+    {
+        if (sceneFader != null)
+        {
+            yield return StartCoroutine(sceneFader.FadeOutLevel());
+            transform.position = destination;
+            yield return StartCoroutine(sceneFader.FadeInLevel());
+        }
+    }
+
 }
