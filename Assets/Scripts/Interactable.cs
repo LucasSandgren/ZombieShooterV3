@@ -90,9 +90,9 @@ public class Interactable : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
-        PlayerPrefs.SetInt("Coins", OnStart.coins);
-        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+        //PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
+        //PlayerPrefs.SetInt("Coins", OnStart.coins);
+        //PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
         //for (int i = 0; i < InventorySlots.transform.childCount; i++)
         //{
@@ -110,9 +110,9 @@ public class Interactable : MonoBehaviour
     {
         if (CountNumberOfItem() >= itemCount)
         {
-            PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
-            PlayerPrefs.SetInt("Coins", OnStart.coins);
-            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+            //PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
+            //PlayerPrefs.SetInt("Coins", OnStart.coins);
+            //PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
             //for (int i = 0; i < InventorySlots.transform.childCount; i++)
             //{
