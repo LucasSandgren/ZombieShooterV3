@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "Collision (Wall)")
+        if (other.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
         }
