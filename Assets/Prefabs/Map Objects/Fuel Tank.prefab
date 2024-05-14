@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4278361999793085602}
   - component: {fileID: 1170665017968529576}
-  - component: {fileID: 7474810166602128167}
   - component: {fileID: 6378213980710865542}
   - component: {fileID: 3446978291978767868}
+  - component: {fileID: -6459674187228873509}
   m_Layer: 0
   m_Name: Fuel Tank
   m_TagString: Untagged
@@ -87,24 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7474810166602128167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8289496035121419125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37a653d53aa3eb241a869f17ce41a429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Fuel Tank
-  quantity: 0
-  itemSprite: {fileID: 21300000, guid: 1310088eb22fce9419b2b05537672535, type: 3}
-  itemDropRate: 0
-  itemDescription: A container with a bit of fuel in it. You will probably need three
-    of these to have enough fuel for your car.
 --- !u!61 &6378213980710865542
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -177,3 +159,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6459674187228873509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289496035121419125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e371bdc69dbafc42b2a31a59b1f4031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: ac7c907dee1c34b4f95be1325ce81125, type: 2}
