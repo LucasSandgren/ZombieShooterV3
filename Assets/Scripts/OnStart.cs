@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class OnStart : MonoBehaviour
 {
-    [SerializeField] private GameObject InventorySlots;//Should get the parent of all the ItemSlots in the inventoryCanvas
+    //[SerializeField] private GameObject InventorySlots;//Should get the parent of all the ItemSlots in the inventoryCanvas
     [Header("Character Stats: ")]
     public static int coins;
 
@@ -16,14 +16,14 @@ public class OnStart : MonoBehaviour
 
         coins = PlayerPrefs.GetInt("Coins");
 
-        for (int i = 0; i < InventorySlots.transform.childCount; i++)
-        {
-            ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
+        //for (int i = 0; i < InventorySlots.transform.childCount; i++)
+        //{
+        //    ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
 
-            itemSlot.itemName = PlayerPrefs.GetString("ItemName" + i);
-            itemSlot.quantity = PlayerPrefs.GetInt("ItemQuantity" + i);
-            itemSlot.itemDescription = PlayerPrefs.GetString("ItemDescription" + i);
-        }
+        //    itemSlot.itemName = PlayerPrefs.GetString("ItemName" + i);
+        //    itemSlot.quantity = PlayerPrefs.GetInt("ItemQuantity" + i);
+        //    itemSlot.itemDescription = PlayerPrefs.GetString("ItemDescription" + i);
+        //}
     }
 
 }
