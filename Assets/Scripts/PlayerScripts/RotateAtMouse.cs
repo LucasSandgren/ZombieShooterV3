@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,7 +38,5 @@ public class RotateAtMouse : MonoBehaviour
         {
             sr.flipY = false;
         }
-        //Rotates the object
-        //transform.right = faceDirection;
     }
 }

@@ -12,10 +12,9 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
 
     [Header("References: ")]
-    public Healthbar healthBar;
-    public GameObject gameoverScreen;
-    public Syringe syringe;
-
+    [SerializeField] private Healthbar healthBar;
+    [SerializeField] private GameObject gameoverScreen;
+    [SerializeField] private Syringe syringe;
 
     private float immunityTimer;
 

@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform playerTransform;
+    [Header("References")]
+    [SerializeField] private Transform playerTransform;
     //public Transform fogFollow;
+
+    [Header("Variables")]
+    [SerializeField] private float shakeAmount;
+    [SerializeField] private float shakeDuration;
+    private float shakeTimer;
+
 
     private Vector3 newPosition;
 
     private float temporaryXOffset;
     private float temporaryYOffset;
-
-    public float shakeAmount;
-    public float shakeDuration, shakeTimer;
 
     void Start()
     {
@@ -23,6 +27,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
+        //If camera should shake
         if (shakeTimer < shakeDuration)
         {
             temporaryXOffset = Random.Range(-1, 2) * shakeAmount;
@@ -30,6 +35,7 @@ public class CameraMovement : MonoBehaviour
 
             shakeTimer += Time.deltaTime;
         }
+        //Normal camera movement
         else
         {
             temporaryXOffset = 0;
@@ -42,6 +48,12 @@ public class CameraMovement : MonoBehaviour
         transform.position = newPosition;
         //fogFollow.position = transform.position;
     }
+
+    public void StartCameraShake()
+    {
+        shakeTimer = 0;
+    }
+
     /* USED TO SWAP BETWEEN CAR AND PLAYER CAMERA */
     public void ChangeTarget(Transform newTarget)
     {
