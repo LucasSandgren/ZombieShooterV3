@@ -38,7 +38,6 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Entered trigger with: " + collision.gameObject.name);
         if (collision.CompareTag("Teleporter"))
         {
             currentTeleporter = collision.gameObject;

@@ -18,7 +18,5 @@ public class MedKit : MonoBehaviour, ICollectible, IUsable
     public void Use()
     {
         playerHealth.Heal(healAmount);
-        Debug.Log($"Using the medkit, restored {healAmount}");
-        Debug.Log($"Current health is {playerHealth.healthBar}");
     }
 }

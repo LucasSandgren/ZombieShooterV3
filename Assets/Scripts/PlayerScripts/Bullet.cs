@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void FixedUpdate()
     {
         rigidbody.MovePosition(rigidbody.position + direction * speed * Time.fixedDeltaTime);

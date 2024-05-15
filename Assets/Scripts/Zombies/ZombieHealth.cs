@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ZombieHealth : MonoBehaviour
 {
-    [SerializeField] private int healthPoints;
-
     private Rigidbody2D rigidBody;
     private ZombieMovement zombieMovementScript;
+    private GameObject corpseObject;
+
+    [SerializeField] private int healthPoints;
 
     [SerializeField] private GameObject coinPrefab;
-    private GameObject corpseObject;
 
 
 
@@ -48,25 +48,22 @@ public class ZombieHealth : MonoBehaviour
     {
         GameObject collisionGameObject = collision.gameObject;
 
+        int damage = 0;
+
+        //Gets the damage to be taken
         if (collisionGameObject.tag == "bullet")
         {
-            int damage = collisionGameObject.GetComponent<Bullet>().damage;
-
-            TakeDamage(damage);
-
-            //Makes the zombie get knockback
-            Vector2 vectorFromBullet = gameObject.transform.position- collisionGameObject.transform.position ;
-            zombieMovementScript.TakeKnockBack(vectorFromBullet.normalized);
+            damage = collisionGameObject.GetComponent<Bullet>().damage;
         }
-        if (collisionGameObject.CompareTag("Knife"))
+        else if (collisionGameObject.CompareTag("Knife"))
         {
-            int damage = collisionGameObject.GetComponent<DamagingSpikes>().damage;
-
-            TakeDamage(damage);
-
-            //Makes the zombie get knockback
-            Vector2 vectorFromBullet = gameObject.transform.position - collisionGameObject.transform.position;
-            zombieMovementScript.TakeKnockBack(vectorFromBullet.normalized);
+            damage = collisionGameObject.GetComponent<DamagingSpikes>().GetDamageValue();
         }
+
+
+        TakeDamage(damage);
+        //Makes the zombie get knockback
+        Vector2 vectorFromBullet = gameObject.transform.position - collisionGameObject.transform.position;
+        zombieMovementScript.TakeKnockBack(vectorFromBullet.normalized);
     }
 }

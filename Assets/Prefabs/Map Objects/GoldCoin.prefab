@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5970394757167129685}
   - component: {fileID: 9120847224962281449}
   - component: {fileID: 7461042545640735221}
-  - component: {fileID: 4488671889974314473}
+  - component: {fileID: 5315060934296234577}
   m_Layer: 0
   m_Name: GoldCoin
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3249492785715537317}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -143,7 +143,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &4488671889974314473
+--- !u!114 &5315060934296234577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3249492785715537317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4159bd19e5d29748aa73625395b3c80, type: 3}
+  m_Script: {fileID: 11500000, guid: 17a489fa47ffde14d97494e38cc11399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   coinsWorth: 10

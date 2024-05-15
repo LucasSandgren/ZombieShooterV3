@@ -8,9 +8,9 @@ using UnityEngine.VFX;
 
 public class CollisionMovement : MonoBehaviour
 {
-    public VisualEffect vfxRenderer;
+    [SerializeField] private VisualEffect vfxRenderer;
 
-    public Camera camera;
+    [SerializeField] private Camera camera;
 
     private (float x, float y, float z) oldPos;
 
@@ -22,8 +22,8 @@ public class CollisionMovement : MonoBehaviour
     private Vector2 mousePosition;
 
     /* USED FOR PLAYER MODEL ANIMATION */
-    public Animator playerAnimator;
-    public RectTransform crosshairRectTransform;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private RectTransform crosshairRectTransform;
 
     private SpriteRenderer sr;
     private bool slowed;
@@ -45,34 +45,16 @@ public class CollisionMovement : MonoBehaviour
     void Update()
     {
         playerAnimator.SetFloat("Speed", currentSpeed);
-        Vector3 currentRigidBodyPosition = new Vector3(rigidBody.position.x, rigidBody.position.y, transform.position.z);
 
-        // Rotating rectangle to mouse position
-        // setting a direction for the rotation based on
-        // transform and mouse position and then sets a crosshair to the positon of the mouse
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        /*Vector2 playerPosition = new Vector2(transform.position.x, transform.position.y);
-        Vector2 directionToMouse = (mousePosition - playerPosition).normalized;
-        float distanceToMouse = Vector2.Distance(playerPosition,mousePosition);
-
-        float maxDistance = 3.5f;
-        if (distanceToMouse > maxDistance)
-        {
-            mousePosition = playerPosition + directionToMouse * maxDistance;
-        }*/
-        crosshairRectTransform.position = Camera.main.WorldToScreenPoint(mousePosition);
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            OnStart.coins += 1;
-        }
+        crosshairRectTransform.position = Input.mousePosition;
 
         // GetAxis() returns a value of -1, 0 or 1 depending on button clicked, Which button does what can be seen under "input manager" in project settings
         // Its normalized so that the speed will be consistent even if you are walking diagonaly
         moveDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
         currentSpeed = moveDirection == Vector2.zero ? 0.0f : (slowed ? 1.0f : 3.0f);
+
+
 
         /* USED FOR SWITCHING ANIMATION STATES */
         if (currentSpeed > 0)
@@ -111,6 +93,7 @@ public class CollisionMovement : MonoBehaviour
         /* SETS CROSSHAIR AT MOUSE POS */
         crosshairRectTransform.position = Input.mousePosition;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Slowing Area")
