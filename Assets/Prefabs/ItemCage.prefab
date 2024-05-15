@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9170160020772484395}
   - component: {fileID: 7711396422160862850}
-  - component: {fileID: 1812784640329840805}
+  - component: {fileID: 8901035099893195414}
   m_Layer: 0
   m_Name: ItemCage
   m_TagString: Untagged
@@ -82,7 +82,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.809229, y: 17.177841}
   m_EdgeRadius: 0
---- !u!114 &1812784640329840805
+--- !u!114 &8901035099893195414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,19 +91,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2438756081759171296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0d69739a3c19b4f8474d02fc805d63, type: 3}
+  m_Script: {fileID: 11500000, guid: 168efd199d7d38c468b26aa14da65b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  payToOpen: 1
-  cost: 5
-  toNextLevel: 0
-  nextLevelName: 
-  useItemForNextLevel: 0
-  inventoryScript: {fileID: 0}
-  itemName: 
-  itemCount: 0
-  InventorySlots: {fileID: 0}
-  car: {fileID: 0}
+  cost: 30
 --- !u!1 &5856226628710127010
 GameObject:
   m_ObjectHideFlags: 0
