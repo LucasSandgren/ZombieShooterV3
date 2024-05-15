@@ -57,7 +57,7 @@ public class ZombieHealth : MonoBehaviour
         }
         else if (collisionGameObject.CompareTag("Knife"))
         {
-            damage = collisionGameObject.GetComponent<DamagingSpikes>().damage;
+            damage = collisionGameObject.GetComponent<DamagingSpikes>().GetDamageValue();
         }
 
 

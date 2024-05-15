@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class DamagingSpikes : MonoBehaviour
 {
-    public Animator trapAnimator;
-    public int damage; 
+    [SerializeField] private int damage;
+
+    [SerializeField] private Animator trapAnimator;
 
     public void AnimateTrap()
     {
         trapAnimator.SetTrigger("Collision");
+    }
+    public int GetDamageValue()
+    {
+        return damage;
     }
 }
