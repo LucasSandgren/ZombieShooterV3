@@ -10,6 +10,6 @@ public class DisplayMoney : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = "Money: " + OnStart.coins;
+        moneyText.text = OnStart.coins.ToString();
     }
 }

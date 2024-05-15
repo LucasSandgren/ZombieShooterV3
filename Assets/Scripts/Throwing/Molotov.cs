@@ -1,22 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class Molotov : MonoBehaviour
-{
-    public BurnGround burnGroundScript;
-    public Throw throwScript;
+//public class Molotov : MonoBehaviour
+//{
+//    public BurnGround burnGroundScript;
+//    public Throw throwScript;
 
-    void Update()
-    {
+//    void Update()
+//    {
 
-        if (throwScript.throwing)
-        {
+//        if (throwScript.throwing)
+//        {
 
-            burnGroundScript.isBurning = true;
+//            burnGroundScript.isBurning = true;
 
-        }
+//        }
 
-    }
+//    }
 
-}
+//}

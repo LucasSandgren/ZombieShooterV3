@@ -19,13 +19,15 @@ public class Interactable : MonoBehaviour
     [SerializeField] private bool useItemForNextLevel;
     [SerializeField] private string itemName;
     [SerializeField] private int itemCount;
-    [SerializeField] private InventoryManagerScript inventoryScript;
+    //[SerializeField] private InventoryManagerScript inventoryScript;
+
+    [Header("Refrences needed to switch level: ")]
     [SerializeField] private GameObject InventorySlots;//Should get the parent of all the ItemSlots in the inventoryCanvas
     [SerializeField] private PlayerHealth playerHealthScript;
 
-    [Header("Driving: ")]
-    [SerializeField] private GameObject car;
-    private bool drivingCar = false;
+    //[Header("Driving: ")]
+    //[SerializeField] private GameObject car;
+    //private bool drivingCar = false;
 
 
     private void Update()
@@ -34,17 +36,17 @@ public class Interactable : MonoBehaviour
         {
             HandleInterraction();
         }
-        if (inRange && Input.GetKeyDown(KeyCode.H))
-        {
-            if (!drivingCar)
-            {
-                DriveCar();
-            }
-            //if (drivingCar)
-            //{
-            //    LeaveCar();
-            //}
-        }
+        //if (inRange && Input.GetKeyDown(KeyCode.H))
+        //{
+        //    if (!drivingCar)
+        //    {
+        //        DriveCar();
+        //    }
+        //    //if (drivingCar)
+        //    //{
+        //    //    LeaveCar();
+        //    //}
+        //}
     }
 
     private void HandleInterraction()
@@ -88,104 +90,102 @@ public class Interactable : MonoBehaviour
 
     private void GoToNextLevel()
     {
-        /*
-        PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
-            PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
-            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+        //PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
+        //PlayerPrefs.SetInt("Coins", OnStart.coins);
+        //PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
-            for (int i = 0; i < InventorySlots.transform.childCount; i++)
-            {
-                ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
+        //for (int i = 0; i < InventorySlots.transform.childCount; i++)
+        //{
+        //    InventorySlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<InventorySlot>();
 
-                PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
-                PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
-                PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
-            }*/
+        //    PlayerPrefs.SetString("ItemName" + i, itemSlot.name);
+        //    PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.qua);
+        //    PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
+        //}
 
         SceneManager.LoadScene(nextLevelName);
     }
 
     private void UseItemToNextLevel()
     {
-        if (CountNumberOfItem() >= itemCount)
-        {
-            /*
-            PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
-            PlayerPrefs.SetInt("Coins", SceneValues.coinsForPlayer);
-            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+        //if (CountNumberOfItem() >= itemCount)
+        //{
+        //    //PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
+        //    //PlayerPrefs.SetInt("Coins", OnStart.coins);
+        //    //PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
-            for (int i = 0; i < InventorySlots.transform.childCount; i++)
-            {
-                ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
+        //    //for (int i = 0; i < InventorySlots.transform.childCount; i++)
+        //    //{
+        //    //    ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
 
-                PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
-                PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
-                PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
-            }*/
+        //    //    PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
+        //    //    PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
+        //    //    PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
+        //    //}
 
-            SceneManager.LoadScene(nextLevelName);
-        }
+        //    SceneManager.LoadScene(nextLevelName);
+        //}
     }
-    public int CountNumberOfItem()
-    {
-        int currentItemCount = 0;
+    //public int CountNumberOfItem()
+    //{
+    //    int currentItemCount = 0;
 
-        for (int i = 0; i < inventoryScript.itemSlot.Length - 1; i++)
-        {
-            if (inventoryScript.itemSlot[i].itemName == itemName)
-            {
-                currentItemCount += inventoryScript.itemSlot[i].quantity;
-            }
-        }
+    //    for (int i = 0; i < inventoryScript.itemSlot.Length - 1; i++)
+    //    {
+    //        if (inventoryScript.itemSlot[i].itemName == itemName)
+    //        {
+    //            currentItemCount += inventoryScript.itemSlot[i].quantity;
+    //        }
+    //    }
 
-        return currentItemCount;
-    }
-    private void DriveCar()
-    {
-        if (OnStart.coins >= cost)
-        {
-            OnStart.coins -= cost;
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            Driving driving = car.GetComponent<Driving>();
-            if (player != null)
-            {
-                player.SetActive(false);
-                car.SetActive(true);
-                car.GetComponent<Driving>().enabled = true;
-                driving.isActive = true;
-                drivingCar = true;
-                HideCrosshair();
-                Camera.main.GetComponent<CameraMovement>().ChangeTarget(car.transform); // SET CAMERA FOLLOW TO CAR
+    //    return currentItemCount;
+    //}
+    //private void DriveCar()
+    //{
+    //    if (OnStart.coins >= cost)
+    //    {
+    //        OnStart.coins -= cost;
+    //        GameObject player = GameObject.FindGameObjectWithTag("Player");
+    //        Driving driving = car.GetComponent<Driving>();
+    //        if (player != null)
+    //        {
+    //            player.SetActive(false);
+    //            car.SetActive(true);
+    //            car.GetComponent<Driving>().enabled = true;
+    //            driving.isActive = true;
+    //            drivingCar = true;
+    //            HideCrosshair();
+    //            Camera.main.GetComponent<CameraMovement>().ChangeTarget(car.transform); // SET CAMERA FOLLOW TO CAR
 
-            }
+    //        }
 
 
-        }
-    }
-    private void HideCrosshair()
-    {
-        GameObject crosshair = GameObject.FindGameObjectWithTag("Crosshair");
-        crosshair.SetActive(false);
+    //    }
+    //}
+    //private void HideCrosshair()
+    //{
+    //    GameObject crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+    //    crosshair.SetActive(false);
 
-    }
-    private void ShowCrosshair()
-    {
-        GameObject crosshair = GameObject.FindGameObjectWithTag("Crosshair");
-        crosshair.SetActive(true);
-    }
-    private void LeaveCar()
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        Driving driving = car.GetComponent<Driving>();
+    //}
+    //private void ShowCrosshair()
+    //{
+    //    GameObject crosshair = GameObject.FindGameObjectWithTag("Crosshair");
+    //    crosshair.SetActive(true);
+    //}
+    //private void LeaveCar()
+    //{
+    //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+    //    Driving driving = car.GetComponent<Driving>();
 
-        if (player != null)
-        {
-            player.SetActive(true);
-        }
-        car.SetActive(false);
-        car.GetComponent<Driving>().enabled = false;
-        drivingCar = false;
-        Camera.main.GetComponent<CameraMovement>().ChangeTarget(player.transform); // CHANGE BACK TO CAMERA FOLLOWING PLAYER
-        ShowCrosshair();
-    }
+    //    if (player != null)
+    //    {
+    //        player.SetActive(true);
+    //    }
+    //    car.SetActive(false);
+    //    car.GetComponent<Driving>().enabled = false;
+    //    drivingCar = false;
+    //    Camera.main.GetComponent<CameraMovement>().ChangeTarget(player.transform); // CHANGE BACK TO CAMERA FOLLOWING PLAYER
+    //    ShowCrosshair();
+    //}
 }

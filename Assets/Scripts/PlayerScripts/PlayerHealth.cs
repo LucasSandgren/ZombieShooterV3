@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = PlayerPrefs.GetInt("Health");
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(currentHealth);
         syringe = GetComponent<Syringe>();
     }
 

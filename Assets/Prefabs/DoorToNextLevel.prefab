@@ -116,7 +116,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.6099452}
@@ -149,10 +149,12 @@ MonoBehaviour:
   toNextLevel: 1
   nextLevelName: Level_Two
   useItemForNextLevel: 0
-  inventoryScript: {fileID: 0}
   itemName: 
   itemCount: 0
+  inventoryScript: {fileID: 0}
   InventorySlots: {fileID: 0}
+  playerHealthScript: {fileID: 0}
+  car: {fileID: 0}
 --- !u!1 &7284552752523204799
 GameObject:
   m_ObjectHideFlags: 0
