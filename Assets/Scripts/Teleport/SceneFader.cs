@@ -20,15 +20,15 @@ public class SceneFader : MonoBehaviour
 
     void Awake()
     {
-        //if (instance != null && instance != this) 
-        //{
-        //    Destroy(gameObject);
-        //}
-        //else
-        //{
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
             instance = this;
             DontDestroyOnLoad(gameObject);
-        //}
+        }
 
         /* THE SCENE FADER IS REMOVED FROM TELEPORTS BETWEEN SCENES PREVENTING TELEPORT IF I DESTROY OBJECT BETWEEN SCENE, BUT THE FADE IS NOT SUPPOSED TO BE REMOVED */
 
