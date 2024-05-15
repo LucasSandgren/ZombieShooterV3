@@ -5,12 +5,15 @@ using UnityEngine.EventSystems;
 
 public class ZombieMovement : MonoBehaviour
 {
+    [Header("Variables: ")]
     [SerializeField] private float movementSpeed;
     [SerializeField] private float detectionRange;
 
+    [Header("References: ")]
     [SerializeField] private Transform playerTransfrom;
 
     [SerializeField] private Animator animator;
+
     private bool isWalking = false;
     private bool isAttacking = false;
     private SpriteRenderer sr;
@@ -26,7 +29,7 @@ public class ZombieMovement : MonoBehaviour
 
     void Start()
     {
-        rigidBody = gameObject.GetComponent<Rigidbody2D>(); 
+        rigidBody = gameObject.GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -42,11 +45,9 @@ public class ZombieMovement : MonoBehaviour
 
         if (knockbackTimer > 0)
         {
-            // Makes the zombie take knockback
+            //Knocks back the zombie
             rigidBody.MovePosition(rigidBody.position + knockbackDirection * Time.fixedDeltaTime);
             knockbackTimer -= Time.fixedDeltaTime;
-
-            
         }
         else
         {
@@ -56,58 +57,7 @@ public class ZombieMovement : MonoBehaviour
                 rigidBody.MovePosition(rigidBody.position + vectorToPlayer.normalized * movementSpeed * Time.fixedDeltaTime);
                 isWalking = true;
                 animator.SetBool("isWalking", isWalking);
-                
             }
-            
         }
-        //if (isWalking)
-        //{
-        //    left = rigidBody.position.x < 0;
-        //    right = rigidBody.position.x > 0;
-        //    up = rigidBody.position.y > 0;
-        //    down = rigidBody.position.y < 0;
-        //}
-        //else
-        //{
-        //    // NO MOVEMENT, SET ANIMATIONS TO FALSE
-        //    left = right = up = down = false;
-        //}
-
-        //// SET DIRECTION FOR ANIMATOR
-        //animator.SetBool("Left", left);
-        //animator.SetBool("Right", right);
-        //animator.SetBool("Up", up);
-        //animator.SetBool("Down", down);
-
-        //// FLIP LEFT/RIGHT SPRITE
-        //if (left)
-        //{
-        //    sr.flipX = true;
-        //}
-        //else if (right)
-        //{
-        //    sr.flipX = false;
-        //}
     }
-    //private void OnCollisionStay2D(Collision2D collision)
-    //{
-    //    IsAttacking(collision);
-    //}
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Optionally handle the collision impact here if needed
-    }
-
-    //private void IsAttacking(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        animator.SetBool("isAttacking", true);
-    //    }
-    //    else
-    //    {
-    //        animator.SetBool("isAttacking", false);
-    //    }
-    //}
 }
