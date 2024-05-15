@@ -1,22 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class Grenade : MonoBehaviour
-{ 
-    public Explode explodeScript;
-    public Throw throwScript;
+//public class Grenade : MonoBehaviour
+//{ 
+//    public Explode explodeScript;
+//    public Throw throwScript;
 
-    void Update()
-    {
+//    void Update()
+//    {
 
-        if (throwScript.throwing)
-        {
+//        if (throwScript.throwing)
+//        {
                 
-            explodeScript.isExploding = true;
+//            explodeScript.isExploding = true;
             
-        }
+//        }
         
-    }
+//    }
 
-}
+//}
