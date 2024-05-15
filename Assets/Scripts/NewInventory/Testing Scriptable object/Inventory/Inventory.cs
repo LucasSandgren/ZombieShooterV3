@@ -35,6 +35,8 @@ public class Inventory : MonoBehaviour
             itemDictionary.Add(itemData, newItem);
             OnInventoryChange?.Invoke(inventory);
         }
+
+        IsItemInInventory(itemData.displayName, 3);
     }
     public void Remove(ItemData itemData) //Same as add but removes it
     {
@@ -53,9 +55,8 @@ public class Inventory : MonoBehaviour
     public bool IsItemInInventory(string itemName, int quantity)
     {
         //Loops trought the inventory
-        for (int i = 0; i < inventory.Count - 1; i++)
+        for (int i = 0; i < inventory.Count; i++)
         {
-            Debug.Log(inventory[i].itemData.displayName + "     " +  inventory[i].stackSize);
             //Checks if the current item in the inventory is the correct and that there is enough of it
             if (inventory[i].itemData.displayName == itemName && inventory[i].stackSize >= quantity)
             {

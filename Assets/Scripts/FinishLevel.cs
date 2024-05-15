@@ -20,7 +20,7 @@ public class FinishLevel : MonoBehaviour
     {
         if (inRange && Input.GetKeyDown(KeyCode.E))
         {
-            if (inventoryScript.IsItemInInventory(itemName, itemCount))
+            if (itemCount == 0 || inventoryScript.IsItemInInventory(itemName, itemCount))
             {
                 //Saves everything
                 //PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());

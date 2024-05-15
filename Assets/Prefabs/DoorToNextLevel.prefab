@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7005531906874447778}
   - component: {fileID: 4761024425902323658}
   - component: {fileID: 3202113659877778627}
-  - component: {fileID: 3262836722693664051}
+  - component: {fileID: 1319543102808956650}
   m_Layer: 0
   m_Name: DoorToNextLevel
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2935555868963843153}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.48, y: -9.83, z: 0}
   m_LocalScale: {x: 2.0662107, y: 0.49167, z: 1}
   m_ConstrainProportionsScale: 0
@@ -132,7 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.2198904}
   m_EdgeRadius: 0
---- !u!114 &3262836722693664051
+--- !u!114 &1319543102808956650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,20 +141,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2935555868963843153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0d69739a3c19b4f8474d02fc805d63, type: 3}
+  m_Script: {fileID: 11500000, guid: 688b0cb7bcfdb404eb8edc32c9eeb92c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  payToOpen: 0
-  cost: 0
-  toNextLevel: 1
   nextLevelName: Level_Two
-  useItemForNextLevel: 0
   itemName: 
   itemCount: 0
   inventoryScript: {fileID: 0}
-  InventorySlots: {fileID: 0}
   playerHealthScript: {fileID: 0}
-  car: {fileID: 0}
 --- !u!1 &7284552752523204799
 GameObject:
   m_ObjectHideFlags: 0
