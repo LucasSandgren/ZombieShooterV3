@@ -131,12 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947d37e3f72230d4fb9c266f5258d99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 8753556011275591192}
   reloadTime: 3
   damage: 20
   range: 6
   bulletSpeed: 70
-  cameraShake: 1
   playerAnimator: {fileID: 2589428789494150369}
 --- !u!114 &1609115424566616761
 MonoBehaviour:
@@ -340,6 +338,7 @@ GameObject:
   - component: {fileID: 2203779172397984636}
   - component: {fileID: 4478028089864884188}
   - component: {fileID: 6204527093802462945}
+  - component: {fileID: -7624365644709075012}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -547,6 +546,8 @@ MonoBehaviour:
   maxHealth: 100
   immunityDuration: 1
   healthBar: {fileID: 0}
+  gameoverScreen: {fileID: 0}
+  syringe: {fileID: 0}
 --- !u!114 &4478028089864884188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +573,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61352cc6d8f9cff4fb038a219b7e73a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventorySlots: {fileID: 0}
+  inventoryScript: {fileID: 0}
+--- !u!114 &-7624365644709075012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335404764175062147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119f62d743eae434094d4d3fe9d0b037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3687342920585974562
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,8 +813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e89505156313ef4c95a2de117e63325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapAnimator: {fileID: 0}
   damage: 5
+  trapAnimator: {fileID: 0}
 --- !u!1 &7559299029366706264
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,12 +862,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947d37e3f72230d4fb9c266f5258d99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 926186173282123623}
   reloadTime: 1
   damage: 10
   range: 6
   bulletSpeed: 40
-  cameraShake: 1
   playerAnimator: {fileID: 2589428789494150369}
 --- !u!114 &265186320545177359
 MonoBehaviour:
