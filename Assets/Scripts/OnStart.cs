@@ -19,9 +19,10 @@ public class OnStart : MonoBehaviour
 
         coins = PlayerPrefs.GetInt("Coins");
 
-        //Loops 13 times since that is the max amount of items that can be saved
-        for (int i = 0; i < 13; i++)
+        //Loops for each position in the inventory
+        for (int i = 0; i < inventoryScript.inventory.Count; i++)
         {
+            //Check so that there is an item saved for the current position
             if (PlayerPrefs.HasKey(PlayerPrefs.GetString("ItemName" + i)))
             {
                 //Creates a new "ItemData" with the saved name for slot i
