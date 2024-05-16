@@ -18,6 +18,7 @@ public class OnStart : MonoBehaviour
         Time.timeScale = 1;
 
         coins = PlayerPrefs.GetInt("Coins");
+        //inventoryScript.LoadInventoryFromPlayerPrefs(inventoryScript);
 
         //Loops for each position in the inventory
         for (int i = 0; i < inventoryScript.inventory.Count; i++)
@@ -34,7 +35,24 @@ public class OnStart : MonoBehaviour
                     inventoryScript.Add(loadedItem);
                 }
             }
-            
+
+        }
+    }
+    void OnStart2() //Not the used method, simply for testing saving between scenes
+    {
+        for (int i = 0; i < 13; i++)
+        {
+            if (PlayerPrefs.HasKey("ItemName" + i))
+            {
+                // Creates a new "ItemData" with the saved name for slot i
+                ItemData loadedItem = new ItemData(PlayerPrefs.GetString("ItemName" + i), 0);
+
+                // Adds the item as many times as is saved
+                for (int j = 0; j < PlayerPrefs.GetInt("ItemQuantity" + i); j++)
+                {
+                    inventoryScript.Add(loadedItem);
+                }
+            }
         }
     }
 

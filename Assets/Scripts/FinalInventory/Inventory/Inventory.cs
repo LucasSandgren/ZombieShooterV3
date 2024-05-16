@@ -73,4 +73,43 @@ public class Inventory : MonoBehaviour
     {
         return inventory[inventoryPosition].stackSize;
     }
+    public void SaveInventoryToPlayerPrefs(Inventory inventory)
+    {
+        //// Clear previous inventory data in PlayerPrefs
+        //PlayerPrefs.DeleteAll();
+
+        //// Save each item in the inventory to PlayerPrefs
+        //for (int i = 0; i < inventory.inventory.Count; i++)
+        //{
+        //    // Serialize the scriptable object data to JSON
+        //    string json = JsonUtility.ToJson(inventory.inventory[i].itemData);
+
+        //    // Save the JSON data to PlayerPrefs
+        //    PlayerPrefs.SetString("ItemData" + i, json);
+        //}
+
+        //// Save the number of items in the inventory
+        //PlayerPrefs.SetInt("InventoryCount", inventory.inventory.Count);
+
+        //PlayerPrefs.Save();
+    }
+
+    public void LoadInventoryFromPlayerPrefs(Inventory inventory)
+    {
+        //inventory.inventory.Clear();
+
+        //int inventoryCount = PlayerPrefs.GetInt("InventoryCount", 0);
+        //for (int i = 0; i < inventoryCount; i++)
+        //{
+        //    if (PlayerPrefs.HasKey("ItemData" + i))
+        //    {
+        //        // Deserialize the JSON data back into a scriptable object
+        //        string json = PlayerPrefs.GetString("ItemData" + i);
+        //        ItemData loadedItem = JsonUtility.FromJson<ItemData>(json);
+
+        //        // Add the loaded item to the inventory
+        //        inventory.Add(loadedItem);
+        //    }
+        //}
+    }
 }

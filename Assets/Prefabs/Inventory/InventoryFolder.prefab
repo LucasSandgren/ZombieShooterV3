@@ -111,6 +111,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6042390129528418035}
+  - component: {fileID: 1636750105285582908}
   m_Layer: 0
   m_Name: InventoryFolder
   m_TagString: Untagged
@@ -135,6 +136,19 @@ Transform:
   - {fileID: 8752564840054953010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1636750105285582908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3165726703786647029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09ccae16a8e870428e0fa128609f266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIndex: 1
 --- !u!1 &5526238871793732847
 GameObject:
   m_ObjectHideFlags: 0

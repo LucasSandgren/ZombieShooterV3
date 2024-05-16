@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,7 +33,7 @@ public class FinishLevel : MonoBehaviour
                     PlayerPrefs.SetString("ItemName" + i, inventoryScript.GetItemName(i));
                     PlayerPrefs.SetInt("ItemQuantity" + i, inventoryScript.GetItemQuantity(i));
                 }
-
+                //inventoryScript.SaveInventoryToPlayerPrefs(inventoryScript);
                 SceneManager.LoadScene(nextLevelName);
             }
         }
