@@ -27,14 +27,11 @@ public class FinishLevel : MonoBehaviour
                 //PlayerPrefs.SetInt("Coins", OnStart.coins);
                 //PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
 
-                //for (int i = 0; i < InventorySlots.transform.childCount; i++)
-                //{
-                //    ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
-
-                //    PlayerPrefs.SetString("ItemName" + i, itemSlot.itemName);
-                //    PlayerPrefs.SetInt("ItemQuantity" + i, itemSlot.quantity);
-                //    PlayerPrefs.SetString("ItemDescription" + i, itemSlot.itemDescription);
-                //}
+                for (int i = 0; i < inventoryScript.inventory.Count; i++)
+                {
+                    PlayerPrefs.SetString("ItemName" + i, inventoryScript.GetItemName(i));
+                    PlayerPrefs.SetInt("ItemQuantity" + i, inventoryScript.GetItemQuantity(i));
+                }
 
                 SceneManager.LoadScene(nextLevelName);
             }

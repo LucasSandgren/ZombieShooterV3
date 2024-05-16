@@ -12,9 +12,8 @@ public class ResetProgress : MonoBehaviour
 
         for (int i = 0; i < 13; i++)
         {
-            PlayerPrefs.SetString("ItemName" + i, "");
-            PlayerPrefs.SetInt("ItemQuantity" + i, 0);
-            PlayerPrefs.SetString("ItemDescription" + i, "");
+            PlayerPrefs.DeleteKey("ItemName" + i);
+            PlayerPrefs.DeleteKey("ItemQuantity" + i);
         }
     }
 }

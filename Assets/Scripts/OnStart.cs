@@ -9,6 +9,9 @@ public class OnStart : MonoBehaviour
     [Header("Character Stats: ")]
     public static int coins;
 
+    [Header("References: ")]
+    [SerializeField] private Inventory inventoryScript;
+
     void Start()
     {
         
@@ -16,14 +19,22 @@ public class OnStart : MonoBehaviour
 
         coins = PlayerPrefs.GetInt("Coins");
 
-        //for (int i = 0; i < InventorySlots.transform.childCount; i++)
-        //{
-        //    ItemSlot itemSlot = InventorySlots.transform.GetChild(i).GetComponent<ItemSlot>();
+        //Loops 13 times since that is the max amount of items that can be saved
+        for (int i = 0; i < 13; i++)
+        {
+            if (PlayerPrefs.HasKey(PlayerPrefs.GetString("ItemName" + i)))
+            {
+                //Creates a new "ItemData" with the saved name for slot i
+                ItemData loadedItem = new ItemData(PlayerPrefs.GetString("ItemName" + i), 0);
 
-        //    itemSlot.itemName = PlayerPrefs.GetString("ItemName" + i);
-        //    itemSlot.quantity = PlayerPrefs.GetInt("ItemQuantity" + i);
-        //    itemSlot.itemDescription = PlayerPrefs.GetString("ItemDescription" + i);
-        //}
+                //Adds the item as many times as is saved
+                for (int j = 0; j < PlayerPrefs.GetInt("ItemQuantity" + j); j++)
+                {
+                    inventoryScript.Add(loadedItem);
+                }
+            }
+            
+        }
     }
 
 }

@@ -66,4 +66,13 @@ public class Inventory : MonoBehaviour
 
         return false;
     }
+
+    public string GetItemName(int inventoryPosition)
+    {
+        return inventory[inventoryPosition].itemData.displayName;
+    }
+    public int GetItemQuantity(int inventoryPosition)
+    {
+        return inventory[inventoryPosition].stackSize;
+    }
 }
