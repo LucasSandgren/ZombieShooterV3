@@ -68,7 +68,6 @@ public class ZombieMovement : MonoBehaviour
                 if (soundTimer <= 0f)
                 {
                     PlaySound();
-                    soundIndex = (soundIndex + 1) % sounds.Length;
                     soundTimer = soundInterval;
                 }
             }
@@ -80,6 +79,6 @@ public class ZombieMovement : MonoBehaviour
 
         audio.clip = sounds[soundIndex];
         audio.Play();
-        
+        soundIndex = (soundIndex + 1) % sounds.Length;
     }
 }
