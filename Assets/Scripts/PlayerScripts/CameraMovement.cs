@@ -4,59 +4,41 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [Header("References")]
-    [SerializeField] private Transform playerTransform;
-    //public Transform fogFollow;
-
-    [Header("Variables")]
-    [SerializeField] private float shakeAmount;
+    [SerializeField] private Vector3 offset; // OFFSET FOR CAMERA
+    [SerializeField] private float damping; // HOW FAST CAMERA WILL FOLLOW PLAYER
     [SerializeField] private float shakeDuration;
-    private float shakeTimer;
+    [SerializeField] private float shakeIntensity;
 
+    public Transform target;
+    private Vector2 velocity = Vector2.zero;
 
-    private Vector3 newPosition;
-
-    private float temporaryXOffset;
-    private float temporaryYOffset;
-
-    void Start()
+    private void FixedUpdate()
     {
-        newPosition.z = -10;
-        shakeTimer = shakeDuration;
+        Vector2 targetPos = target.position + offset;
+
+        transform.position = Vector2.SmoothDamp(transform.position, targetPos, ref velocity, damping);
     }
-
-    void Update()
-    {
-        //If camera should shake
-        if (shakeTimer < shakeDuration)
-        {
-            temporaryXOffset = Random.Range(-1, 2) * shakeAmount;
-            temporaryYOffset = Random.Range(-1, 2) * shakeAmount;
-
-            shakeTimer += Time.deltaTime;
-        }
-        //Normal camera movement
-        else
-        {
-            temporaryXOffset = 0;
-            temporaryYOffset = 0;
-        }
-
-        newPosition.x = playerTransform.position.x + temporaryXOffset;
-        newPosition.y = playerTransform.position.y + temporaryYOffset;
-
-        transform.position = newPosition;
-        //fogFollow.position = transform.position;
-    }
-
     public void StartCameraShake()
     {
-        shakeTimer = 0;
+        StartCoroutine(CameraShake());
+    }
+    private IEnumerator CameraShake()
+    {
+        float elapsed = 0.0f;
+        Vector3 originalPos = transform.position;
+
+        while (elapsed < shakeDuration)
+        {
+            float x = Random.Range(-1f, 2f) * shakeIntensity;
+            float y = Random.Range(-1f, 2f) * shakeIntensity;
+
+            transform.position = new Vector3(originalPos.x + x, originalPos.y + y);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+        transform.position = originalPos;
     }
 
-    /* USED TO SWAP BETWEEN CAR AND PLAYER CAMERA */
-    public void ChangeTarget(Transform newTarget)
-    {
-        playerTransform = newTarget;
-    }
 }
