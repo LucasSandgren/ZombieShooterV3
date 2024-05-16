@@ -1,44 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
     [SerializeField] private Vector3 offset; // OFFSET FOR CAMERA
-    [SerializeField] private float damping; // HOW FAST CAMERA WILL FOLLOW PLAYER
-    [SerializeField] private float shakeDuration;
-    [SerializeField] private float shakeIntensity;
+    [SerializeField] public float damping; // HOW FAST CAMERA WILL FOLLOW PLAYER
+    [SerializeField] private float shakeDuration; // Duration of the camera shake
+    [SerializeField] private float shakeIntensity; // Intensity of the camera shake
 
     public Transform target;
-    private Vector2 velocity = Vector2.zero;
+    private Vector3 velocity = Vector3.zero;
 
     private void FixedUpdate()
     {
-        Vector2 targetPos = target.position + offset;
+        Vector3 targetPos = target.position + offset;
+        targetPos.z = -25f; // Ensure the camera stays at -25 on the z-axis
 
-        transform.position = Vector2.SmoothDamp(transform.position, targetPos, ref velocity, damping);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, damping);
     }
+
     public void StartCameraShake()
     {
         StartCoroutine(CameraShake());
     }
+
     private IEnumerator CameraShake()
     {
         float elapsed = 0.0f;
         Vector3 originalPos = transform.position;
+        originalPos.z = -25f; // Ensure the original position has z set to -25
 
         while (elapsed < shakeDuration)
         {
-            float x = Random.Range(-1f, 2f) * shakeIntensity;
-            float y = Random.Range(-1f, 2f) * shakeIntensity;
+            float x = Random.Range(-1f, 1f) * shakeIntensity;
+            float y = Random.Range(-1f, 1f) * shakeIntensity;
 
-            transform.position = new Vector3(originalPos.x + x, originalPos.y + y);
+            transform.position = new Vector3(originalPos.x + x, originalPos.y + y, -25f); // Maintain z at -25
 
             elapsed += Time.deltaTime;
 
             yield return null;
         }
-        transform.position = originalPos;
-    }
 
+        transform.position = new Vector3(originalPos.x, originalPos.y, -25f); // Reset to original position with z at -25
+    }
 }

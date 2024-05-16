@@ -6,13 +6,19 @@ public class Teleporter : MonoBehaviour
     [Header("House teleportation")]
     [Space]
     [SerializeField] private Transform targetDestination;
-
-    private GameObject currentTeleporter;
     [SerializeField] private SceneFader sceneFader;
+    private GameObject currentTeleporter;
+    private CameraMovement cameraMovement;
+    private float originalDamping;
 
     void Awake()
     {
         sceneFader = SceneFader.instance;
+        cameraMovement = Camera.main.GetComponent<CameraMovement>();
+        if (cameraMovement != null )
+        {
+            originalDamping = cameraMovement.damping;
+        }
     }
 
     public Transform GetDestination()
@@ -58,10 +64,18 @@ public class Teleporter : MonoBehaviour
     IEnumerator TeleportFade(Vector3 destination)
     {
         if (sceneFader != null)
-        {
+        {   
+            if (cameraMovement != null)
+            {
+                cameraMovement.damping = 0;
+            }
             yield return StartCoroutine(sceneFader.FadeOutLevel());
             transform.position = destination;
             yield return StartCoroutine(sceneFader.FadeInLevel());
+            if (cameraMovement != null)
+            {
+                cameraMovement.damping = originalDamping;
+            }
         }
     }
 
