@@ -33559,6 +33559,10 @@ PrefabInstance:
       propertyPath: InventorySlots
       value: 
       objectReference: {fileID: 347419807}
+    - target: {fileID: 6204527093802462945, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
+      propertyPath: inventoryScript
+      value: 
+      objectReference: {fileID: 377310369}
     - target: {fileID: 7559299029366706264, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
       propertyPath: m_IsActive
       value: 0
