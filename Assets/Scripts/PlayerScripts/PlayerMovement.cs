@@ -117,7 +117,7 @@ public class CollisionMovement : MonoBehaviour
     private void PlayStep()
     {
         if (footsteps.Length == 0) return;
-        Debug.Log("Step index: " + stepIndex + ", Clip: " + footsteps[stepIndex].name);
+        
         audio.clip = footsteps[stepIndex];
         audio.Play();
         stepIndex = (stepIndex + 1) % footsteps.Length;
