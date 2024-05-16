@@ -35,8 +35,6 @@ public class Inventory : MonoBehaviour
             itemDictionary.Add(itemData, newItem);
             OnInventoryChange?.Invoke(inventory);
         }
-
-        IsItemInInventory(itemData.displayName, 3);
     }
     public void Remove(ItemData itemData) //Same as add but removes it
     {

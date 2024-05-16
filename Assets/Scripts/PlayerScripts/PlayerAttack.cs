@@ -24,7 +24,7 @@ public class Shooting : MonoBehaviour
     IEnumerator ResetAnimationState()
     {
         yield return new WaitForSeconds(0.5f);
-        playerAnimator.Play("Gun_Idle");
+        //playerAnimator.Play("Gun_Idle");
     }
     void Start()
     {
@@ -44,7 +44,6 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetMouseButton(0) && reloadTimer >= reloadTime)
         {
-            playerAnimator.SetTrigger("Shoot");
             StartCoroutine(ResetAnimationState());
 
             //Clones a bullet at position of the gun + offset * transform.up to the offset independent of rotation, and then sets it active
