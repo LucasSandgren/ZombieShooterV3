@@ -48,22 +48,25 @@ public class ZombieHealth : MonoBehaviour
     {
         GameObject collisionGameObject = collision.gameObject;
 
-        int damage = 0;
 
-        //Gets the damage to be taken
-        if (collisionGameObject.tag == "bullet")
+        if (collisionGameObject.CompareTag("bullet") || collisionGameObject.CompareTag("Knife"))
         {
-            damage = collisionGameObject.GetComponent<Bullet>().damage;
-        }
-        else if (collisionGameObject.CompareTag("Knife"))
-        {
-            damage = collisionGameObject.GetComponent<DamagingSpikes>().GetDamageValue();
-        }
+            int damage = 0;
 
+            //Gets the damage to be taken
+            if (collisionGameObject.CompareTag("bullet"))
+            {
+                damage = collisionGameObject.GetComponent<Bullet>().damage;
+            }
+            else if (collisionGameObject.CompareTag("Knife"))
+            {
+                damage = collisionGameObject.GetComponent<DamagingSpikes>().GetDamageValue();
+            }
 
-        TakeDamage(damage);
-        //Makes the zombie get knockback
-        Vector2 vectorFromBullet = gameObject.transform.position - collisionGameObject.transform.position;
-        zombieMovementScript.TakeKnockBack(vectorFromBullet.normalized);
+            TakeDamage(damage);
+            //Makes the zombie get knockback
+            Vector2 vectorFromBullet = gameObject.transform.position - collisionGameObject.transform.position;
+            zombieMovementScript.TakeKnockBack(vectorFromBullet.normalized);
+        }
     }
 }
