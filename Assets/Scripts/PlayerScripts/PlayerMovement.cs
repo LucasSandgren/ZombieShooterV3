@@ -66,7 +66,7 @@ public class CollisionMovement : MonoBehaviour
             stepTimer -= Time.deltaTime;
             if (stepTimer <= 0f)
             {
-                PlayStep();
+                PlayStep(0.01f);
                 stepTimer = stepInterval;
             }
         }
@@ -114,11 +114,12 @@ public class CollisionMovement : MonoBehaviour
             slowed = false;
         }
     }
-    private void PlayStep()
+    private void PlayStep(float volume)
     {
         if (footsteps.Length == 0) return;
         
         audio.clip = footsteps[stepIndex];
+        audio.volume = volume;
         audio.Play();
         stepIndex = (stepIndex + 1) % footsteps.Length;
     }

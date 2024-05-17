@@ -77,8 +77,8 @@ public class ZombieMovement : MonoBehaviour
     {
         if (sounds.Length == 0) return;
 
+        soundIndex = UnityEngine.Random.Range(0, sounds.Length);
         audio.clip = sounds[soundIndex];
         audio.Play();
-        soundIndex = (soundIndex + 1) % sounds.Length;
     }
 }

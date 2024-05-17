@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e75f1ebcc28a646a25c5d6ab90b967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1.4
+  movementSpeed: 4
   detectionRange: 8
   playerTransfrom: {fileID: 0}
   animator: {fileID: 6593611599879614097}
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cc680b51c6a1a4a866b42b2887cab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 10
+  attackDamage: 3
 --- !u!114 &1876049825133197699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd273edf78726b140895358ea578f34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 35
+  healthPoints: 10
   coinPrefab: {fileID: 3249492785715537317, guid: 9c5b777707cba8240a06d575179ff704, type: 3}
 --- !u!95 &6593611599879614097
 Animator:
