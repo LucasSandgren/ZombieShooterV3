@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +17,12 @@ public class FinishLevel : MonoBehaviour
     [Header("Refrences: ")]
     [SerializeField] private Inventory inventoryScript;
     [SerializeField] private PlayerHealth playerHealthScript;
+    [SerializeField] private TextMeshProUGUI popupText;
+
+    private void Start()
+    {
+        popupText.enabled = false;
+    }
 
     void Update()
     {
@@ -45,6 +52,7 @@ public class FinishLevel : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inRange = true;
+            popupText.enabled = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -52,6 +60,7 @@ public class FinishLevel : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inRange = false;
+            popupText.enabled = false;
         }
     }
 }

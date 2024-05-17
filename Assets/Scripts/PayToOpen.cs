@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PayToOpen : MonoBehaviour
@@ -7,6 +8,12 @@ public class PayToOpen : MonoBehaviour
     private bool inRange = false;
 
     [SerializeField] private int cost = 0;
+    [SerializeField] private TextMeshProUGUI popupText;
+
+    private void Start()
+    {
+        popupText.enabled = false;
+    }
 
     void Update()
     {
@@ -14,6 +21,7 @@ public class PayToOpen : MonoBehaviour
         {
             if (OnStart.coins >= cost)
             {
+                popupText.enabled = false;
                 OnStart.coins -= cost;
                 Destroy(gameObject);
             }
@@ -26,6 +34,7 @@ public class PayToOpen : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inRange = true;
+            popupText.enabled = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -33,6 +42,7 @@ public class PayToOpen : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inRange = false;
+            popupText.enabled = false;
         }
     }
 }
