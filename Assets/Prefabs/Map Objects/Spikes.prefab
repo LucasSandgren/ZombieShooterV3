@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e89505156313ef4c95a2de117e63325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapAnimator: {fileID: 0}
   damage: 10
+  trapAnimator: {fileID: 6969374791502389799}
 --- !u!95 &6969374791502389799
 Animator:
   serializedVersion: 5
