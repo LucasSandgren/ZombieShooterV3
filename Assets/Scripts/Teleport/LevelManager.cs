@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Level_One");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ToMainMenu()
