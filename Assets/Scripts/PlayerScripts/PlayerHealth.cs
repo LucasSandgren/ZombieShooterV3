@@ -6,9 +6,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Character Stats: ")]
-    [SerializeField] private int maxHealth = 100;
-    [SerializeField] private float immunityDuration;
+    private int maxHealth = 100;
+    private float immunityDuration = 1;
     private int currentHealth;
 
     [Header("References: ")]
