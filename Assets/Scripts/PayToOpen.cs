@@ -19,10 +19,10 @@ public class PayToOpen : MonoBehaviour
     {
         if (inRange && Input.GetKeyDown(KeyCode.E))
         {
-            if (OnStart.coins >= cost)
+            if (PersistentVariables.coins >= cost)
             {
                 popupText.enabled = false;
-                OnStart.coins -= cost;
+                PersistentVariables.coins -= cost;
                 Destroy(gameObject);
             }
         }

@@ -28,8 +28,7 @@ public class LevelManager : MonoBehaviour
     }
     public void StartGame()
     {
-        PlayerPrefs.SetInt("Health", 100);
-        SceneManager.LoadScene("Level_One"); // TEMP FIX LOAD DIRECTLY INTO LEVEL ONE
+        SceneManager.LoadScene("Level_One"); 
         //sceneFader.FadeToScene("Level_One"); // "Coroutine couldn't be started because the the game object 'Fade' is inactive!" ERROR FADE SCREEN DON'T WORK FROM START SCREEN -> LEVEL_ONE FOR SOME REASON <.<
     }
 

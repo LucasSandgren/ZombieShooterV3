@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = PlayerPrefs.GetInt("Health");
+        currentHealth = PersistentVariables.currentHealth;
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
         syringe = GetComponent<Syringe>();

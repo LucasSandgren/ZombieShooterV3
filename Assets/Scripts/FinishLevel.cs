@@ -30,17 +30,7 @@ public class FinishLevel : MonoBehaviour
         {
             if (itemCount == 0 || inventoryScript.IsItemInInventory(itemName, itemCount))
             {
-                //Saves everything
-                //PlayerPrefs.SetInt("Health", playerHealthScript.GetCurrentHealth());
-                //PlayerPrefs.SetInt("Coins", OnStart.coins);
-                //PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
-
-                for (int i = 0; i < inventoryScript.inventory.Count; i++)
-                {
-                    PlayerPrefs.SetString("ItemName" + i, inventoryScript.GetItemName(i));
-                    PlayerPrefs.SetInt("ItemQuantity" + i, inventoryScript.GetItemQuantity(i));
-                }
-                //inventoryScript.SaveInventoryToPlayerPrefs(inventoryScript);
+                PersistentVariables.currentHealth = playerHealthScript.GetCurrentHealth();
                 SceneManager.LoadScene(nextLevelName);
             }
         }
