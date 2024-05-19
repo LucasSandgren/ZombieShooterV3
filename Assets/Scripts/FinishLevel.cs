@@ -15,7 +15,6 @@ public class FinishLevel : MonoBehaviour
     [SerializeField] private int itemCount;
 
     [Header("Refrences: ")]
-    [SerializeField] private Inventory inventoryScript;
     [SerializeField] private PlayerHealth playerHealthScript;
     [SerializeField] private TextMeshProUGUI popupText;
 
@@ -28,7 +27,7 @@ public class FinishLevel : MonoBehaviour
     {
         if (inRange && Input.GetKeyDown(KeyCode.E))
         {
-            if (itemCount == 0 || inventoryScript.IsItemInInventory(itemName, itemCount))
+            if (itemCount == 0 || PersistentInventory.Instance.GetComponentInChildren<Inventory>().IsItemInInventory(itemName, itemCount))
             {
                 PersistentVariables.currentHealth = playerHealthScript.GetCurrentHealth();
                 SceneManager.LoadScene(nextLevelName);
