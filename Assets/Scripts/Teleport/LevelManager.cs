@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
 
     public void Restart()
     {
+        Debug.Log("Restart called");
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

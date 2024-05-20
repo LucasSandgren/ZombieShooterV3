@@ -744,6 +744,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1586649074 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4711827396009522500, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
+  m_PrefabInstance: {fileID: 1999509976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9920ab92ded9df4ca8a114cea3ec95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1743294328
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,17 +922,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
---- !u!114 &1999509977 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1407788016713843519, guid: 1e4faab01b5c5b144897e7232508c355, type: 3}
-  m_PrefabInstance: {fileID: 1999509976}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9920ab92ded9df4ca8a114cea3ec95d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2004191693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4603650000537735206, guid: 0e52e8dd37dca62478a5de19a6c46994, type: 3}
@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1999509977}
+      - m_Target: {fileID: 1586649074}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
