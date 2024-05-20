@@ -11,8 +11,13 @@ public class ZombieMovement : MonoBehaviour
 
     [Header("References: ")]
     [SerializeField] private Transform playerTransfrom;
-
     [SerializeField] private Animator animator;
+    [Header("Audio")]
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioClip[] sounds;
+    private int soundIndex = 0;
+    private float soundTimer = 0;
+    private float soundInterval = 10f;
 
     private bool isWalking = false;
     private bool isAttacking = false;
@@ -48,6 +53,8 @@ public class ZombieMovement : MonoBehaviour
             //Knocks back the zombie
             rigidBody.MovePosition(rigidBody.position + knockbackDirection * Time.fixedDeltaTime);
             knockbackTimer -= Time.fixedDeltaTime;
+
+            
         }
         else
         {
@@ -56,8 +63,22 @@ public class ZombieMovement : MonoBehaviour
                 // Makes the zombie walk towards the player
                 rigidBody.MovePosition(rigidBody.position + vectorToPlayer.normalized * movementSpeed * Time.fixedDeltaTime);
                 isWalking = true;
-                animator.SetBool("isWalking", isWalking);
+                animator.SetBool("isWalking", isWalking); 
+                
+                if (soundTimer <= 0f)
+                {
+                    PlaySound();
+                    soundTimer = soundInterval;
+                }
             }
         }
+    }
+    private void PlaySound()
+    {
+        if (sounds.Length == 0) return;
+
+        soundIndex = UnityEngine.Random.Range(0, sounds.Length);
+        audio.clip = sounds[soundIndex];
+        audio.Play();
     }
 }

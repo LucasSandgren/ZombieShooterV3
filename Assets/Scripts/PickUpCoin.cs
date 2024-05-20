@@ -10,7 +10,7 @@ public class PickUpCoin : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            OnStart.coins += coinsWorth;
+            PersistentVariables.coins += coinsWorth;
             Destroy(gameObject);
         }
     }
