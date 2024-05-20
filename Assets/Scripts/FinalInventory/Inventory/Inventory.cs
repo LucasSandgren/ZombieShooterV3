@@ -11,7 +11,6 @@ public class Inventory : MonoBehaviour
 
     private void OnEnable() //Adds the different items to the inventory
     {
-        Coin.OnCoinCollected += Add;
         MedKit.OnMedKitCollected += Add;
         Syringe.OnSyringeCollected += Add;
         Bandage.OnBandageCollect += Add;
@@ -19,7 +18,10 @@ public class Inventory : MonoBehaviour
     }
     private void OnDisable()
     {
-
+        MedKit.OnMedKitCollected -= Add;
+        Syringe.OnSyringeCollected -= Add;
+        Bandage.OnBandageCollect -= Add;
+        FuelTank.OnFuelTankCollected -= Add;
     }
     public void Add(ItemData itemData) //Takes itemdata from the itemdata script and adds it into the list of inventory items
     {
@@ -111,5 +113,18 @@ public class Inventory : MonoBehaviour
         //        inventory.Add(loadedItem);
         //    }
         //}
+    }
+    public InventoryItem GetItem(string itemName)
+    {
+        return inventory.Find(item => item.itemData.displayName == itemName);
+    }
+    public void UseItem(string itemName)
+    {
+        InventoryItem itemToUse = GetItem(itemName);
+        if(itemToUse != null && itemToUse.itemData is IUsable usableItem)
+        {
+            usableItem.Use();
+            Remove(itemToUse.itemData);
+        }
     }
 }

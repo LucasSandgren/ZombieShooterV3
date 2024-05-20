@@ -9,7 +9,11 @@ public class MedKit : MonoBehaviour, ICollectible, IUsable
     public static event HandleMedKitCollected OnMedKitCollected;
     public ItemData medKitData;
     public int healAmount;
-    PlayerHealth playerHealth = new();
+    private PlayerHealth playerHealth;
+    private void Start()
+    {
+        playerHealth = GetComponent<PlayerHealth>();
+    }
     public void Collect()
     {
         Destroy(gameObject);
