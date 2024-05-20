@@ -15,6 +15,9 @@ public class Inventory : MonoBehaviour
         Syringe.OnSyringeCollected += Add;
         Bandage.OnBandageCollect += Add;
         FuelTank.OnFuelTankCollected += Add;
+        //Pistol.OnPistolCollected += Add;
+        //Rifle.OnRifleCollected += Add;
+        //Knife.OnKnifeCollected += Add;
     }
     private void OnDisable()
     {
