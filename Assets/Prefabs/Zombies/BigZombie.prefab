@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cc680b51c6a1a4a866b42b2887cab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 50
+  attackDamage: 40
 --- !u!114 &8059048586429522062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd273edf78726b140895358ea578f34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 100
+  healthPoints: 90
   coinPrefab: {fileID: 3249492785715537317, guid: 9c5b777707cba8240a06d575179ff704, type: 3}
 --- !u!95 &49013161291795636
 Animator:

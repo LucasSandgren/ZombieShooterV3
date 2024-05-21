@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947d37e3f72230d4fb9c266f5258d99f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 2.5
-  damage: 20
+  reloadTime: 3
+  damage: 40
   range: 6
   bulletSpeed: 70
   playerAnimator: {fileID: 2589428789494150369}
@@ -337,7 +337,6 @@ GameObject:
   - component: {fileID: 911316094279096984}
   - component: {fileID: 2203779172397984636}
   - component: {fileID: 4478028089864884188}
-  - component: {fileID: 6204527093802462945}
   - component: {fileID: -7624365644709075012}
   - component: {fileID: 854527448975699239}
   - component: {fileID: 5807572119949905732}
@@ -553,8 +552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deab470b4d463984c9109c93e3d06dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  immunityDuration: 1
   healthBar: {fileID: 0}
   gameoverScreen: {fileID: 0}
   syringe: {fileID: 0}
@@ -571,19 +568,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canThrow: 1
---- !u!114 &6204527093802462945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335404764175062147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61352cc6d8f9cff4fb038a219b7e73a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryScript: {fileID: 0}
 --- !u!114 &-7624365644709075012
 MonoBehaviour:
   m_ObjectHideFlags: 0
