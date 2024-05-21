@@ -95,4 +95,10 @@ public class Inventory : MonoBehaviour
             Debug.Log($"Item {itemName} not found or has no buff.");
         }
     }
+    public void ClearInventory()
+    {
+        inventory.Clear();
+        itemDictionary.Clear();
+        OnInventoryChange?.Invoke(inventory);
+    }
 }

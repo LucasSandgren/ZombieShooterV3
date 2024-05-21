@@ -36,13 +36,23 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Restart called");
         Time.timeScale = 1;
+        ClearInventory();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ToMainMenu()
     {
         Time.timeScale = 1;
+        ClearInventory() ;
         SceneManager.LoadScene("StartScreen");
+    }
+    private void ClearInventory()
+    {
+        Inventory inventory = FindObjectOfType<Inventory>();
+        if(inventory != null)
+        {
+            inventory.ClearInventory();
+        }
     }
 }
  
