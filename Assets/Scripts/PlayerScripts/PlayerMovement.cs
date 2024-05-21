@@ -40,8 +40,7 @@ public class CollisionMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
 
         // Confine and hide cursor
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = false;
+        UIManager.Instance?.ResetCursorVisibility();
     }
 
     void Update()

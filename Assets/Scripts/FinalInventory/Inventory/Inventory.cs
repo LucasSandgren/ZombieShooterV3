@@ -15,9 +15,6 @@ public class Inventory : MonoBehaviour
         Syringe.OnSyringeCollected += Add;
         Bandage.OnBandageCollect += Add;
         FuelTank.OnFuelTankCollected += Add;
-        //Pistol.OnPistolCollected += Add;
-        //Rifle.OnRifleCollected += Add;
-        //Knife.OnKnifeCollected += Add;
     }
     private void OnDisable()
     {
@@ -31,15 +28,16 @@ public class Inventory : MonoBehaviour
         if (itemDictionary.TryGetValue(itemData, out InventoryItem item)) //If an item already exists
         {
             item.AddToStack();
-            OnInventoryChange?.Invoke(inventory);
+            //OnInventoryChange?.Invoke(inventory);
         }
         else //Add the itemdata and invoke the inventory change (Redraw)
         {
             InventoryItem newItem = new InventoryItem(itemData);
             inventory.Add(newItem);
             itemDictionary.Add(itemData, newItem);
-            OnInventoryChange?.Invoke(inventory);
+            //OnInventoryChange?.Invoke(inventory);
         }
+        OnInventoryChange?.Invoke(inventory);
     }
     public void Remove(ItemData itemData) //Same as add but removes it
     {
@@ -78,45 +76,7 @@ public class Inventory : MonoBehaviour
     {
         return inventory[inventoryPosition].stackSize;
     }
-    public void SaveInventoryToPlayerPrefs(Inventory inventory)
-    {
-        //// Clear previous inventory data in PlayerPrefs
-        //PlayerPrefs.DeleteAll();
 
-        //// Save each item in the inventory to PlayerPrefs
-        //for (int i = 0; i < inventory.inventory.Count; i++)
-        //{
-        //    // Serialize the scriptable object data to JSON
-        //    string json = JsonUtility.ToJson(inventory.inventory[i].itemData);
-
-        //    // Save the JSON data to PlayerPrefs
-        //    PlayerPrefs.SetString("ItemData" + i, json);
-        //}
-
-        //// Save the number of items in the inventory
-        //PlayerPrefs.SetInt("InventoryCount", inventory.inventory.Count);
-
-        //PlayerPrefs.Save();
-    }
-
-    public void LoadInventoryFromPlayerPrefs(Inventory inventory)
-    {
-        //inventory.inventory.Clear();
-
-        //int inventoryCount = PlayerPrefs.GetInt("InventoryCount", 0);
-        //for (int i = 0; i < inventoryCount; i++)
-        //{
-        //    if (PlayerPrefs.HasKey("ItemData" + i))
-        //    {
-        //        // Deserialize the JSON data back into a scriptable object
-        //        string json = PlayerPrefs.GetString("ItemData" + i);
-        //        ItemData loadedItem = JsonUtility.FromJson<ItemData>(json);
-
-        //        // Add the loaded item to the inventory
-        //        inventory.Add(loadedItem);
-        //    }
-        //}
-    }
     public InventoryItem GetItem(string itemName)
     {
         return inventory.Find(item => item.itemData.displayName == itemName);
@@ -124,10 +84,15 @@ public class Inventory : MonoBehaviour
     public void UseItem(string itemName)
     {
         InventoryItem itemToUse = GetItem(itemName);
-        if(itemToUse != null && itemToUse.itemData is IUsable usableItem)
+        if (itemToUse != null && itemToUse.itemData.itemBuff != null)
         {
-            usableItem.Use();
+            Debug.Log($"Using item {itemToUse.itemData.displayName}");
+            itemToUse.itemData.itemBuff.ApplyEffect(GameObject.FindGameObjectWithTag("Player"));
             Remove(itemToUse.itemData);
+        }
+        else
+        {
+            Debug.Log($"Item {itemName} not found or has no buff.");
         }
     }
 }

@@ -15,14 +15,28 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     public TextMeshProUGUI labelText;
     private InventoryItem currentItem;
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void Awake()
     {
-        Debug.Log("Slot clicked");
-        if(currentItem != null)
+        if(icon != null)
         {
-            Debug.Log("Using item " + currentItem.itemData.displayName);
+            icon.raycastTarget = true;
         }
     }
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log($"Slot clicked at position: {eventData.position}");
+        if (currentItem != null)
+        {
+            Debug.Log($"Using item {currentItem.itemData.displayName}");
+            Inventory inventory = FindObjectOfType<Inventory>();
+            inventory.UseItem(currentItem.itemData.displayName);
+        }
+        else
+        {
+            Debug.Log("No item in this slot.");
+        }
+    }
+
     public void ClearSlot() //If there is no itemData in the slot, clear it
     {
         currentItem = null;

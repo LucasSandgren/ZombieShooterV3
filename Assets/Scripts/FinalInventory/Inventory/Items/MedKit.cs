@@ -21,6 +21,11 @@ public class MedKit : MonoBehaviour, ICollectible, IUsable
     }
     public void Use()
     {
-        playerHealth.Heal(healAmount);
+        if(medKitData.itemBuff != null)
+        {
+            medKitData.itemBuff.ApplyEffect(GameObject.FindGameObjectWithTag("Player"));
+            Inventory inventory = FindObjectOfType<Inventory>();
+            inventory.Remove(medKitData);
+        }
     }
 }
