@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //if(syringe.canTakeDamage == true)
+        //if (syringe.canTakeDamage == true)
         //{
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
