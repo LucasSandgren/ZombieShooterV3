@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Syringe syringe;
 
     private float immunityTimer;
+    private bool isImmune = false;
 
     void Start()
     {
@@ -28,12 +29,16 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         immunityTimer -= Time.deltaTime;
+        if(immunityTimer <= 0)
+        {
+            isImmune = false;
+        }
     }
 
     public void TakeDamage(int damage)
     {
-        //if (syringe.canTakeDamage == true)
-        //{
+        if (!isImmune)
+        {
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
             if (currentHealth <= 0)
@@ -46,7 +51,7 @@ public class PlayerHealth : MonoBehaviour
                 currentHealth = 100;
                 Cursor.visible = true;
             }
-        //}
+        }
     }
 
     public void Heal(int health)
@@ -63,12 +68,18 @@ public class PlayerHealth : MonoBehaviour
     {
         return currentHealth;
     }
+    public void SetImmunity(bool immune, float duration)
+    {
+        isImmune = immune;
+        immunityDuration = duration;
+        immunityTimer = duration;
+    }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         GameObject collisionObject = collision.gameObject;
 
-        if (immunityTimer <= 0)
+        if (!isImmune)
         {
             if (collisionObject.CompareTag("Zombie"))
             {
@@ -81,7 +92,7 @@ public class PlayerHealth : MonoBehaviour
     {
         GameObject collisionObject = collision.gameObject;
 
-        if (immunityTimer <= 0)
+        if (!isImmune)
         {
             if (collisionObject.CompareTag("Enviromental Hazard"))
             {

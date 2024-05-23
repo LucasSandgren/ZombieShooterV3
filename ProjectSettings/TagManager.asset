@@ -16,6 +16,7 @@ TagManager:
   - Vendor
   - Collision (Wall)
   - Teleporter
+  - Wall
   layers:
   - Default
   - TransparentFX

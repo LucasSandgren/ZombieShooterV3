@@ -17,6 +17,11 @@ public class Bandage : MonoBehaviour, ICollectible, IUsable
     }
     public void Use()
     {
-
+        if (bandageData.itemBuff != null)
+        {
+            bandageData.itemBuff.ApplyEffect(GameObject.FindGameObjectWithTag("Player"));
+            Inventory inventory = FindObjectOfType<Inventory>();
+            inventory.Remove(bandageData);
+        }
     }
 }

@@ -6,7 +6,7 @@ public class InventoryManager : MonoBehaviour
 {
     public GameObject slotPrefab;
     public List<InventorySlot> inventorySlots = new List<InventorySlot>(13);
-    public InventorySlot inventorySlot;
+    //public InventorySlot inventorySlot;
 
     private void OnEnable()
     {
@@ -23,19 +23,21 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(childTransform.gameObject);
         }
+        inventorySlots.Clear();
         inventorySlots = new List<InventorySlot>(13);
     }
     private void DrawInventory(List<InventoryItem> inventory)
     {
         ResetInventory();
-        for(int i = 0; i < inventorySlots.Capacity; i++)
+        for (int i = 0; i < inventorySlots.Capacity; i++)
         {
             CreateInventorySlot();
         }
 
-        for(int i = 0; i < inventory.Count; i++)
+        for (int i = 0; i < inventory.Count; i++)
         {
             inventorySlots[i].DrawSlot(inventory[i]);
+
         }
     }
     void CreateInventorySlot()
@@ -47,5 +49,6 @@ public class InventoryManager : MonoBehaviour
         newSlotComponent.ClearSlot();
 
         inventorySlots.Add(newSlotComponent);
+
     }
 }
