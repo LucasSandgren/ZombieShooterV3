@@ -20,6 +20,10 @@ public class Shooting : MonoBehaviour
     [Header("References: ")]
     /* USED FOR PLAYER MODEL ANIMATION */
     [SerializeField] private Animator playerAnimator;
+    [Header("Audio")]
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioClip[] sounds;
+    private int soundIndex;
 
     IEnumerator ResetAnimationState()
     {
