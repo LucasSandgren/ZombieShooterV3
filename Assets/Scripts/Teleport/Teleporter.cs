@@ -10,6 +10,10 @@ public class Teleporter : MonoBehaviour
     private GameObject currentTeleporter;
     private CameraMovement cameraMovement;
     private float originalDamping;
+    [Header("Audio")]
+    [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioClip[] sounds;
+    private int soundIndex; 
 
     void Awake()
     {
@@ -28,10 +32,11 @@ public class Teleporter : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (currentTeleporter != null)
             {
+                PlaySound();
                 Debug.Log("Teleporting to: " + currentTeleporter.GetComponent<Teleporter>().GetDestination().position);
                 StartCoroutine(TeleportFade(currentTeleporter.GetComponent<Teleporter>().GetDestination().position));
             }
@@ -77,6 +82,13 @@ public class Teleporter : MonoBehaviour
                 cameraMovement.damping = originalDamping;
             }
         }
+    }
+    private void PlaySound()
+    {
+        if (sounds.Length == 0) return;
+        soundIndex = UnityEngine.Random.Range(0, sounds.Length);
+        audio.clip = sounds[soundIndex];
+        audio.Play();
     }
 
 }

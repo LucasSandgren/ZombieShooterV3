@@ -28737,11 +28737,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854717261}
   m_CullTransparentMesh: 1
---- !u!1 &962714060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1335404764175062147, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
-  m_PrefabInstance: {fileID: 1085504240}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1005618357
 GameObject:
   m_ObjectHideFlags: 0
@@ -33866,10 +33861,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1335404764175062147, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1995668987}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
 --- !u!1 &1119191704
 GameObject:
@@ -36060,6 +36052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedKit 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3994083632288067662, guid: 3450460c197ff1f4fb0dd1f418a904f5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -36459,22 +36455,10 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2203779172397984636, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
   m_PrefabInstance: {fileID: 1085504240}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962714060}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: deab470b4d463984c9109c93e3d06dab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1995668987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962714060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 119f62d743eae434094d4d3fe9d0b037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2034701125

@@ -6,7 +6,7 @@ public class PersistentVariables : MonoBehaviour
 {
     public static PersistentVariables Instance;
 
-    public static int coins = 0;
+    public static int coins = 100;
     public static int currentHealth = 100;
 
     private void Awake()
