@@ -18,6 +18,7 @@ public class CollisionMovement : MonoBehaviour
     [Header("Audio Source")]
     [SerializeField] private AudioSource audio;
     [SerializeField] private AudioClip[] footsteps;
+    [SerializeField] private float volume;
     private int stepIndex = 0;
     private float stepTimer = 0;
     private float stepInterval = 0.5f;
@@ -65,7 +66,7 @@ public class CollisionMovement : MonoBehaviour
             stepTimer -= Time.deltaTime;
             if (stepTimer <= 0f)
             {
-                PlayStep(0.01f);
+                PlayStep(volume);
                 stepTimer = stepInterval;
             }
         }

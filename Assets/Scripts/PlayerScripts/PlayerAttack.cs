@@ -22,8 +22,9 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Animator playerAnimator;
     [Header("Audio")]
     [SerializeField] private AudioSource audio;
-    [SerializeField] private AudioClip[] sounds;
-    private int soundIndex;
+    //[SerializeField] private AudioClip[] sounds;
+    [SerializeField] private float volume;
+    //private int soundIndex;
 
     IEnumerator ResetAnimationState()
     {
@@ -60,8 +61,18 @@ public class Shooting : MonoBehaviour
 
             //Starts the reload timer
             reloadTimer = 0;
+            PlaySound(volume);
 
             cameraMovement.StartCameraShake();
         }
+    }
+
+    private void PlaySound(float volume)
+    {
+        //if (sounds.Length == 0) return;
+
+        audio.volume = volume;
+        audio.Play();
+        
     }
 }
