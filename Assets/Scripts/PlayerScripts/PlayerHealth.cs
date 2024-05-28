@@ -37,12 +37,12 @@ public class PlayerHealth : MonoBehaviour
         if (immunityTimer <= 0)
         {
             isImmune = false;
-            renderer.material.color = Color.white;
+            //renderer.material.color = Color.white;
         }
         else
         {
             isImmune = true;
-            renderer.material.color = Color.cyan;
+            //renderer.material.color = Color.cyan;
         }
     }
 
