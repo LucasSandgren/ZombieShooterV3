@@ -31,6 +31,7 @@ public class OpenChest : MonoBehaviour
         {
             Debug.Log("OPENING");
             _OpenChest();
+            //Destroy(gameObject);
         }
     }
     private void OnMouseEnter()
@@ -47,7 +48,8 @@ public class OpenChest : MonoBehaviour
         animator.SetTrigger("Open");
 
         GetComponent<LootBag>().InstantiateLoot(transform.position);
-        //StartCoroutine(SpawnLoot());
+        StartCoroutine(SpawnLoot());
+
     }
 
     private bool IsInRange()
