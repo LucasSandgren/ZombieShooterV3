@@ -37,18 +37,18 @@ public class PlayerHealth : MonoBehaviour
         if (immunityTimer <= 0)
         {
             isImmune = false;
+            //renderer.material.color = Color.white;
         }
         else
         {
             isImmune = true;
-            //StartCoroutine(FlickerSyringe());
-            
+            //renderer.material.color = Color.cyan;
         }
     }
 
     public void TakeDamage(int damage)
     {
-        if (!isImmune)
+        if (isImmune == false)
         {
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
@@ -124,17 +124,6 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(duration);
             renderer.material.color = Color.white;
             yield return new WaitForSeconds(duration);
-        }
-    }
-    public IEnumerator FlickerSyringe()
-    {
-        int flicker = 10;
-        for(int i = 0; i < flicker; i++)
-        {
-            renderer.material.color = Color.cyan;
-            yield return new WaitForEndOfFrame();
-            renderer.material.color = Color.white;
-            yield return new WaitForEndOfFrame();
         }
     }
 }
