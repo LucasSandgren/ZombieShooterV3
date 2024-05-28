@@ -38,7 +38,6 @@ public class Shooting : MonoBehaviour
 
         //Calculates the offset needed so that the bullet can get cloned at its edge not center (to avoid the bullet overlapping with the player when its being fired)
         spawnOffset = (bullet.transform.lossyScale.y / 2);
-
     }
 
     void Update()
@@ -56,6 +55,8 @@ public class Shooting : MonoBehaviour
             bulletScript.damage = damage;
             bulletScript.speed = bulletSpeed;
             bulletScript.timerUntilDestoyed = range / bulletScript.speed;
+
+            /* ROTATES THE FLASH SO IT MATCHES WEAPON DIRECTION AND FIRES A FLASH FOR .1F SECONDS */
             Quaternion muzzleFlashRotation = gameObject.transform.rotation * Quaternion.Euler(0, 180, 0);
             GameObject muzzleFlashInstance = Instantiate(muzzlePrefab, gameObject.transform.position + (spawnOffset + .75f) * transform.right, muzzleFlashRotation);
             Destroy(muzzleFlashInstance, 0.1f);
@@ -70,10 +71,7 @@ public class Shooting : MonoBehaviour
 
     private void PlaySound(float volume)
     {
-        //if (sounds.Length == 0) return;
-
         audio.volume = volume;
         audio.Play();
-        
     }
 }
