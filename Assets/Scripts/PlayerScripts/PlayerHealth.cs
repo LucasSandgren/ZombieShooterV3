@@ -13,7 +13,8 @@ public class PlayerHealth : MonoBehaviour
     [Header("References: ")]
     [SerializeField] private Healthbar healthBar;
     [SerializeField] private GameObject gameoverScreen;
-    [SerializeField] private Syringe syringe;
+    private Syringe syringe;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     private float immunityTimer;
     private bool isImmune = false;
@@ -30,9 +31,15 @@ public class PlayerHealth : MonoBehaviour
     {
         immunityTimer -= Time.deltaTime;
         if(immunityTimer <= 0)
+        {
             isImmune = false;
+            spriteRenderer.color = Color.white;
+        }
         else
+        {
             isImmune = true;
+            spriteRenderer.color = Color.red;
+        }
     }
 
     public void TakeDamage(int damage)
@@ -74,6 +81,7 @@ public class PlayerHealth : MonoBehaviour
         isImmune = immune;
         immunityDuration = duration;
         immunityTimer = duration;
+        spriteRenderer.color = immune ? Color.red : Color.white;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
