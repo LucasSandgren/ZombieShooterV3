@@ -30,9 +30,9 @@ public class PlayerHealth : MonoBehaviour
     {
         immunityTimer -= Time.deltaTime;
         if(immunityTimer <= 0)
-        {
             isImmune = false;
-        }
+        else
+            isImmune = true;
     }
 
     public void TakeDamage(int damage)
