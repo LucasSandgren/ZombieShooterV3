@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Syringe
   icon: {fileID: 21300000, guid: eed48f03754ab994eb403240c88c44db, type: 3}
-  dropChance: 33
+  dropChance: 30
   itemBuff: {fileID: 11400000, guid: 419af1e2c0f05454bba50298d9cb49ac, type: 2}
