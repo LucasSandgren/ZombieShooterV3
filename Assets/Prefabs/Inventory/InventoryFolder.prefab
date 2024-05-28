@@ -60,7 +60,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8788770645349194334
 MonoBehaviour:
@@ -297,7 +297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotPrefab: {fileID: 6778123507594190805, guid: cedb09fc60ca3cd43b05e7bf008d6061, type: 3}
   inventorySlots: []
-  inventorySlot: {fileID: 0}
 --- !u!114 &6213123366147583953
 MonoBehaviour:
   m_ObjectHideFlags: 0
