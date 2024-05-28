@@ -50,9 +50,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isImmune)
         {
-            Debug.Log("Immune");
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
+            immunityTimer = immunityDuration;
             StartCoroutine(Flicker());
             if (currentHealth <= 0)
             {
