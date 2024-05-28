@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour
         if(inventory != null)
         {
             inventory.ClearInventory();
+            inventory.ClearTanks();
         }
     }
 }

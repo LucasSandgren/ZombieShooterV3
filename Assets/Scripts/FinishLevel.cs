@@ -31,6 +31,8 @@ public class FinishLevel : MonoBehaviour
             {
                 PersistentVariables.currentHealth = playerHealthScript.GetCurrentHealth();
                 SceneManager.LoadScene(nextLevelName);
+                Inventory inventory = FindObjectOfType<Inventory>();
+                inventory.ClearTanks();
             }
         }
     }
