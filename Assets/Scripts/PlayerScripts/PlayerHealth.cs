@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (isImmune == false)
+        if (!isImmune)
         {
             Debug.Log("Immune");
             currentHealth -= damage;
