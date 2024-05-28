@@ -13,8 +13,9 @@ public class PlayerHealth : MonoBehaviour
     [Header("References: ")]
     [SerializeField] private Healthbar healthBar;
     [SerializeField] private GameObject gameOverScreen;
-    [SerializeField] private Syringe syringe;
+    private Syringe syringe;
     [SerializeField] private Renderer renderer;
+
 
     private Color originalColor;
 
@@ -35,21 +36,19 @@ public class PlayerHealth : MonoBehaviour
         immunityTimer -= Time.deltaTime;
         if (immunityTimer <= 0)
         {
-
             isImmune = false;
-            
+            renderer.material.color = Color.white;
         }
         else
         {
-
             isImmune = true;
-            
+            renderer.material.color = Color.cyan;
         }
     }
 
     public void TakeDamage(int damage)
     {
-        if (!isImmune)
+        if (isImmune == false)
         {
             Debug.Log("Immune");
             currentHealth -= damage;
@@ -93,12 +92,11 @@ public class PlayerHealth : MonoBehaviour
     {
         GameObject collisionObject = collision.gameObject;
 
-        if (!isImmune)
+        if (isImmune == false)
         {
             if (collisionObject.CompareTag("Zombie"))
             {
                 TakeDamage(collisionObject.GetComponent<ZombieAttack>().attackDamage);
-                immunityTimer = immunityDuration;
             }
         }
     }
@@ -106,13 +104,12 @@ public class PlayerHealth : MonoBehaviour
     {
         GameObject collisionObject = collision.gameObject;
 
-        if (!isImmune)
+        if (isImmune == false)
         {
             if (collisionObject.CompareTag("Enviromental Hazard"))
             {
                 TakeDamage(collisionObject.GetComponent<DamagingSpikes>().GetDamageValue());
                 collisionObject.GetComponent<DamagingSpikes>().AnimateTrap();
-                immunityTimer = immunityDuration;
             }
         }
     }
@@ -125,7 +122,7 @@ public class PlayerHealth : MonoBehaviour
         {
             renderer.material.color = Color.red;
             yield return new WaitForSeconds(duration);
-            renderer.material.color = originalColor;
+            renderer.material.color = Color.white;
             yield return new WaitForSeconds(duration);
         }
     }
