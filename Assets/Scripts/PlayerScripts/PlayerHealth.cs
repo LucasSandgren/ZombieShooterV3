@@ -44,6 +44,10 @@ public class PlayerHealth : MonoBehaviour
             isImmune = true;
             //renderer.material.color = Color.cyan;
         }
+        if(isImmune == true)
+        {
+            StartCoroutine(FlickerImmunity());
+        }
     }
 
     public void TakeDamage(int damage)
@@ -124,6 +128,17 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(duration);
             renderer.material.color = Color.white;
             yield return new WaitForSeconds(duration);
+        }
+    }
+    private IEnumerator FlickerImmunity()
+    {
+        int flicker = 5;
+        for (int i = 0;i < flicker;i++)
+        {
+            renderer.material.color = Color.cyan;
+            yield return new WaitForSeconds(0.3f);
+            renderer.material.color = Color.white;
+            yield return new WaitForSeconds(0.3f);
         }
     }
 }
