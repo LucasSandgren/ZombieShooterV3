@@ -8,14 +8,11 @@ public class SwitchWeapon : MonoBehaviour
     [SerializeField] private GameObject Gun;
     [SerializeField] private GameObject Rifle;
     [SerializeField] private GameObject Knife;
-    [Space]
-    [Header("References: ")]
-    /* USED FOR PLAYER MODEL ANIMATION */
-    public Animator playerAnimator;
+
+
 
     void Start()
     {
-        //playerAnimator.SetInteger("WeaponType", 1);
     }
 
     void Update()
@@ -25,21 +22,18 @@ public class SwitchWeapon : MonoBehaviour
             Gun.SetActive(true);
             Rifle.SetActive(false);
             Knife.SetActive(false);
-            //playerAnimator.SetInteger("WeaponType", 1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Gun.SetActive(false);
             Rifle.SetActive(true);
             Knife.SetActive(false);
-            //playerAnimator.SetInteger("WeaponType", 2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Gun.SetActive(false);
             Rifle.SetActive(false);
             Knife.SetActive(true);
-            //playerAnimator.SetInteger("WeaponType", 3);
         }
     }
 }

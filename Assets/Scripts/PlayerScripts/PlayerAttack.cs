@@ -18,18 +18,16 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float bulletSpeed;
 
     [Header("References: ")]
-    /* USED FOR PLAYER MODEL ANIMATION */
-    [SerializeField] private Animator playerAnimator;
     [Header("Audio")]
     [SerializeField] private AudioSource audio;
-    //[SerializeField] private AudioClip[] sounds;
     [SerializeField] private float volume;
-    //private int soundIndex;
+    [Header("Muzzle Flash")]
+    [SerializeField] private GameObject muzzlePrefab;
+
 
     IEnumerator ResetAnimationState()
     {
         yield return new WaitForSeconds(0.5f);
-        //playerAnimator.Play("Gun_Idle");
     }
     void Start()
     {
@@ -40,7 +38,6 @@ public class Shooting : MonoBehaviour
 
         //Calculates the offset needed so that the bullet can get cloned at its edge not center (to avoid the bullet overlapping with the player when its being fired)
         spawnOffset = (bullet.transform.lossyScale.y / 2);
-
     }
 
     void Update()
@@ -59,6 +56,11 @@ public class Shooting : MonoBehaviour
             bulletScript.speed = bulletSpeed;
             bulletScript.timerUntilDestoyed = range / bulletScript.speed;
 
+            /* ROTATES THE FLASH SO IT MATCHES WEAPON DIRECTION AND FIRES A FLASH FOR .1F SECONDS */
+            Quaternion muzzleFlashRotation = gameObject.transform.rotation * Quaternion.Euler(0, 180, 0);
+            GameObject muzzleFlashInstance = Instantiate(muzzlePrefab, gameObject.transform.position + (spawnOffset + .75f) * transform.right, muzzleFlashRotation);
+            Destroy(muzzleFlashInstance, 0.1f);
+
             //Starts the reload timer
             reloadTimer = 0;
             PlaySound(volume);
@@ -69,10 +71,7 @@ public class Shooting : MonoBehaviour
 
     private void PlaySound(float volume)
     {
-        //if (sounds.Length == 0) return;
-
         audio.volume = volume;
         audio.Play();
-        
     }
 }
