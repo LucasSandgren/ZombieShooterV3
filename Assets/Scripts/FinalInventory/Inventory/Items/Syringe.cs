@@ -18,6 +18,7 @@ public class Syringe : MonoBehaviour, ICollectible, IUsable
     {
         if(syringeData.itemBuff != null)
         {
+            Debug.Log(syringeData.itemBuff.ToString());
             syringeData.itemBuff.ApplyEffect(GameObject.FindGameObjectWithTag("Player"));
             Inventory inventory = FindObjectOfType<Inventory>();
             inventory.Remove(syringeData);
