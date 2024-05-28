@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         immunityTimer -= Time.deltaTime;
-        if(immunityTimer <= 0)
+        if (immunityTimer <= 0)
         {
             isImmune = false;
             spriteRenderer.color = Color.white;
@@ -81,19 +81,17 @@ public class PlayerHealth : MonoBehaviour
         isImmune = immune;
         immunityDuration = duration;
         immunityTimer = duration;
-        spriteRenderer.color = immune ? Color.red : Color.white;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         GameObject collisionObject = collision.gameObject;
 
-        if (!isImmune)
+        if (isImmune == false)
         {
             if (collisionObject.CompareTag("Zombie"))
             {
                 TakeDamage(collisionObject.GetComponent<ZombieAttack>().attackDamage);
-                immunityTimer = immunityDuration;
             }
         }
     }
@@ -101,13 +99,12 @@ public class PlayerHealth : MonoBehaviour
     {
         GameObject collisionObject = collision.gameObject;
 
-        if (!isImmune)
+        if (isImmune == false)
         {
             if (collisionObject.CompareTag("Enviromental Hazard"))
             {
                 TakeDamage(collisionObject.GetComponent<DamagingSpikes>().GetDamageValue());
                 collisionObject.GetComponent<DamagingSpikes>().AnimateTrap();
-                immunityTimer = immunityDuration;
             }
         }
     }
