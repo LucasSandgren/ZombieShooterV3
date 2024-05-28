@@ -12,9 +12,11 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("References: ")]
     [SerializeField] private Healthbar healthBar;
-    [SerializeField] private GameObject gameoverScreen;
-    private Syringe syringe;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] private GameObject gameOverScreen;
+    [SerializeField] private Syringe syringe;
+    [SerializeField] private Renderer renderer;
+
+    private Color originalColor;
 
     private float immunityTimer;
     private bool isImmune = false;
@@ -25,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
         syringe = GetComponent<Syringe>();
+        originalColor = renderer.material.color;
     }
 
     void Update()
@@ -32,13 +35,15 @@ public class PlayerHealth : MonoBehaviour
         immunityTimer -= Time.deltaTime;
         if (immunityTimer <= 0)
         {
+
             isImmune = false;
-            spriteRenderer.color = Color.white;
+            
         }
         else
         {
+
             isImmune = true;
-            spriteRenderer.color = Color.red;
+            
         }
     }
 
@@ -49,12 +54,13 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Immune");
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
+            StartCoroutine(Flicker());
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
 
                 gameObject.SetActive(false);
-                gameoverScreen.SetActive(true);
+                gameOverScreen.SetActive(true);
                 Time.timeScale = 0;
                 currentHealth = 100;
                 Cursor.visible = true;
@@ -87,11 +93,12 @@ public class PlayerHealth : MonoBehaviour
     {
         GameObject collisionObject = collision.gameObject;
 
-        if (isImmune == false)
+        if (!isImmune)
         {
             if (collisionObject.CompareTag("Zombie"))
             {
                 TakeDamage(collisionObject.GetComponent<ZombieAttack>().attackDamage);
+                immunityTimer = immunityDuration;
             }
         }
     }
@@ -99,13 +106,27 @@ public class PlayerHealth : MonoBehaviour
     {
         GameObject collisionObject = collision.gameObject;
 
-        if (isImmune == false)
+        if (!isImmune)
         {
             if (collisionObject.CompareTag("Enviromental Hazard"))
             {
                 TakeDamage(collisionObject.GetComponent<DamagingSpikes>().GetDamageValue());
                 collisionObject.GetComponent<DamagingSpikes>().AnimateTrap();
+                immunityTimer = immunityDuration;
             }
+        }
+    }
+    private IEnumerator Flicker()
+    {
+        int flicker = 3;
+        float duration = .2f;
+
+        for (int i = 0; i < flicker; i++)
+        {
+            renderer.material.color = Color.red;
+            yield return new WaitForSeconds(duration);
+            renderer.material.color = originalColor;
+            yield return new WaitForSeconds(duration);
         }
     }
 }

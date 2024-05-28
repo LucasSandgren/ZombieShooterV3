@@ -12,6 +12,6 @@ public class DisplayMoney : MonoBehaviour
     void Update()
     {
         moneyText.text = PersistentVariables.coins.ToString();
-        fuelText.text = Inventory.FuelTank.ToString();
+        //fuelText.text = Inventory.FuelTank.ToString();
     }
 }
