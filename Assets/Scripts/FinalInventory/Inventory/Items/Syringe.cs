@@ -15,6 +15,8 @@ public class Syringe : MonoBehaviour, ICollectible, IUsable
     }
     public void Use() //Uses the item
     {
+            PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+            StartCoroutine(playerHealth.FlickerSyringe());
         if(syringeData.itemBuff != null)
         {
             Debug.Log(syringeData.itemBuff.ToString());
