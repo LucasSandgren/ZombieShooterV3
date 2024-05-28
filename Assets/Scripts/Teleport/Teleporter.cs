@@ -13,6 +13,7 @@ public class Teleporter : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource audio;
     [SerializeField] private AudioClip[] sounds;
+    [SerializeField] private float volume;
     private int soundIndex; 
 
     void Awake()
@@ -36,7 +37,7 @@ public class Teleporter : MonoBehaviour
         {
             if (currentTeleporter != null)
             {
-                PlaySound();
+                PlaySound(volume);
                 Debug.Log("Teleporting to: " + currentTeleporter.GetComponent<Teleporter>().GetDestination().position);
                 StartCoroutine(TeleportFade(currentTeleporter.GetComponent<Teleporter>().GetDestination().position));
             }
@@ -83,11 +84,12 @@ public class Teleporter : MonoBehaviour
             }
         }
     }
-    private void PlaySound()
+    private void PlaySound(float volume)
     {
         if (sounds.Length == 0) return;
         soundIndex = UnityEngine.Random.Range(0, sounds.Length);
         audio.clip = sounds[soundIndex];
+        audio.volume = volume;
         audio.Play();
     }
 

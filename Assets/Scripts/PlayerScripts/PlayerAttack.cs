@@ -18,18 +18,16 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float bulletSpeed;
 
     [Header("References: ")]
-    /* USED FOR PLAYER MODEL ANIMATION */
-    [SerializeField] private Animator playerAnimator;
     [Header("Audio")]
     [SerializeField] private AudioSource audio;
-    //[SerializeField] private AudioClip[] sounds;
     [SerializeField] private float volume;
-    //private int soundIndex;
+    [Header("Muzzle Flash")]
+    [SerializeField] private GameObject muzzlePrefab;
+
 
     IEnumerator ResetAnimationState()
     {
         yield return new WaitForSeconds(0.5f);
-        //playerAnimator.Play("Gun_Idle");
     }
     void Start()
     {
@@ -58,6 +56,9 @@ public class Shooting : MonoBehaviour
             bulletScript.damage = damage;
             bulletScript.speed = bulletSpeed;
             bulletScript.timerUntilDestoyed = range / bulletScript.speed;
+            Quaternion muzzleFlashRotation = gameObject.transform.rotation * Quaternion.Euler(0, 180, 0);
+            GameObject muzzleFlashInstance = Instantiate(muzzlePrefab, gameObject.transform.position + (spawnOffset + .75f) * transform.right, muzzleFlashRotation);
+            Destroy(muzzleFlashInstance, 0.1f);
 
             //Starts the reload timer
             reloadTimer = 0;
