@@ -101,4 +101,22 @@ public class Inventory : MonoBehaviour
         itemDictionary.Clear();
         OnInventoryChange?.Invoke(inventory);
     }
+    public void ClearTanks()
+    {
+        List<InventoryItem> itemsToRemove = new List<InventoryItem>();
+        foreach(var item in inventory)
+        {
+            if(item.itemData.displayName == "Fuel Tank")
+            {
+                itemsToRemove.Add(item);
+            }
+        }
+        foreach(var item in itemsToRemove)
+        {
+            inventory.Remove(item);
+            itemDictionary.Remove(item.itemData);
+        }
+        OnInventoryChange?.Invoke(inventory);
+
+    }
 }
