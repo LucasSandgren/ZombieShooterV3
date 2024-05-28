@@ -13,8 +13,10 @@ public class PlayerHealth : MonoBehaviour
     [Header("References: ")]
     [SerializeField] private Healthbar healthBar;
     [SerializeField] private GameObject gameOverScreen;
-    
     [SerializeField] private Syringe syringe;
+    [SerializeField] private Renderer renderer;
+
+    private Color originalColor;
 
     private float immunityTimer;
     private bool isImmune = false;
@@ -25,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
         syringe = GetComponent<Syringe>();
+        originalColor = renderer.material.color;
     }
 
     void Update()
@@ -43,6 +46,7 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("Immune");
             currentHealth -= damage;
             healthBar.SetHealth(currentHealth);
+            StartCoroutine(Flicker());
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
@@ -102,6 +106,19 @@ public class PlayerHealth : MonoBehaviour
                 collisionObject.GetComponent<DamagingSpikes>().AnimateTrap();
                 immunityTimer = immunityDuration;
             }
+        }
+    }
+    private IEnumerator Flicker()
+    {
+        int flicker = 3;
+        float duration = .2f;
+        
+        for (int i = 0; i < flicker; i++)
+        {
+            renderer.material.color = Color.red;
+            yield return new WaitForSeconds(duration);
+            renderer.material.color = originalColor;
+            yield return new WaitForSeconds(duration);
         }
     }
 }

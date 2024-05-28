@@ -135412,6 +135412,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2203779172397984636, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 8950715818390250548}
+    - target: {fileID: 2203779172397984636, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1973997206}
@@ -135505,6 +135509,11 @@ PrefabInstance:
 --- !u!4 &8950715818390250547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1031854978566793262, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
+  m_PrefabInstance: {fileID: 8950715818390250546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8950715818390250548 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 114271940408739268, guid: 3fe6b302c53ed7f42bfa6aef9c9b061f, type: 3}
   m_PrefabInstance: {fileID: 8950715818390250546}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8950715818390250550 stripped
