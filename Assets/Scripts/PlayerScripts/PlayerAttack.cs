@@ -64,4 +64,14 @@ public class Shooting : MonoBehaviour
             cameraMovement.StartCameraShake();
         }
     }
+
+    private void PlayStep(float volume)
+    {
+        if (sounds.Length == 0) return;
+
+        audio.clip = sounds[stepIndex];
+        audio.volume = volume;
+        audio.Play();
+        stepIndex = (stepIndex + 1) % footsteps.Length;
+    }
 }
