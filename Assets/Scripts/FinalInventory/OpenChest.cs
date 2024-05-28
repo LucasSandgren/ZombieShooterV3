@@ -45,8 +45,9 @@ public class OpenChest : MonoBehaviour
     private void _OpenChest()
     {
         animator.SetTrigger("Open");
-        
-        StartCoroutine(SpawnLoot());
+
+        GetComponent<LootBag>().InstantiateLoot(transform.position);
+        //StartCoroutine(SpawnLoot());
     }
 
     private bool IsInRange()
