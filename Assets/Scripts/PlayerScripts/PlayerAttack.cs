@@ -23,6 +23,8 @@ public class Shooting : MonoBehaviour
     [SerializeField] private float volume;
     [Header("Muzzle Flash")]
     [SerializeField] private GameObject muzzlePrefab;
+    [SerializeField] private GameObject weapon1;
+    [SerializeField] private GameObject weapon2;
 
 
     IEnumerator ResetAnimationState()
@@ -58,7 +60,8 @@ public class Shooting : MonoBehaviour
 
             /* ROTATES THE FLASH SO IT MATCHES WEAPON DIRECTION AND FIRES A FLASH FOR .1F SECONDS */
             Quaternion muzzleFlashRotation = gameObject.transform.rotation * Quaternion.Euler(0, 180, 0);
-            GameObject muzzleFlashInstance = Instantiate(muzzlePrefab, gameObject.transform.position + (spawnOffset + .75f) * transform.right, muzzleFlashRotation);
+            float extraOffset = weapon2.activeSelf ? 0.5f : 0f; // QUICKFIX TO MAKE MUZZLE APPEAR AT DIFFERENT POSITIONS DEPENDING ON WEAPON
+            GameObject muzzleFlashInstance = Instantiate(muzzlePrefab, gameObject.transform.position + (spawnOffset + .75f + extraOffset) * transform.right, muzzleFlashRotation);
             Destroy(muzzleFlashInstance, 0.1f);
 
             //Starts the reload timer
