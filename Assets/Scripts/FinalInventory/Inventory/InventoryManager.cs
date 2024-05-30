@@ -28,7 +28,7 @@ public class InventoryManager : MonoBehaviour
         Inventory.OnInventoryChange -= DrawInventory;
     }
 
-    void ResetInventory()
+    private void ResetInventory()
     {
         foreach(Transform childTransform in transform)
         {
@@ -37,7 +37,7 @@ public class InventoryManager : MonoBehaviour
         inventorySlots.Clear();
         inventorySlots = new List<InventorySlot>(13);
     }
-    private void DrawInventory(List<InventoryItem> inventory)
+    public void DrawInventory(List<InventoryItem> inventory)
     {
         ResetInventory();
         for (int i = 0; i < inventorySlots.Capacity; i++)
@@ -51,7 +51,7 @@ public class InventoryManager : MonoBehaviour
 
         }
     }
-    void CreateInventorySlot()
+    private void CreateInventorySlot()
     {
         GameObject newSlot = Instantiate(slotPrefab);
         newSlot.transform.SetParent(transform, false);
