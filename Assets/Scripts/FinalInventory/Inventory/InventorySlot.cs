@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
 using TMPro;
 using UnityEngine.UI;
 using System;
 using UnityEngine.EventSystems;
-using UnityEditor.ShaderGraph.Drawing;
 
 public class InventorySlot : MonoBehaviour, IPointerClickHandler
 {
