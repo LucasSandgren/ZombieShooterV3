@@ -26,7 +26,7 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         if (currentItem != null)
         {
             Debug.Log($"Using item {currentItem.itemData.displayName}");
-            Inventory inventory = FindObjectOfType<Inventory>();
+            Inventory inventory = PersistentInventory.Instance.inventory;
             inventory.UseItem(currentItem.itemData.displayName);
         }
         else

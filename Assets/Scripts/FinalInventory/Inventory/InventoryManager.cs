@@ -8,9 +8,20 @@ public class InventoryManager : MonoBehaviour
     public List<InventorySlot> inventorySlots = new List<InventorySlot>(13);
     //public InventorySlot inventorySlot;
 
+    private void Awake()
+    {
+        if (PersistentInventory.Instance != null)
+        {
+            PersistentInventory.Instance.inventoryManager = this;
+        }
+    }
     private void OnEnable()
     {
         Inventory.OnInventoryChange += DrawInventory;
+        if (PersistentInventory.Instance != null && PersistentInventory.Instance.inventory != null)
+        {
+            DrawInventory(PersistentInventory.Instance.inventory.inventory);  // Redraw inventory on enable
+        }
     }
     private void OnDisable()
     {
