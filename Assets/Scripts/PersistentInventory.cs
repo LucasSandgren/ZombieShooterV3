@@ -9,6 +9,7 @@ public class PersistentInventory : MonoBehaviour
     public Inventory inventory;  // Reference to Inventory component
     public InventoryManager inventoryManager;  // Reference to InventoryManager component
 
+    [SerializeField]
     public List<string> scenesWithoutInventory;
 
     private void Awake()
