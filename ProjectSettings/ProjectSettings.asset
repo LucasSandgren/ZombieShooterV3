@@ -668,11 +668,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 84b2dbd5-ffe8-4c09-832e-89786cf24395
+  cloudProjectId: 98e6f8bc-0062-48c0-b58f-a0f8660f301f
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ZombieShooter 2024-01-19_21-08-17
-  organizationId: emjp1821
+  projectName: ZombieShooter
+  organizationId: techsandgren
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

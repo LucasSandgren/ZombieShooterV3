@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2106790954689822117
+--- !u!1 &5000073718311593815
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1525952867628751916}
-  - component: {fileID: 2368560361246336882}
+  - component: {fileID: 8876076808219230188}
+  - component: {fileID: 4278719648529287421}
+  - component: {fileID: 4823480149187585038}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -17,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1525952867628751916
+--- !u!4 &8876076808219230188
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106790954689822117}
+  m_GameObject: {fileID: 5000073718311593815}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1492.8293, y: 827.50006, z: -11.596399}
@@ -32,15 +33,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2368560361246336882
+--- !u!114 &4278719648529287421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106790954689822117}
+  m_GameObject: {fileID: 5000073718311593815}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5eec0c4203251a748b77f05d1243afd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4823480149187585038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5000073718311593815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09ccae16a8e870428e0fa128609f266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIndex: 1
