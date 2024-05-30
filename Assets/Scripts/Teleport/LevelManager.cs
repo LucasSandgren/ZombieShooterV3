@@ -48,11 +48,16 @@ public class LevelManager : MonoBehaviour
     }
     private void ClearInventory()
     {
-        Inventory inventory = FindObjectOfType<Inventory>();
-        if(inventory != null)
+        //Inventory inventory = FindObjectOfType<Inventory>();
+        //if(inventory != null)
+        //{
+        //    inventory.ClearInventory();
+        //    inventory.ClearTanks();
+        //}
+        if (PersistentInventory.Instance != null && PersistentInventory.Instance.inventory != null)
         {
-            inventory.ClearInventory();
-            inventory.ClearTanks();
+            PersistentInventory.Instance.inventory.ClearInventory();
+            PersistentInventory.Instance.inventory.ClearTanks();
         }
     }
 }
