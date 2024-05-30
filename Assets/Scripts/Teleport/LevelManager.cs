@@ -67,7 +67,7 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        // Optionally fade out the current scene
+        //  fade out the current scene
         if (sceneFader != null)
         {
             yield return sceneFader.FadeOutLevel();
@@ -82,7 +82,7 @@ public class LevelManager : MonoBehaviour
             yield return null;
         }
 
-        // Optionally fade in the new scene
+        //  fade in the new scene
         if (sceneFader != null)
         {
             yield return sceneFader.FadeInLevel();
@@ -91,7 +91,7 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator StartGameCoroutine()
     {
-        // Optionally fade out the current scene
+        //  fade out the current scene
         if (sceneFader != null)
         {
             yield return sceneFader.FadeOutLevel();
@@ -104,13 +104,13 @@ public class LevelManager : MonoBehaviour
             yield return null;
         }
 
-        // Optionally fade in the new scene
+        //  fade in the new scene
         if (sceneFader != null)
         {
             yield return sceneFader.FadeInLevel();
         }
 
-        // Ensure the inventory UI is drawn
+        // Make sure that the inventory UI is drawn
         if (PersistentInventory.Instance != null && PersistentInventory.Instance.inventoryManager != null)
         {
             PersistentInventory.Instance.inventoryManager.DrawInventory(PersistentInventory.Instance.inventory.inventory);
@@ -121,7 +121,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Restart called");
         Time.timeScale = 1;
 
-        // Optionally fade out the current scene
+        //  fade out the current scene
         if (sceneFader != null)
         {
             yield return sceneFader.FadeOutLevel();
@@ -136,13 +136,13 @@ public class LevelManager : MonoBehaviour
             yield return null;
         }
 
-        // Optionally fade in the new scene
+        //  fade in the new scene
         if (sceneFader != null)
         {
             yield return sceneFader.FadeInLevel();
         }
 
-        // Ensure the inventory UI is drawn
+        // Make sure that the inventory UI is drawn
         if (PersistentInventory.Instance != null && PersistentInventory.Instance.inventoryManager != null)
         {
             PersistentInventory.Instance.inventoryManager.DrawInventory(PersistentInventory.Instance.inventory.inventory);
