@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject slotPrefab;
-    public List<InventorySlot> inventorySlots = new List<InventorySlot>(13);
+    public List<InventorySlot> inventorySlots = new List<InventorySlot>(6);
     //public InventorySlot inventorySlot;
 
     private void Awake()
@@ -35,7 +35,7 @@ public class InventoryManager : MonoBehaviour
             Destroy(childTransform.gameObject);
         }
         inventorySlots.Clear();
-        inventorySlots = new List<InventorySlot>(13);
+        inventorySlots = new List<InventorySlot>(6);
     }
     public void DrawInventory(List<InventoryItem> inventory)
     {

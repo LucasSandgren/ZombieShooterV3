@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private GameObject muzzlePrefab;
     [SerializeField] private GameObject weapon1;
     [SerializeField] private GameObject weapon2;
+    [SerializeField] private Slider reloadSlider;
 
 
     IEnumerator ResetAnimationState()
@@ -40,15 +42,30 @@ public class Shooting : MonoBehaviour
 
         //Calculates the offset needed so that the bullet can get cloned at its edge not center (to avoid the bullet overlapping with the player when its being fired)
         spawnOffset = (bullet.transform.lossyScale.y / 2);
+
+        reloadSlider.value = 0;
     }
 
     void Update()
     {
-        reloadTimer += Time.deltaTime;
+
+        if (reloadTimer < reloadTime)
+        {
+            reloadTimer += Time.deltaTime;
+            reloadSlider.value = Mathf.Clamp01(reloadTimer / reloadTime);
+
+            if (reloadTimer >= reloadTime)
+            {
+                reloadSlider.gameObject.SetActive(false); // Hide the slider when reloading is complete
+            }
+        }
 
         if (Input.GetMouseButton(0) && reloadTimer >= reloadTime)
         {
             StartCoroutine(ResetAnimationState());
+
+            reloadSlider.gameObject.SetActive(true);
+            reloadSlider.value = 0;
 
             //Clones a bullet at position of the gun + offset * transform.up to the offset independent of rotation, and then sets it active
             GameObject bulletInstance = Instantiate(bullet, gameObject.transform.position + spawnOffset * transform.right, gameObject.transform.rotation);
