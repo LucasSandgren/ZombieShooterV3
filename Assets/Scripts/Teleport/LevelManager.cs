@@ -28,26 +28,23 @@ public class LevelManager : MonoBehaviour
     }
     public void StartGame()
     {
-        //SceneManager.LoadScene("Level_One"); 
-        StartCoroutine(StartGameCoroutine());
+        SceneManager.LoadScene("Level_One"); 
         //sceneFader.FadeToScene("Level_One"); // "Coroutine couldn't be started because the the game object 'Fade' is inactive!" ERROR FADE SCREEN DON'T WORK FROM START SCREEN -> LEVEL_ONE FOR SOME REASON <.<
     }
 
     public void Restart()
     {
-        //Debug.Log("Restart called");
-        //Time.timeScale = 1;
-        //ClearInventory();
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        StartCoroutine(RestartCoroutine());
+        Debug.Log("Restart called");
+        Time.timeScale = 1;
+        ClearInventory();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void ToMainMenu()
     {
-        //Time.timeScale = 1;
-        //ClearInventory() ;
-        //SceneManager.LoadScene("StartScreen");
-        StartCoroutine(ToMainMenuCoroutine());
+        Time.timeScale = 1;
+        ClearInventory() ;
+        SceneManager.LoadScene("StartScreen");
     }
     private void ClearInventory()
     {
@@ -61,91 +58,6 @@ public class LevelManager : MonoBehaviour
         {
             PersistentInventory.Instance.inventory.ClearInventory();
             PersistentInventory.Instance.inventory.ClearTanks();
-        }
-    }
-    private IEnumerator ToMainMenuCoroutine()
-    {
-        Time.timeScale = 1;
-
-        //  fade out the current scene
-        if (sceneFader != null)
-        {
-            yield return sceneFader.FadeOutLevel();
-        }
-
-        ClearInventory();
-
-        // Load the main menu scene
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("StartScreen");
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        //  fade in the new scene
-        if (sceneFader != null)
-        {
-            yield return sceneFader.FadeInLevel();
-        }
-    }
-
-    private IEnumerator StartGameCoroutine()
-    {
-        //  fade out the current scene
-        if (sceneFader != null)
-        {
-            yield return sceneFader.FadeOutLevel();
-        }
-
-        // Load the game scene
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level_One");
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        //  fade in the new scene
-        if (sceneFader != null)
-        {
-            yield return sceneFader.FadeInLevel();
-        }
-
-        // Make sure that the inventory UI is drawn
-        if (PersistentInventory.Instance != null && PersistentInventory.Instance.inventoryManager != null)
-        {
-            PersistentInventory.Instance.inventoryManager.DrawInventory(PersistentInventory.Instance.inventory.inventory);
-        }
-    }
-    private IEnumerator RestartCoroutine()
-    {
-        Debug.Log("Restart called");
-        Time.timeScale = 1;
-
-        //  fade out the current scene
-        if (sceneFader != null)
-        {
-            yield return sceneFader.FadeOutLevel();
-        }
-
-        ClearInventory();
-
-        // Load the game scene
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        //  fade in the new scene
-        if (sceneFader != null)
-        {
-            yield return sceneFader.FadeInLevel();
-        }
-
-        // Make sure that the inventory UI is drawn
-        if (PersistentInventory.Instance != null && PersistentInventory.Instance.inventoryManager != null)
-        {
-            PersistentInventory.Instance.inventoryManager.DrawInventory(PersistentInventory.Instance.inventory.inventory);
         }
     }
 }
